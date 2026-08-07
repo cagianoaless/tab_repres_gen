@@ -34,13 +34,4 @@ MPLCONFIGDIR=.matplotlib uv run python analysis/generate_query_evidence_figure.p
 
 ## Rerunning cells
 
-The package entry point is `rtfm`; study configurations are in `configs/studies/`. Scripts requiring raw arrays or checkpoints cannot run from this compact repository. Aggregate analyses and figures use the committed tables.
-
-## Maintainer check
-
-After changing tracked files:
-
-```bash
-python tools/build_manifest.py
-python tools/verify_artifact.py
-```
+The package entry point is `rtfm`; study configurations are in `configs/studies/`.
