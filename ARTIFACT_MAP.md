@@ -1,6 +1,6 @@
 # Manuscript to Artifact Map
 
-All paths are relative to the repository root. `publication_data/` contains the compact inputs used for plotting; `experiments/*/results/` contains the complete retained aggregate and per-unit metrics.
+Paths are relative to the repository root.
 
 | Manuscript item | Evidence | Analysis or figure code |
 |---|---|---|
@@ -16,7 +16,7 @@ All paths are relative to the repository root. `publication_data/` contains the 
 | Appendix, complete nine-interface `ultra_4g` ladder | `experiments/ultra4g/results/q64-encoder-ladder/`, `multiplicity/`, `native-ranking/` | `analysis/analyze_ultra4g_q64_complete_panel.py`, `analysis/analyze_rfmlink_q64_multiplicity_complete57.py` |
 | Appendix, complete context matrix | `experiments/ultra4g/results/context-robustness/` | `analysis/analyze_rfmlink_negative_robustness.py` |
 
-## Principal retained endpoints
+## Endpoints
 
 - CLUTRR: three paired context seeds; nested 5, 10, 20, 40, and 80 examples per target relation; evaluation lengths 4--10.
 - GraphLog: all 57 official worlds; nested 5, 10, 20, and 40 examples per present class; evaluation lengths 4--5.

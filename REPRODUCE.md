@@ -2,28 +2,26 @@
 
 ## Environment
 
-Python 3.11 or 3.12 is supported. With `uv`:
+Python 3.11 or 3.12:
 
 ```bash
 uv sync --frozen --extra dev --extra tree --extra plots
 ```
 
-Install the frozen tabular decoder only when rerunning its inference cells:
+For decoder inference:
 
 ```bash
 uv sync --extra dev --extra tree --extra plots --extra tfm
 ```
 
-## Validate the artifact
+## Validate
 
 ```bash
 uv run python tools/verify_artifact.py
 MPLCONFIGDIR=.matplotlib uv run pytest -q
 ```
 
-The first command checks the final manifest, anonymity-sensitive strings, required result matrices, and panel cardinalities.
-
-## Recreate manuscript figures
+## Recreate figures
 
 ```bash
 mkdir -p generated/figures
@@ -34,18 +32,13 @@ MPLCONFIGDIR=.matplotlib uv run python analysis/generate_context_robustness_figu
 MPLCONFIGDIR=.matplotlib uv run python analysis/generate_query_evidence_figure.py
 ```
 
-Outputs are written to `generated/figures/`.
-
 ## Rerunning cells
 
-The package entry point is `rtfm`. Study YAML files in `configs/studies/` specify the controlled, CLUTRR, GraphLog, and dihedral experiments. The 57-KG analyses use checksum-locked frozen arrays created by the asset builders in `analysis/`; these arrays and model checkpoints are not duplicated in this repository because of size and licensing constraints.
-
-The committed per-dataset, per-family, per-world, per-seed, and query-stratum result tables allow all paper-level statistics and manuscript figures to be recomputed without model inference. Analysis scripts that accept raw `--run-root` arguments document the upstream reduction and require the archival per-candidate arrays; those arrays are intentionally omitted from this compact review repository.
+The package entry point is `rtfm`; study configurations are in `configs/studies/`. Scripts requiring raw arrays or checkpoints cannot run from this compact repository. Aggregate analyses and figures use the committed tables.
 
 ## Maintainer check
 
-`MANIFEST.sha256` covers exactly the Git-tracked publication files. After an
-intentional repository update, rebuild it before committing:
+After changing tracked files:
 
 ```bash
 python tools/build_manifest.py
