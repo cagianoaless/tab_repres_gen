@@ -12,14 +12,9 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+from analyze_ultra4g_q64_complete_panel import provenance_lookup
 
 from relational_tfm.runner import verify_shard
-
-try:
-    from scripts.analyze_rfmlink_ultra57_q64_complete57 import provenance_lookup
-except ModuleNotFoundError:
-    from analyze_rfmlink_ultra57_q64_complete57 import provenance_lookup
-
 
 SOURCE_COMMIT = "artifact-source-revision"
 ASSET_ID = "rfmlink_ultra4g_negative_robustness_v1"
@@ -80,9 +75,7 @@ def collect_run(
 
     shard_dirs = sorted((run_root / "results").glob("shard-*"))
     if len(shard_dirs) != int(registration["shards"]):
-        raise ValueError(
-            f"{run_root} has {len(shard_dirs)}/{registration['shards']} shards"
-        )
+        raise ValueError(f"{run_root} has {len(shard_dirs)}/{registration['shards']} shards")
     observed: set[str] = set()
     rows: list[dict[str, Any]] = []
     query_rows: list[pd.DataFrame] = []
@@ -91,9 +84,7 @@ def collect_run(
         manifest = verify_shard(shard_dir)
         if manifest["plan_sha256"] != registration["plan_sha256"]:
             raise ValueError(f"{shard_dir} has the wrong plan hash")
-        shard_hashes[shard_dir.name] = file_sha256(
-            shard_dir / "shard_manifest.json"
-        )
+        shard_hashes[shard_dir.name] = file_sha256(shard_dir / "shard_manifest.json")
         for cell_id in manifest["cell_ids"]:
             if cell_id in observed:
                 raise ValueError(f"duplicate cell {cell_id}")
@@ -115,9 +106,7 @@ def collect_run(
                 "duration_seconds": float(metric["duration_seconds"]),
             }
             for direction in DIRECTIONS:
-                row[f"{direction}_mrr"] = float(
-                    metric["direction_metrics"][direction]["mrr"]
-                )
+                row[f"{direction}_mrr"] = float(metric["direction_metrics"][direction]["mrr"])
                 row[f"native_{direction}_mrr"] = float(
                     metric["native_ultra_direction_metrics"][direction]["mrr"]
                 )
@@ -133,9 +122,7 @@ def collect_run(
                             "seed": int(cell["seed"]),
                             "query_id": predictions["query_ids"].astype(np.int64),
                             "side_code": predictions["side_codes"].astype(np.int8),
-                            "reciprocal_rank": predictions[
-                                "reciprocal_ranks"
-                            ].astype(np.float64),
+                            "reciprocal_rank": predictions["reciprocal_ranks"].astype(np.float64),
                         }
                     )
                 )
@@ -239,8 +226,7 @@ def paired_context_effect(
     direction: str,
 ) -> pd.DataFrame:
     selected = dataset.loc[
-        (dataset["decoder"] == decoder)
-        & (dataset["interface"] == interface),
+        (dataset["decoder"] == decoder) & (dataset["interface"] == interface),
         [
             "dataset",
             "provenance_family",
@@ -286,9 +272,7 @@ def summarize_contrast(
     if len(values) != EXPECTED_FAMILIES:
         raise ValueError("contrast lacks one or more provenance families")
     low, high = bootstrap_interval(values, seed)
-    leave_one_out = np.asarray(
-        [np.delete(values, index).mean() for index in range(len(values))]
-    )
+    leave_one_out = np.asarray([np.delete(values, index).mean() for index in range(len(values))])
     dataset_values = effects["effect"].to_numpy(dtype=float)
     summary = {
         **metadata,
@@ -335,9 +319,7 @@ def build_contrasts(
                         context_mode=context_mode,
                         direction=direction,
                     )
-                    contrast_id = ":".join(
-                        (contrast, decoder, context_mode, direction)
-                    )
+                    contrast_id = ":".join((contrast, decoder, context_mode, direction))
                     metadata = {
                         "contrast_id": contrast_id,
                         "contrast": contrast,
@@ -420,9 +402,7 @@ def exact_joint_max_t(family: pd.DataFrame) -> pd.DataFrame:
     adjusted_counts = np.zeros(base.shape[1], dtype=np.int64)
     patterns = 0
     for signs in itertools.product((-1.0, 1.0), repeat=base.shape[0]):
-        statistic = np.abs(
-            _t_statistic(base * np.asarray(signs, dtype=float)[:, None])
-        )
+        statistic = np.abs(_t_statistic(base * np.asarray(signs, dtype=float)[:, None]))
         maximum = statistic.max()
         raw_counts += statistic >= np.abs(observed) - 1e-12
         adjusted_counts += maximum >= np.abs(observed) - 1e-12
@@ -453,12 +433,8 @@ def configuration_summary(dataset: pd.DataFrame) -> pd.DataFrame:
         family_group = family.loc[selector]
         row = dict(zip(keys, key, strict=True))
         for direction in DIRECTIONS:
-            row[f"equal_dataset_{direction}_mrr"] = float(
-                group[f"{direction}_mrr"].mean()
-            )
-            row[f"equal_family_{direction}_mrr"] = float(
-                family_group[f"{direction}_mrr"].mean()
-            )
+            row[f"equal_dataset_{direction}_mrr"] = float(group[f"{direction}_mrr"].mean())
+            row[f"equal_family_{direction}_mrr"] = float(family_group[f"{direction}_mrr"].mean())
         rows.append(row)
     return pd.DataFrame(rows).sort_values(keys, ignore_index=True)
 
@@ -605,9 +581,9 @@ def write_report(summary: pd.DataFrame, output: Path) -> None:
         ),
         "|---|---|---|---:|---:|---:|---:|---:|",
     ]
-    for row in primary.sort_values(
-        ["contrast", "decoder", "context_mode", "interface"]
-    ).itertuples(index=False):
+    for row in primary.sort_values(["contrast", "decoder", "context_mode", "interface"]).itertuples(
+        index=False
+    ):
         label = (
             row.context_mode
             if row.contrast != "structured_minus_filtered_uniform"

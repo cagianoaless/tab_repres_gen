@@ -19,6 +19,6 @@ Operational logs, failed runs, superseded analyses, remote-machine scripts, unre
 
 1. Read [`ARTIFACT_MAP.md`](ARTIFACT_MAP.md) to locate every reported figure and table.
 2. Read [`REPRODUCE.md`](REPRODUCE.md) for environment, checks, and figure commands.
-3. Run `python tools/verify_artifact.py` before analysis.
+3. Run `uv run python tools/verify_artifact.py` before analysis.
 
-The committed tables are sufficient to reproduce the paper-level analyses without rerunning GPU inference. Raw per-candidate predictions are excluded from this reviewer-facing repository; the retained per-seed, per-world, per-dataset, per-family, and query-stratum tables are the smallest data products needed to inspect the reported comparisons. Large benchmark assets and model checkpoints are not duplicated; their identities and checksums are recorded in `data/manifests/`, and the experiment configurations needed to regenerate cells are in `configs/studies/`.
+The committed tables are sufficient to reproduce the paper-level statistics and figures without rerunning GPU inference. Raw per-candidate predictions are excluded from this reviewer-facing repository; the retained per-seed, per-world, per-dataset, per-family, and query-stratum tables are the smallest data products needed to inspect the reported comparisons. Scripts that reduce raw run directories are retained for the archival artifact and explicitly require those omitted inputs. Large benchmark assets and model checkpoints are not duplicated; their identities and checksums are recorded in `data/manifests/`, and the experiment configurations needed to regenerate cells are in `configs/studies/`.

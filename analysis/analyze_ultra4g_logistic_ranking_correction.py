@@ -11,7 +11,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import yaml
-from analyze_rfmlink_ultra57_decoder_compatibility import (
+from analyze_ultra4g_decoder_compatibility import (
     best_interfaces,
     decoder_interactions,
     encoder_contrasts,

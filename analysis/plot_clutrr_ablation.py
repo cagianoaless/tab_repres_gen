@@ -1,10 +1,13 @@
 from pathlib import Path
+
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.lines import Line2D
+import pandas as pd
 from matplotlib import colors as mcolors
+from matplotlib.lines import Line2D
 
 INK = "#1D252C"
 MUTED = "#8A949A"
@@ -41,26 +44,78 @@ plt.rcParams.update(
 
 DECODER_ORDER = ["Logistic", "CatBoost", "TabPFN"]
 DECODER_COLORS = {"Logistic": LOGISTIC, "CatBoost": CATBOOST, "TabPFN": TABPFN}
+DECODER_LABELS = {"logistic": "Logistic", "catboost": "CatBoost", "tabpfn": "TabPFN"}
+ROOT = Path(__file__).resolve().parents[1]
 
-panel_a = {
-    "Logistic": [0.4295, 0.3995, 0.2661],
-    "CatBoost": [0.2725, 0.2555, 0.1630],
-    "TabPFN": [0.2894, 0.2914, 0.1871],
-}
-panel_b = {
-    "Logistic": {"add_permuted": -0.030, "restore_alignment": -0.134},
-    "CatBoost": {"add_permuted": -0.018, "restore_alignment": -0.092},
-    "TabPFN": {"add_permuted":  0.003, "restore_alignment": -0.105},
-}
-panel_c = {
-    "Logistic": {"length4": 0.489, "lengths5_10": -0.001},
-    "CatBoost": {"length4": 0.372, "lengths5_10": 0.010},
-    "TabPFN": {"length4": 0.758, "lengths5_10": 0.033},
-}
+
+def load_panel_data():
+    comparisons = pd.read_csv(
+        ROOT
+        / "experiments"
+        / "clutrr"
+        / "results"
+        / "ordered-interference"
+        / "paired_comparisons.csv"
+    )
+    comparisons = comparisons.loc[
+        (comparisons["context_per_relation"] == 80) & comparisons["decoder"].isin(DECODER_LABELS)
+    ]
+    additive = pd.concat(
+        [
+            pd.read_csv(
+                ROOT
+                / "experiments"
+                / "clutrr"
+                / "results"
+                / "additive-context"
+                / stream
+                / "summary.csv"
+            )
+            for stream in ("cpu", "tabpfn")
+        ],
+        ignore_index=True,
+    )
+    additive = additive.loc[
+        (additive["encoder"] == "ordered_typed_path")
+        & (additive["base_context_per_relation"] == 80)
+        & additive["scope"].isin(("length4", "length5_to_10"))
+    ]
+
+    accuracy = {}
+    decomposition = {}
+    exposure = {}
+    for decoder, label in DECODER_LABELS.items():
+        rows = comparisons.loc[comparisons["decoder"] == decoder]
+        multiset_rows = rows.loc[rows["reference"] == "relation_multiset"]
+        aligned_rows = rows.loc[rows["reference"] == "ordered_plus_multiset"]
+        if len(multiset_rows) != 3 or len(aligned_rows) != 3:
+            raise ValueError(f"incomplete CLUTRR endpoint for {decoder}")
+        multiset = float(multiset_rows["reference_accuracy"].mean())
+        permuted = float(multiset_rows["interference_control_accuracy"].mean())
+        aligned = float(aligned_rows["reference_accuracy"].mean())
+        accuracy[label] = [multiset, permuted, aligned]
+        decomposition[label] = {
+            "add_permuted": permuted - multiset,
+            "restore_alignment": aligned - permuted,
+        }
+
+        decoder_exposure = additive.loc[additive["decoder"] == decoder].set_index("scope")
+        if set(decoder_exposure.index) != {"length4", "length5_to_10"}:
+            raise ValueError(f"incomplete additive-context endpoint for {decoder}")
+        exposure[label] = {
+            "length4": float(decoder_exposure.loc["length4", "mean_effect"]),
+            "lengths5_10": float(decoder_exposure.loc["length5_to_10", "mean_effect"]),
+        }
+    return accuracy, decomposition, exposure
+
+
+panel_a, panel_b, panel_c = load_panel_data()
+
 
 def rgba(color, alpha):
     r, g, b, _ = mcolors.to_rgba(color)
     return (r, g, b, alpha)
+
 
 def clean_axis(ax, grid_axis="y"):
     ax.spines["top"].set_visible(False)
@@ -71,21 +126,38 @@ def clean_axis(ax, grid_axis="y"):
     elif grid_axis == "x":
         ax.grid(axis="x", color=GRID, linewidth=0.55, zorder=0)
 
+
 def panel_tag(ax, letter):
-    ax.text(-0.13, 1.06, letter, transform=ax.transAxes, ha="left", va="bottom", fontsize=9.5, fontweight="bold")
+    ax.text(
+        -0.13,
+        1.06,
+        letter,
+        transform=ax.transAxes,
+        ha="left",
+        va="bottom",
+        fontsize=9.5,
+        fontweight="bold",
+    )
+
 
 def draw_panel_a(ax):
     clean_axis(ax, "y")
     x = np.arange(3)
     width = 0.20
     offsets = [-0.24, 0.0, 0.24]
-    for offset, decoder in zip(offsets, DECODER_ORDER):
+    for offset, decoder in zip(offsets, DECODER_ORDER, strict=False):
         color = DECODER_COLORS[decoder]
         vals = panel_a[decoder]
         ax.bar(
-            x + offset, vals, width=width,
-            facecolor=rgba(color, 0.08), edgecolor=rgba(color, ALPHA),
-            linewidth=1.0, hatch="///", zorder=3, label=decoder
+            x + offset,
+            vals,
+            width=width,
+            facecolor=rgba(color, 0.08),
+            edgecolor=rgba(color, ALPHA),
+            linewidth=1.0,
+            hatch="///",
+            zorder=3,
+            label=decoder,
         )
     ax.set_xticks(x)
     ax.set_xticklabels(["Multiset\nonly", "+ permuted\nabsolute", "+ aligned\nabsolute"])
@@ -94,12 +166,46 @@ def draw_panel_a(ax):
     ax.set_xlim(-0.50, 2.50)
     ax.set_title("Same columns, different alignment", loc="left", pad=7)
     handles = [
-        plt.Rectangle((0, 0), 1, 1, facecolor=rgba(LOGISTIC, 0.08), edgecolor=rgba(LOGISTIC, ALPHA), hatch="///", linewidth=1.0),
-        plt.Rectangle((0, 0), 1, 1, facecolor=rgba(CATBOOST, 0.08), edgecolor=rgba(CATBOOST, ALPHA), hatch="///", linewidth=1.0),
-        plt.Rectangle((0, 0), 1, 1, facecolor=rgba(TABPFN, 0.08), edgecolor=rgba(TABPFN, ALPHA), hatch="///", linewidth=1.0),
+        plt.Rectangle(
+            (0, 0),
+            1,
+            1,
+            facecolor=rgba(LOGISTIC, 0.08),
+            edgecolor=rgba(LOGISTIC, ALPHA),
+            hatch="///",
+            linewidth=1.0,
+        ),
+        plt.Rectangle(
+            (0, 0),
+            1,
+            1,
+            facecolor=rgba(CATBOOST, 0.08),
+            edgecolor=rgba(CATBOOST, ALPHA),
+            hatch="///",
+            linewidth=1.0,
+        ),
+        plt.Rectangle(
+            (0, 0),
+            1,
+            1,
+            facecolor=rgba(TABPFN, 0.08),
+            edgecolor=rgba(TABPFN, ALPHA),
+            hatch="///",
+            linewidth=1.0,
+        ),
     ]
-    ax.legend(handles, ["Logistic", "CatBoost", "TabPFN"], frameon=False, loc="upper right", handlelength=1.0, handletextpad=0.35, borderpad=0, labelspacing=0.25)
+    ax.legend(
+        handles,
+        ["Logistic", "CatBoost", "TabPFN"],
+        frameon=False,
+        loc="upper right",
+        handlelength=1.0,
+        handletextpad=0.35,
+        borderpad=0,
+        labelspacing=0.25,
+    )
     panel_tag(ax, "a")
+
 
 def draw_panel_b(ax):
     clean_axis(ax, "x")
@@ -116,24 +222,92 @@ def draw_panel_b(ax):
         ax.plot([0, add], [y, y], color=rgba(MUTED, ALPHA), linewidth=1.7, zorder=2)
         ax.plot([add, total], [y, y], color=rgba(color, ALPHA), linewidth=1.7, zorder=3)
         ax.scatter([0], [y], s=18, facecolor="white", edgecolor=INK, linewidth=0.8, zorder=4)
-        ax.scatter([add], [y], s=20, marker="s", facecolor=rgba("#B1B8BD", ALPHA), edgecolor=rgba(MUTED, ALPHA), linewidth=0.8, zorder=4)
-        ax.scatter([total], [y], s=22, marker="o", facecolor=rgba(color, ALPHA), edgecolor=rgba(color, ALPHA), linewidth=0.8, zorder=5)
+        ax.scatter(
+            [add],
+            [y],
+            s=20,
+            marker="s",
+            facecolor=rgba("#B1B8BD", ALPHA),
+            edgecolor=rgba(MUTED, ALPHA),
+            linewidth=0.8,
+            zorder=4,
+        )
+        ax.scatter(
+            [total],
+            [y],
+            s=22,
+            marker="o",
+            facecolor=rgba(color, ALPHA),
+            edgecolor=rgba(color, ALPHA),
+            linewidth=0.8,
+            zorder=5,
+        )
         add_y = y + (0.18 if decoder == "Logistic" else 0.14)
         add_x = add / 2 - (0.006 if decoder == "Logistic" else 0.0)
         ax.text(add_x, add_y, f"{add:+.3f}", ha="center", va="bottom", fontsize=5.8, color=MUTED)
-        ax.text((add + total) / 2, y - 0.15, f"{align:+.3f}", ha="center", va="top", fontsize=5.8, color=color)
+        ax.text(
+            (add + total) / 2,
+            y - 0.15,
+            f"{align:+.3f}",
+            ha="center",
+            va="top",
+            fontsize=5.8,
+            color=color,
+        )
     ax.axvline(0, color=INK, linewidth=0.7, zorder=1)
-    ax.set_yticks([2, 1, 0]); ax.set_yticklabels(DECODER_ORDER)
-    ax.set_xlim(-0.19, 0.025); ax.set_ylim(-0.55, 2.55)
+    ax.set_yticks([2, 1, 0])
+    ax.set_yticklabels(DECODER_ORDER)
+    ax.set_xlim(-0.19, 0.025)
+    ax.set_ylim(-0.55, 2.55)
     ax.set_xlabel("Accuracy change relative to multiset-only")
     ax.set_title("Block addition vs alignment", loc="left", pad=7)
     handles = [
-        Line2D([], [], marker="o", linestyle="none", markerfacecolor="white", markeredgecolor=INK, markersize=3.6, label="multiset"),
-        Line2D([], [], marker="s", linestyle="none", markerfacecolor=rgba("#B1B8BD", ALPHA), markeredgecolor=rgba(MUTED, ALPHA), markersize=3.6, label="+ permuted"),
-        Line2D([], [], marker="o", linestyle="none", markerfacecolor=rgba(MUTED, ALPHA), markeredgecolor=INK, markersize=3.6, label="aligned"),
+        Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="none",
+            markerfacecolor="white",
+            markeredgecolor=INK,
+            markersize=3.6,
+            label="multiset",
+        ),
+        Line2D(
+            [],
+            [],
+            marker="s",
+            linestyle="none",
+            markerfacecolor=rgba("#B1B8BD", ALPHA),
+            markeredgecolor=rgba(MUTED, ALPHA),
+            markersize=3.6,
+            label="+ permuted",
+        ),
+        Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="none",
+            markerfacecolor=rgba(MUTED, ALPHA),
+            markeredgecolor=INK,
+            markersize=3.6,
+            label="aligned",
+        ),
     ]
-    ax.legend(handles=handles, frameon=False, loc="upper left", bbox_to_anchor=(0.0, 1.003), ncol=3, handlelength=0.0, columnspacing=0.7, handletextpad=0.28, borderpad=0, fontsize=5.2, labelspacing=0.12)
+    ax.legend(
+        handles=handles,
+        frameon=False,
+        loc="upper left",
+        bbox_to_anchor=(0.0, 1.003),
+        ncol=3,
+        handlelength=0.0,
+        columnspacing=0.7,
+        handletextpad=0.28,
+        borderpad=0,
+        fontsize=5.2,
+        labelspacing=0.12,
+    )
     panel_tag(ax, "b")
+
 
 def draw_panel_c(ax):
     clean_axis(ax, "x")
@@ -146,44 +320,119 @@ def draw_panel_c(ax):
         color = DECODER_COLORS[decoder]
         v_short = panel_c[decoder]["length4"]
         v_long = panel_c[decoder]["lengths5_10"]
-        ax.scatter([v_long], [y - 0.11], s=24, facecolor="white", edgecolor=rgba(color, ALPHA), linewidth=0.9, zorder=3)
-        ax.scatter([v_short], [y + 0.11], s=26, facecolor=rgba(color, ALPHA), edgecolor=rgba(color, ALPHA), linewidth=0.9, zorder=3)
+        ax.scatter(
+            [v_long],
+            [y - 0.11],
+            s=24,
+            facecolor="white",
+            edgecolor=rgba(color, ALPHA),
+            linewidth=0.9,
+            zorder=3,
+        )
+        ax.scatter(
+            [v_short],
+            [y + 0.11],
+            s=26,
+            facecolor=rgba(color, ALPHA),
+            edgecolor=rgba(color, ALPHA),
+            linewidth=0.9,
+            zorder=3,
+        )
         if decoder == "Logistic":
-            long_dx = 0.040; long_ha = "left"
+            long_dx = 0.040
+            long_ha = "left"
         else:
             long_dx = 0.022 if v_long >= 0 else -0.022
             long_ha = "left" if v_long >= 0 else "right"
-        ax.text(v_long + long_dx, y - 0.11, f"{v_long:+.3f}", ha=long_ha, va="center", fontsize=5.8, color=color)
+        ax.text(
+            v_long + long_dx,
+            y - 0.11,
+            f"{v_long:+.3f}",
+            ha=long_ha,
+            va="center",
+            fontsize=5.8,
+            color=color,
+        )
         short_dx = 0.022 if v_short >= 0 else -0.022
         short_ha = "left" if v_short >= 0 else "right"
-        ax.text(v_short + short_dx, y + 0.11, f"{v_short:+.3f}", ha=short_ha, va="center", fontsize=5.8, color=color)
+        ax.text(
+            v_short + short_dx,
+            y + 0.11,
+            f"{v_short:+.3f}",
+            ha=short_ha,
+            va="center",
+            fontsize=5.8,
+            color=color,
+        )
     ax.axvline(0, color=INK, linewidth=0.7, zorder=1)
-    ax.set_yticks([2, 1, 0]); ax.set_yticklabels(DECODER_ORDER)
-    ax.set_xlim(-0.045, 0.89); ax.set_ylim(-0.55, 2.55)
+    ax.set_yticks([2, 1, 0])
+    ax.set_yticklabels(DECODER_ORDER)
+    ax.set_xlim(-0.045, 0.89)
+    ax.set_ylim(-0.55, 2.55)
     ax.set_xlabel("Accuracy change after adding\nlength-4 context")
     ax.set_title("Exposure is length-specific", loc="left", pad=7)
     handles = [
-        Line2D([], [], marker="o", linestyle="none", markerfacecolor=rgba(INK, ALPHA), markeredgecolor=INK, markersize=3.6, label="length 4"),
-        Line2D([], [], marker="o", linestyle="none", markerfacecolor="white", markeredgecolor=INK, markersize=3.6, label="lengths 5-10"),
+        Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="none",
+            markerfacecolor=rgba(INK, ALPHA),
+            markeredgecolor=INK,
+            markersize=3.6,
+            label="length 4",
+        ),
+        Line2D(
+            [],
+            [],
+            marker="o",
+            linestyle="none",
+            markerfacecolor="white",
+            markeredgecolor=INK,
+            markersize=3.6,
+            label="lengths 5-10",
+        ),
     ]
-    ax.legend(handles=handles, frameon=False, loc="upper left", bbox_to_anchor=(0.0, 0.99), ncol=2, handletextpad=0.22, columnspacing=0.50, borderpad=0, fontsize=5.6)
+    ax.legend(
+        handles=handles,
+        frameon=False,
+        loc="upper left",
+        bbox_to_anchor=(0.0, 0.99),
+        ncol=2,
+        handletextpad=0.22,
+        columnspacing=0.50,
+        borderpad=0,
+        fontsize=5.6,
+    )
     panel_tag(ax, "c")
+
 
 def build_figure():
     fig = plt.figure(figsize=(7.1, 2.75))
-    grid = fig.add_gridspec(1, 3, width_ratios=[1.28, 1.0, 1.08], wspace=0.58, left=0.075, right=0.985, top=0.86, bottom=0.22)
+    grid = fig.add_gridspec(
+        1,
+        3,
+        width_ratios=[1.28, 1.0, 1.08],
+        wspace=0.58,
+        left=0.075,
+        right=0.985,
+        top=0.86,
+        bottom=0.22,
+    )
     draw_panel_a(fig.add_subplot(grid[0]))
     draw_panel_b(fig.add_subplot(grid[1]))
     draw_panel_c(fig.add_subplot(grid[2]))
     return fig
 
+
 def main():
     fig = build_figure()
-    out_base = Path(__file__).resolve().parents[1] / "generated" / "figures" / "clutrr"
+    out_base = ROOT / "generated" / "figures" / "clutrr"
     out_base.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(str(out_base) + ".png", dpi=SAVE_DPI)
     fig.savefig(str(out_base) + ".pdf", dpi=SAVE_DPI)
     plt.close(fig)
+
 
 if __name__ == "__main__":
     main()

@@ -7,9 +7,9 @@ import csv
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
-
 
 ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN = (
@@ -24,12 +24,35 @@ def fail(message: str) -> None:
     raise AssertionError(message)
 
 
-def verify_manifest() -> None:
+def manifest_entries() -> list[tuple[str, Path]]:
     manifest = ROOT / "MANIFEST.sha256"
     if not manifest.exists():
         fail("MANIFEST.sha256 is missing")
-    for line in manifest.read_text(encoding="utf-8").splitlines():
-        digest, relative = line.split("  ", 1)
+    entries: list[tuple[str, Path]] = []
+    seen: set[Path] = set()
+    for line_number, line in enumerate(
+        manifest.read_text(encoding="utf-8").splitlines(),
+        start=1,
+    ):
+        try:
+            digest, relative = line.split("  ", 1)
+        except ValueError:
+            fail(f"malformed manifest line {line_number}")
+        path = Path(relative)
+        if path.is_absolute() or ".." in path.parts:
+            fail(f"unsafe manifest path: {relative}")
+        if path in seen:
+            fail(f"duplicate manifest path: {relative}")
+        if not re.fullmatch(r"[0-9a-f]{64}", digest):
+            fail(f"invalid checksum on manifest line {line_number}")
+        seen.add(path)
+        entries.append((digest, path))
+    return entries
+
+
+def verify_manifest() -> list[Path]:
+    entries = manifest_entries()
+    for digest, relative in entries:
         path = ROOT / relative
         if not path.is_file():
             fail(f"manifest path is missing: {relative}")
@@ -37,9 +60,28 @@ def verify_manifest() -> None:
         if observed != digest:
             fail(f"checksum mismatch: {relative}")
 
+    if (ROOT / ".git").is_dir():
+        completed = subprocess.run(
+            ["git", "ls-files", "-z"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        )
+        tracked = {
+            Path(value.decode("utf-8"))
+            for value in completed.stdout.split(b"\0")
+            if value and value != b"MANIFEST.sha256"
+        }
+        listed = {relative for _, relative in entries}
+        if listed != tracked:
+            missing = sorted(map(str, tracked - listed))
+            extra = sorted(map(str, listed - tracked))
+            fail(f"manifest coverage differs from Git: missing={missing}, extra={extra}")
+    return [ROOT / relative for _, relative in entries]
 
-def verify_anonymity() -> None:
-    for path in ROOT.rglob("*"):
+
+def verify_anonymity(paths: list[Path]) -> None:
+    for path in paths:
         if (
             not path.is_file()
             or path.name in {"MANIFEST.sha256", "verify_artifact.py"}
@@ -60,9 +102,12 @@ def csv_rows(relative: str) -> list[dict[str, str]]:
 def verify_scientific_inventory() -> None:
     required = (
         "experiments/clutrr/results/ordered-interference/paired_comparisons.csv",
+        "experiments/clutrr/results/shortcut-diagnostic/cells.csv",
         "experiments/graphlog/results/decoder-sensitivity/primary_contrasts_by_world.csv",
         "experiments/dihedral16/results/cpu/aggregate.csv",
+        "experiments/dihedral16/results/cpu/primary_seed_contrasts.csv",
         "experiments/dihedral16/results/tabpfn/aggregate.csv",
+        "experiments/dihedral16/results/tabpfn/primary_seed_contrasts.csv",
         "experiments/ultra4g/results/q64-encoder-ladder/dataset_metrics.csv",
         "experiments/ultra4g/results/context-robustness/dataset_metrics.csv",
         "experiments/ultra4g/results/logistic-ranking-correction/query_evidence_strata.csv",
@@ -74,14 +119,18 @@ def verify_scientific_inventory() -> None:
             fail(f"required publication file is missing: {relative}")
 
     context_audit = json.loads(
-        (ROOT / "experiments/ultra4g/results/context-robustness/audit.json").read_text(encoding="utf-8")
+        (ROOT / "experiments/ultra4g/results/context-robustness/audit.json").read_text(
+            encoding="utf-8"
+        )
     )
     expected = {"status": "PASS", "cells": 4104, "datasets": 57, "provenance_families": 16}
     for key, value in expected.items():
         if context_audit.get(key) != value:
             fail(f"context robustness {key}: expected {value!r}, found {context_audit.get(key)!r}")
 
-    graphlog = csv_rows("experiments/graphlog/results/decoder-sensitivity/primary_contrasts_by_world.csv")
+    graphlog = csv_rows(
+        "experiments/graphlog/results/decoder-sensitivity/primary_contrasts_by_world.csv"
+    )
     if len({row["world"] for row in graphlog}) != 57:
         fail("GraphLog table does not cover 57 worlds")
 
@@ -90,14 +139,16 @@ def verify_scientific_inventory() -> None:
     if len({row[dataset_key] for row in ladder}) != 57:
         fail("ultra_4g ladder does not cover 57 datasets")
 
-    provenance = json.loads((ROOT / "publication_data/context_robustness_provenance.json").read_text())
+    provenance = json.loads(
+        (ROOT / "publication_data/context_robustness_provenance.json").read_text()
+    )
     if provenance.get("analysis_status") != "complete" or provenance.get("missing_datasets"):
         fail("publication context summary is not the complete, non-imputed analysis")
 
 
 def main() -> int:
-    verify_manifest()
-    verify_anonymity()
+    paths = verify_manifest()
+    verify_anonymity(paths)
     verify_scientific_inventory()
     print("Artifact verification passed.")
     return 0
@@ -108,4 +159,4 @@ if __name__ == "__main__":
         raise SystemExit(main())
     except AssertionError as error:
         print(f"Artifact verification failed: {error}", file=sys.stderr)
-        raise SystemExit(1)
+        raise SystemExit(1) from None
