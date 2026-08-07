@@ -1,0 +1,22 @@
+{
+  "analysis_status": "complete",
+  "asset_id": "rfmlink_ultra4g_negative_robustness_v1",
+  "analysis_directory": "data/context_robustness_complete",
+  "cells": 4104,
+  "datasets": 57,
+  "families": 16,
+  "decoders": [
+    "logistic_nominal",
+    "catboost_nominal",
+    "tabpfn"
+  ],
+  "context_modes": [
+    "relation_matched_filtered_uniform",
+    "relation_matched_role_degree"
+  ],
+  "missing_datasets": [],
+  "source_commit": "artifact-source-revision",
+  "audit_sha256": "e1b9db4ae2f729a78d0c48c49a88c689fb1ce1e459d538d9709726b6a93d0840",
+  "configuration_summary_sha256": "b89b10a66444341558ec74ec853e07298b1f69e1597094a17b4ecca51024ec6e",
+  "contrast_summary_sha256": "2604825eb0164499348525d2ba613ff268afda57723eafa3c0c10c9aab602172"
+}

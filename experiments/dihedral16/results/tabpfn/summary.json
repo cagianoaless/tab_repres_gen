@@ -1,0 +1,68 @@
+{
+  "analysis_commit": "ca9c9b2cf",
+  "bootstrap": {
+    "draws": 20000,
+    "scope": "fixed D8 panel sensitivity",
+    "seed": 20260730,
+    "unit": "generated_population_seed"
+  },
+  "cells": 300,
+  "contexts_per_class": [
+    20,
+    50,
+    100,
+    200,
+    400
+  ],
+  "failures": 0,
+  "ood_lengths": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "plan_sha256": "cec127de036bca92f4f710e53b429d72431c1c1c83f3509edfb436d9547085d1",
+  "primary_context_per_class": 400,
+  "primary_contrasts": [
+    {
+      "context_per_class": 400,
+      "contrast": "shared_lossy_minus_absolute",
+      "decoder": "tabpfn",
+      "fixed_panel_bootstrap_lower": -0.004241071428571432,
+      "fixed_panel_bootstrap_upper": 0.0023437500000000008,
+      "positive_ood_lengths": 3,
+      "positive_seeds": 3,
+      "seed_mean_difference": -0.001143973214285715
+    },
+    {
+      "context_per_class": 400,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "tabpfn",
+      "fixed_panel_bootstrap_lower": 0.002385602678571426,
+      "fixed_panel_bootstrap_upper": 0.01470424107142857,
+      "positive_ood_lengths": 3,
+      "positive_seeds": 7,
+      "seed_mean_difference": 0.008537946428571428
+    }
+  ],
+  "schema_version": 1,
+  "seeds": [
+    701,
+    702,
+    703,
+    704,
+    705,
+    706,
+    707,
+    708,
+    709,
+    710
+  ],
+  "shards": 19,
+  "source_commit": "artifact-source-revision",
+  "status": "PASS",
+  "study_id": "compositional_d8_gpu_tabpfn_confirmation_v1"
+}

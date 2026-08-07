@@ -1,0 +1,7 @@
+encoder,seed_mean_ceiling,seed_mean_singleton_fraction,seed_mean_collision_coverage
+path_length_only,0.0625,0.0,1.0
+coarse_relation_multiset,0.7959542410714285,0.51708984375,0.41720145089285715
+relation_transition_counts,0.9998325892857143,0.9996651785714286,0.0003348214285714286
+ordered_typed_path,1.0,1.0,0.0
+ordered_plus_coarse_multiset,1.0,1.0,0.0
+aligned_coarse_multiset_with_ordered_block_permutation,1.0,1.0,0.0

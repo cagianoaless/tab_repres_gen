@@ -1,0 +1,90 @@
+{
+  "cells": 90,
+  "failures": 0,
+  "interpretation": "Permuting only the absolute-position block while preserving the aligned multiset recovers much of the performance lost by ordered-plus-multiset at high context. The remaining gap to multiset-only at smaller contexts shows a separate dimensional or nuisance-feature burden.",
+  "largest_context": [
+    {
+      "context_per_relation": 80,
+      "decoder": "catboost",
+      "seed_max_ood_accuracy": 0.2631254471812075,
+      "seed_mean_ood_accuracy": 0.2554834755902576,
+      "seed_min_ood_accuracy": 0.2504237020836909
+    },
+    {
+      "context_per_relation": 80,
+      "decoder": "logistic",
+      "seed_max_ood_accuracy": 0.4087869150747295,
+      "seed_mean_ood_accuracy": 0.3996985489866803,
+      "seed_min_ood_accuracy": 0.3881119850906366
+    },
+    {
+      "context_per_relation": 80,
+      "decoder": "tabpfn",
+      "seed_max_ood_accuracy": 0.31909628950437535,
+      "seed_mean_ood_accuracy": 0.2917053467379417,
+      "seed_min_ood_accuracy": 0.2588532657947869
+    }
+  ],
+  "largest_context_comparisons": [
+    {
+      "context_per_relation": 80,
+      "decoder": "catboost",
+      "reference": "ordered_plus_multiset",
+      "seed_max_difference": 0.11343240238352692,
+      "seed_mean_difference": 0.0924890571573523,
+      "seed_min_difference": 0.0720218832426141
+    },
+    {
+      "context_per_relation": 80,
+      "decoder": "catboost",
+      "reference": "relation_multiset",
+      "seed_max_difference": -0.00041663402248237613,
+      "seed_mean_difference": -0.017047451064449364,
+      "seed_min_difference": -0.044833044683291634
+    },
+    {
+      "context_per_relation": 80,
+      "decoder": "logistic",
+      "reference": "ordered_plus_multiset",
+      "seed_max_difference": 0.15486546403760887,
+      "seed_mean_difference": 0.13338022241819028,
+      "seed_min_difference": 0.12138721656660811
+    },
+    {
+      "context_per_relation": 80,
+      "decoder": "logistic",
+      "reference": "relation_multiset",
+      "seed_max_difference": -0.020604937340485074,
+      "seed_mean_difference": -0.02982007839141182,
+      "seed_min_difference": -0.03465226494621121
+    },
+    {
+      "context_per_relation": 80,
+      "decoder": "tabpfn",
+      "reference": "ordered_plus_multiset",
+      "seed_max_difference": 0.13558165504330086,
+      "seed_mean_difference": 0.1042780787366255,
+      "seed_min_difference": 0.07756938052343812
+    },
+    {
+      "context_per_relation": 80,
+      "decoder": "tabpfn",
+      "reference": "relation_multiset",
+      "seed_max_difference": 0.01005524653902698,
+      "seed_mean_difference": 0.002323438324413183,
+      "seed_min_difference": -0.003605783850592681
+    }
+  ],
+  "plan_sha256": {
+    "cpu": "473f626ccd779dce6333db30ae318878b95b098036ead7e7b7038ae6b3b93a0d",
+    "gpu": "145101a0cb89d06fdaac16e55d0fd28af30dee4afb5973aa8209f3770b07f2bd"
+  },
+  "schema_version": 1,
+  "shards": 20,
+  "status": "PASS",
+  "study_ids": [
+    "clutrr_symbolic_cpu_ordered_interference_v1",
+    "clutrr_symbolic_gpu_tabpfn_ordered_interference_v1"
+  ],
+  "uncertainty_scope": "Descriptive paired variation over three context seeds on one fixed official CLUTRR population; no sampled-task inference."
+}

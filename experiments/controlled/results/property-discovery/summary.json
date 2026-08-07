@@ -1,0 +1,440 @@
+{
+  "analysis_role": "registered graph-disjoint property discovery confirmation",
+  "counts": {
+    "core_cpu": 1200,
+    "core_tabpfn": 600,
+    "ladder_cpu": 1080,
+    "ladder_tabpfn": 540
+  },
+  "estimates_by_context": {
+    "100": {
+      "tabpfn_aligned_minus_column_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.20044632421874997,
+          0.40421774218749995
+        ],
+        "estimate": 0.33337515625,
+        "positive_property_seed_pairs": 40,
+        "property_means": {
+          "discovery_block_affinity": 0.1343265625,
+          "discovery_reciprocity": 0.4011853125,
+          "discovery_structural_roles": 0.39543999999999996,
+          "discovery_typed_composition": 0.40254875000000007
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_aligned_minus_row_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.197481111328125,
+          0.3990123339843749
+        ],
+        "estimate": 0.32840546875,
+        "positive_property_seed_pairs": 40,
+        "property_means": {
+          "discovery_block_affinity": 0.13299218750000003,
+          "discovery_reciprocity": 0.398898125,
+          "discovery_structural_roles": 0.3885140624999999,
+          "discovery_typed_composition": 0.3932175
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_catboost_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.009605021484375012,
+          0.05438509375000001
+        ],
+        "estimate": 0.029106328125,
+        "positive_property_seed_pairs": 34,
+        "property_means": {
+          "discovery_block_affinity": 0.06585656249999998,
+          "discovery_reciprocity": 0.005545625000000021,
+          "discovery_structural_roles": 0.026350312499999952,
+          "discovery_typed_composition": 0.018672812500000052
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_logistic_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.058741298828125045,
+          0.3168726347656248
+        ],
+        "estimate": 0.17557617187499996,
+        "positive_property_seed_pairs": 39,
+        "property_means": {
+          "discovery_block_affinity": 0.139654375,
+          "discovery_reciprocity": 0.024341250000000026,
+          "discovery_structural_roles": 0.3760078124999998,
+          "discovery_typed_composition": 0.16230125
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      }
+    },
+    "20": {
+      "tabpfn_aligned_minus_column_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.10301622851562499,
+          0.382171916015625
+        ],
+        "estimate": 0.269337578125,
+        "positive_property_seed_pairs": 36,
+        "property_means": {
+          "discovery_block_affinity": 0.019714375,
+          "discovery_reciprocity": 0.35667937499999997,
+          "discovery_structural_roles": 0.402204375,
+          "discovery_typed_composition": 0.2987521875
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_aligned_minus_row_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.10388144921875002,
+          0.379016421875
+        ],
+        "estimate": 0.26798648437499994,
+        "positive_property_seed_pairs": 38,
+        "property_means": {
+          "discovery_block_affinity": 0.020480937500000018,
+          "discovery_reciprocity": 0.359759375,
+          "discovery_structural_roles": 0.39219812499999995,
+          "discovery_typed_composition": 0.29950750000000004
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_catboost_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          -0.012775462890624995,
+          0.11058777148437497
+        ],
+        "estimate": 0.03434625,
+        "positive_property_seed_pairs": 22,
+        "property_means": {
+          "discovery_block_affinity": -0.0033393749999999834,
+          "discovery_reciprocity": 0.1468025,
+          "discovery_structural_roles": 0.00841937499999999,
+          "discovery_typed_composition": -0.014497500000000007
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_logistic_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.04376895703124998,
+          0.31228457421875
+        ],
+        "estimate": 0.14974124999999996,
+        "positive_property_seed_pairs": 35,
+        "property_means": {
+          "discovery_block_affinity": 0.029340625000000002,
+          "discovery_reciprocity": 0.06956312499999998,
+          "discovery_structural_roles": 0.39168499999999995,
+          "discovery_typed_composition": 0.10837625
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      }
+    },
+    "200": {
+      "tabpfn_aligned_minus_column_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.23733188281250003,
+          0.40609741992187504
+        ],
+        "estimate": 0.34647914062499996,
+        "positive_property_seed_pairs": 40,
+        "property_means": {
+          "discovery_block_affinity": 0.18281593750000003,
+          "discovery_reciprocity": 0.4004740625,
+          "discovery_structural_roles": 0.3949828125,
+          "discovery_typed_composition": 0.40764374999999997
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_aligned_minus_row_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.22305605859375002,
+          0.402479455078125
+        ],
+        "estimate": 0.33962601562499994,
+        "positive_property_seed_pairs": 40,
+        "property_means": {
+          "discovery_block_affinity": 0.165114375,
+          "discovery_reciprocity": 0.40118218750000006,
+          "discovery_structural_roles": 0.39810124999999996,
+          "discovery_typed_composition": 0.39410624999999994
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_catboost_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.000518050781249971,
+          0.07280676953125004
+        ],
+        "estimate": 0.02822765625000001,
+        "positive_property_seed_pairs": 27,
+        "property_means": {
+          "discovery_block_affinity": 0.09450656250000003,
+          "discovery_reciprocity": 0.012484687500000036,
+          "discovery_structural_roles": 0.00030374999999999706,
+          "discovery_typed_composition": 0.005615624999999974
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_logistic_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.06182151562499999,
+          0.33830789257812494
+        ],
+        "estimate": 0.18776999999999996,
+        "positive_property_seed_pairs": 39,
+        "property_means": {
+          "discovery_block_affinity": 0.16664343750000002,
+          "discovery_reciprocity": 0.025915937499999996,
+          "discovery_structural_roles": 0.40065,
+          "discovery_typed_composition": 0.15787062499999993
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      }
+    },
+    "400": {
+      "tabpfn_aligned_minus_column_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.23441530273437503,
+          0.41063983203125
+        ],
+        "estimate": 0.34776546875000003,
+        "positive_property_seed_pairs": 40,
+        "property_means": {
+          "discovery_block_affinity": 0.17771187500000002,
+          "discovery_reciprocity": 0.4050643750000001,
+          "discovery_structural_roles": 0.3985271875000001,
+          "discovery_typed_composition": 0.4097584375
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_aligned_minus_row_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.23491821875,
+          0.408309296875
+        ],
+        "estimate": 0.347243671875,
+        "positive_property_seed_pairs": 40,
+        "property_means": {
+          "discovery_block_affinity": 0.1790465625,
+          "discovery_reciprocity": 0.4026459375,
+          "discovery_structural_roles": 0.39963156250000004,
+          "discovery_typed_composition": 0.40765062500000004
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_catboost_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          -0.002828564453124921,
+          0.05948813476562492
+        ],
+        "estimate": 0.022389453125000017,
+        "positive_property_seed_pairs": 28,
+        "property_means": {
+          "discovery_block_affinity": 0.07784312499999997,
+          "discovery_reciprocity": 0.008435937500000035,
+          "discovery_structural_roles": -0.006015937499999962,
+          "discovery_typed_composition": 0.009294687500000027
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_logistic_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.06785505468749999,
+          0.34007984570312505
+        ],
+        "estimate": 0.1937328125,
+        "positive_property_seed_pairs": 39,
+        "property_means": {
+          "discovery_block_affinity": 0.18596687499999998,
+          "discovery_reciprocity": 0.02878656249999998,
+          "discovery_structural_roles": 0.3990853125,
+          "discovery_typed_composition": 0.16109250000000003
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      }
+    },
+    "50": {
+      "tabpfn_aligned_minus_column_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.141085328125,
+          0.3955492578125
+        ],
+        "estimate": 0.307240078125,
+        "positive_property_seed_pairs": 39,
+        "property_means": {
+          "discovery_block_affinity": 0.05879843750000002,
+          "discovery_reciprocity": 0.396401875,
+          "discovery_structural_roles": 0.39090250000000004,
+          "discovery_typed_composition": 0.38285749999999996
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_aligned_minus_row_permutation": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.147821078125,
+          0.39955808007812493
+        ],
+        "estimate": 0.30777734375,
+        "positive_property_seed_pairs": 39,
+        "property_means": {
+          "discovery_block_affinity": 0.06857031250000001,
+          "discovery_reciprocity": 0.40118,
+          "discovery_structural_roles": 0.39594968750000004,
+          "discovery_typed_composition": 0.3654093749999999
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_catboost_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.0039522871093750035,
+          0.029557103515625027
+        ],
+        "estimate": 0.017157812500000022,
+        "positive_property_seed_pairs": 31,
+        "property_means": {
+          "discovery_block_affinity": 0.015339687500000027,
+          "discovery_reciprocity": 0.019195000000000007,
+          "discovery_structural_roles": 0.03267718750000006,
+          "discovery_typed_composition": 0.0014193749999999949
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      },
+      "tabpfn_vs_logistic_alignment_interaction": {
+        "bootstrap_replicates": 20000,
+        "bootstrap_seed": 20260725,
+        "ci95": [
+          0.05304846093750003,
+          0.3068329960937499
+        ],
+        "estimate": 0.160101796875,
+        "positive_property_seed_pairs": 40,
+        "property_means": {
+          "discovery_block_affinity": 0.07735937499999998,
+          "discovery_reciprocity": 0.036334375000000044,
+          "discovery_structural_roles": 0.3820615625,
+          "discovery_typed_composition": 0.14465187499999996
+        },
+        "property_seed_pairs": 40,
+        "resampling_unit": "property, then graph seed within property"
+      }
+    }
+  },
+  "graph_seeds": [
+    12001,
+    12002,
+    12003,
+    12004,
+    12005,
+    12006,
+    12007,
+    12008,
+    12009,
+    12010
+  ],
+  "ladder_rows": 162,
+  "metric": "roc_auc",
+  "prerequisite_structural_signal": {
+    "bootstrap_replicates": 20000,
+    "bootstrap_seed": 20260725,
+    "ci95": [
+      0.10388144921875002,
+      0.379016421875
+    ],
+    "estimate": 0.26798648437499994,
+    "positive_property_seed_pairs": 38,
+    "property_means": {
+      "discovery_block_affinity": 0.020480937500000018,
+      "discovery_reciprocity": 0.359759375,
+      "discovery_structural_roles": 0.39219812499999995,
+      "discovery_typed_composition": 0.29950750000000004
+    },
+    "property_seed_pairs": 40,
+    "resampling_unit": "property, then graph seed within property"
+  },
+  "primary": {
+    "bootstrap_replicates": 20000,
+    "bootstrap_seed": 20260725,
+    "ci95": [
+      -0.012775462890624995,
+      0.11058777148437497
+    ],
+    "estimate": 0.03434625,
+    "positive_property_seed_pairs": 22,
+    "property_means": {
+      "discovery_block_affinity": -0.0033393749999999834,
+      "discovery_reciprocity": 0.1468025,
+      "discovery_structural_roles": 0.00841937499999999,
+      "discovery_typed_composition": -0.014497500000000007
+    },
+    "property_seed_pairs": 40,
+    "resampling_unit": "property, then graph seed within property"
+  },
+  "primary_context_per_class": 20,
+  "primary_estimand": "(TabPFN aligned - row permutation) - (CatBoost aligned - row permutation), equal-property macro ROC AUC",
+  "properties": [
+    "discovery_reciprocity",
+    "discovery_typed_composition",
+    "discovery_structural_roles",
+    "discovery_block_affinity"
+  ],
+  "schema_version": 1
+}

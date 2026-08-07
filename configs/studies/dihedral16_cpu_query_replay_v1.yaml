@@ -1,0 +1,18 @@
+schema_version: 7
+study_id: compositional_d8_cpu_query_replay_v1
+status: development
+task_family: compositional_length_shift
+resource_class: cpu
+design_role: >-
+  Query-level replay of the completed D8 endpoint for the coarse multiset and
+  absolute ordered interfaces.
+algebra: dihedral_d8
+train_chain_lengths: [2, 3]
+evaluation_chain_lengths: [4, 5, 6, 7, 8, 9, 10]
+max_path_length: 10
+contexts_per_class: [400]
+max_context_per_class: 400
+evaluation_per_class_per_length: 64
+encoders: [coarse_relation_multiset, ordered_typed_path]
+decoders: [logistic, catboost]
+seeds: [701, 702, 703, 704, 705, 706, 707, 708, 709, 710]

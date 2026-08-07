@@ -1,0 +1,112 @@
+{
+  "panels": [
+    {
+      "aggregate_null_max": 0.5528625,
+      "aggregate_null_max_abs_deviation_from_chance": 0.056628125000000085,
+      "aggregate_null_mean": 0.4947733177083333,
+      "aggregate_null_min": 0.4433718749999999,
+      "cells": 600,
+      "decoder_summaries": [
+        {
+          "aligned_mean": 0.794623234375,
+          "alignment_effect_mean": 0.30153390624999993,
+          "cells": 200,
+          "conditional_null_max": 0.5528625,
+          "conditional_null_mean": 0.49308932812500006,
+          "conditional_null_min": 0.4433718749999999,
+          "decoder": "catboost",
+          "effect_minus_centered_max_abs": 0.056628124999999974,
+          "effect_minus_centered_mean": 0.0069106718749999685
+        },
+        {
+          "aligned_mean": 0.6460624375,
+          "alignment_effect_mean": 0.14918318749999998,
+          "cells": 200,
+          "conditional_null_max": 0.549809375,
+          "conditional_null_mean": 0.49687924999999994,
+          "conditional_null_min": 0.4583375,
+          "decoder": "logistic",
+          "effect_minus_centered_max_abs": 0.0498093750000001,
+          "effect_minus_centered_mean": 0.003120749999999981
+        },
+        {
+          "aligned_mean": 0.8200452187499999,
+          "alignment_effect_mean": 0.32569384375,
+          "cells": 200,
+          "conditional_null_max": 0.545921875,
+          "conditional_null_mean": 0.494351375,
+          "conditional_null_min": 0.4469968749999999,
+          "decoder": "tabpfn",
+          "effect_minus_centered_max_abs": 0.053003124999999957,
+          "effect_minus_centered_mean": 0.005648624999999976
+        }
+      ],
+      "group_columns": [
+        "property",
+        "context_per_class"
+      ],
+      "groups": 20,
+      "pairwise_sign_matches": 57,
+      "pairwise_sign_total": 60,
+      "panel": "controlled_properties",
+      "ranking_order_matches": 17,
+      "ranking_order_total": 20,
+      "reading": "When aggregate null means remain near 0.5, the alignment effect is numerically close to centered raw ROC-AUC. Cell-level null variation still makes it a matched leakage and shortcut audit."
+    },
+    {
+      "aggregate_null_max": 0.6247,
+      "aggregate_null_max_abs_deviation_from_chance": 0.12470000000000003,
+      "aggregate_null_mean": 0.5099757569444444,
+      "aggregate_null_min": 0.42903125,
+      "cells": 450,
+      "decoder_summaries": [
+        {
+          "aligned_mean": 0.8021474791666666,
+          "alignment_effect_mean": 0.2932807083333333,
+          "cells": 150,
+          "conditional_null_max": 0.59055625,
+          "conditional_null_mean": 0.5088667708333332,
+          "conditional_null_min": 0.4434249999999999,
+          "decoder": "catboost_tuned",
+          "effect_minus_centered_max_abs": 0.09055625000000006,
+          "effect_minus_centered_mean": -0.008866770833333365
+        },
+        {
+          "aligned_mean": 0.8441552083333334,
+          "alignment_effect_mean": 0.33399552083333334,
+          "cells": 150,
+          "conditional_null_max": 0.6129625000000001,
+          "conditional_null_mean": 0.5101596875,
+          "conditional_null_min": 0.44924375,
+          "decoder": "logistic_tuned",
+          "effect_minus_centered_max_abs": 0.11296250000000013,
+          "effect_minus_centered_mean": -0.010159687500000023
+        },
+        {
+          "aligned_mean": 0.8315903749999999,
+          "alignment_effect_mean": 0.32068956249999997,
+          "cells": 150,
+          "conditional_null_max": 0.6247,
+          "conditional_null_mean": 0.5109008125000001,
+          "conditional_null_min": 0.42903125,
+          "decoder": "tabpfn",
+          "effect_minus_centered_max_abs": 0.12470000000000006,
+          "effect_minus_centered_mean": -0.01090081250000003
+        }
+      ],
+      "group_columns": [
+        "dataset",
+        "encoder",
+        "context_per_class"
+      ],
+      "groups": 50,
+      "pairwise_sign_matches": 131,
+      "pairwise_sign_total": 150,
+      "panel": "real_encoder_matrix",
+      "ranking_order_matches": 34,
+      "ranking_order_total": 50,
+      "reading": "When aggregate null means remain near 0.5, the alignment effect is numerically close to centered raw ROC-AUC. Cell-level null variation still makes it a matched leakage and shortcut audit."
+    }
+  ],
+  "scope": "binary aligned-versus-conditional-null audit"
+}

@@ -1,0 +1,28 @@
+{
+  "artifact": "native_zero_shot_ultra_4g_metrics",
+  "extracted_utc": "2026-07-24T00:59:47.113608+00:00",
+  "protocols": {
+    "q512": {
+      "completed_jobs": 684,
+      "csv": "native_ultra_q512.csv",
+      "csv_sha256": "d2e796df2c17e0a75c433cf5383b5693e2f8c1e54619eb84ce89c86364fb8b68",
+      "dataset_count": 57,
+      "planned_jobs": 684,
+      "source_protocol": "ultra57_rfmlink_q512_v1",
+      "source_summary": "results/ultra57_rfmlink_q512_v1/summary.json",
+      "source_summary_sha256": "f88ac93cef9fef87450803abc0809d2eab5c5186d8a30d9cd256388d76399279"
+    },
+    "q64": {
+      "completed_jobs": 684,
+      "csv": "native_ultra_q64.csv",
+      "csv_sha256": "f1bd17aa3f9ba2d7aa52f6cbd72945d1c7625392adb2d7eb7beafb1a548378c6",
+      "dataset_count": 57,
+      "planned_jobs": 684,
+      "source_protocol": "ultra57_rfmlink_batch1_v1",
+      "source_summary": "results/ultra57_rfmlink_batch1_v1/summary.json",
+      "source_summary_sha256": "dd472d09a3abd844e787acf70654533f1c223b3b3ce8e0d4ac2dfbc8cfc1e5a3"
+    }
+  },
+  "schema_version": 1,
+  "ultra_checkpoint_sha256": "48a046e708adf5632d87c30eacae01f5f51466b2301effdc2cb42358d22854e0"
+}

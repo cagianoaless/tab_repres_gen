@@ -1,0 +1,34 @@
+schema_version: 7
+study_id: compositional_d8_gpu_tabpfn_confirmation_v1
+status: confirmation
+task_family: compositional_length_shift
+resource_class: gpu
+design_role: frozen TabPFN counterpart to the independent D8 length-shift replication
+algebra: dihedral_d8
+train_chain_lengths: [2, 3]
+evaluation_chain_lengths: [4, 5, 6, 7, 8, 9, 10]
+max_path_length: 10
+contexts_per_class: [20, 50, 100, 200, 400]
+max_context_per_class: 400
+evaluation_per_class_per_length: 64
+encoders:
+  - path_length_only
+  - coarse_relation_multiset
+  - relation_transition_counts
+  - ordered_typed_path
+  - ordered_plus_coarse_multiset
+  - aligned_coarse_multiset_with_ordered_block_permutation
+decoders: [tabpfn]
+model_identity:
+  package: tabpfn
+  package_version: 8.1.0
+  model_version: V3
+  n_estimators: 4
+  auto_scale_n_estimators: false
+  fit_mode: fit_with_cache
+  prediction_batch_size: 50000
+  keep_cache_on_device: true
+  inference_precision: auto
+  memory_saving_mode: auto
+  checkpoint_sha256: d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988
+seeds: [701, 702, 703, 704, 705, 706, 707, 708, 709, 710]

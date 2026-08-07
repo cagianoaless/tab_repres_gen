@@ -1,0 +1,9 @@
+contrast_id,retained_equal_family_effect,retained_family_wins,retained_family_ties,retained_family_losses,retained_family_minimum,retained_family_maximum
+local_relational_vs_entity_tokens_c200_combined,0.22362275475446147,11,0,0,0.0670364930418284,0.9549057890193968
+ultra_score_given_global_structure_c200_combined,0.09674986676234268,11,0,0,0.0004774305555557,0.1844739768280626
+global_structure_given_ultra_c20_combined,-0.00867575320519199,4,0,7,-0.0516276249704131,0.029843696885975
+global_structure_given_ultra_c200_combined,0.002401203339429818,8,0,3,-0.0220909413671219,0.0231613227494639
+global_structure_given_ultra_c200_head,-0.0013706301273935816,7,0,4,-0.0370173231462352,0.0287698412698412
+global_structure_given_ultra_c200_tail,0.006173036806253201,8,0,3,-0.0086805555555556,0.0426120816808778
+global_structure_x_ultra_score_c200_combined,0.009145071078855534,8,0,3,-0.0140478706736875,0.0311886216549629
+full_interface_vs_native_ultra_c200_combined,0.025337156395755088,2,0,9,-0.1175270944488444,0.7224614795496357

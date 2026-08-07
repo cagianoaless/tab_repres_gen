@@ -1,0 +1,75 @@
+{
+  "cluster_grid": [
+    6,
+    8,
+    10,
+    12,
+    15,
+    20
+  ],
+  "files": {
+    "cluster_members_and_effects.csv": {
+      "rows": 290,
+      "sha256": "c4113981689d21ebda282ca67c0c624be2ba2b7aafe744461e4d0a16b468c4fd"
+    },
+    "cluster_sign_sensitivity.csv": {
+      "rows": 30,
+      "sha256": "9a140ba352839106d7b236ef61933c3361a9eb9e98f40175ca555eb828198c70"
+    },
+    "endpoint_absolute_by_world.csv": {
+      "rows": 285,
+      "sha256": "d67877a4206a415e90fac1f3d985255177db42fb23c05966ad720d6122d24fc7"
+    },
+    "endpoint_absolute_summary.csv": {
+      "rows": 5,
+      "sha256": "892450c3d521fc3b8a4d5fc341bdb48143adc1eae80ea767e45b724564a07913"
+    },
+    "moderator_spearman.csv": {
+      "rows": 60,
+      "sha256": "dc0c10e74743a57780c3c06b85ae35c20d4f038734ec72e3c5f513d5bcc17552"
+    },
+    "ridge_leave_cluster_out_coefficients.csv": {
+      "rows": 360,
+      "sha256": "18f69324b0c0633304db0a8cb6503a4d9ab059db2652590e2e4b9628fbd7d1e1"
+    },
+    "ridge_leave_cluster_out_predictions.csv": {
+      "rows": 285,
+      "sha256": "273477968b2f9ba9bae365ee956f55518c431cc512c889ea3230b2fbf2ec1352"
+    },
+    "ridge_leave_cluster_out_summary.csv": {
+      "rows": 5,
+      "sha256": "9452e72f1aba38ace1f1c3833035c45a93d89b0bea26e869b47756419d5107b3"
+    },
+    "rule_overlap_matrix.csv": {
+      "rows": 57,
+      "sha256": "8aebb14f10b38c176efd9783c81c632536737fc8208531e0c89444fb74bce076"
+    },
+    "rule_overlap_pairs.csv": {
+      "rows": 1596,
+      "sha256": "b3c5798b85104540049178488557a22d0ef1569de22cb0768e5f53594e10374a"
+    },
+    "world_covariates.csv": {
+      "rows": 57,
+      "sha256": "13f8ab91fc9945e7bdd4a27b0ceacd4079ade433ec25aca9cadb81a64c65a6ac"
+    }
+  },
+  "inputs": {
+    "asset_sha256": "1788b5bbfaf9caf553db15437aa053c9a3810fbaefad9bd7b76a412b15122673",
+    "cells_sha256": "49a980a714fdf4600b9ef60caa498bf3835badfab3a225193d95f065b12c2ff7",
+    "representation_sha256": "8f056dd7e231001cd012c63ce36a2da67de21484ad342d0c5184f0178c969312"
+  },
+  "interpretation_boundary": "World-overlap clusters are constructed without decoder outcomes. Cluster sign values are robustness sensitivities and do not restore independent sampling or a superpopulation estimand.",
+  "pairwise_rule_jaccard": {
+    "maximum": 0.9047619047619048,
+    "mean": 0.22987118792073793,
+    "minimum": 0.0
+  },
+  "primary_context_per_relation": 40,
+  "primary_contrast": "shared_multiset_minus_absolute",
+  "rules_per_world": 20,
+  "schema_version": 1,
+  "scientific_role": "post-hoc fixed-panel dependence and moderator sensitivity; not population inference",
+  "status": "PASS",
+  "unique_rules": 76,
+  "worlds": 57
+}

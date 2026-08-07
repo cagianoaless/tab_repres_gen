@@ -1,0 +1,36 @@
+{
+  "analysis_status": "complete",
+  "source_commit": "artifact-source-revision",
+  "source_repository": "anonymous-source-tree",
+  "source_files": [
+    {
+      "path": "results/ultra57/query-conditioned-compatibility-v2/query_effects.csv.gz",
+      "sha256": "8eb9c14358c8076093f157b29ac5461518631469e381a1adbe4d0b3ecb8c25bb"
+    },
+    {
+      "path": "results/ultra57/query-conditioned-compatibility-v2/query_properties.csv.gz",
+      "sha256": "71450efd4c62fba4cd3acc739170bc0ff1d7751c44fa9ab868499964f5e098d7"
+    },
+    {
+      "path": "results/ultra57/logistic-ranking-correction/corrected_logistic_query_effects.csv.gz",
+      "sha256": "e5adb663f302c7eecada5342435ce65927f8cba74b581cb362f26fc586afd320"
+    }
+  ],
+  "aggregation": {
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 260803,
+    "context": "original_uniform",
+    "dataset_count": 57,
+    "query_count": 7296,
+    "sequence": [
+      "average queries within dataset and evidence stratum",
+      "average datasets within provenance family",
+      "average provenance families equally"
+    ]
+  },
+  "interfaces": {
+    "dyadic": "reciprocal_rank_reference from paths_minus_dyadic",
+    "paths": "reciprocal_rank_treatment from paths_minus_dyadic; verified identical to reciprocal_rank_reference from local_given_paths",
+    "local": "reciprocal_rank_treatment from local_given_paths"
+  }
+}

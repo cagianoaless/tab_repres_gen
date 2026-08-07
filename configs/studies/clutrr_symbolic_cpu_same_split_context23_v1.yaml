@@ -1,0 +1,30 @@
+schema_version: 6
+study_id: clutrr_symbolic_cpu_same_split_context23_v1
+status: development
+task_family: clutrr_symbolic
+resource_class: cpu
+design_role: post-hoc same-population mechanism sensitivity paired to the frozen train234 CPU stream
+dataset_config: gen_train234_context23_test2to10
+train_chain_lengths: [2, 3]
+evaluation_chain_lengths: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+max_path_length: 10
+contexts_per_relation: [5, 10, 20, 40, 80]
+max_context_per_relation: 80
+encoders:
+  - path_length_only
+  - relation_multiset
+  - ordered_typed_path
+  - within_length_joint_permutation
+  - within_length_independent_permutation
+decoders: [logistic, catboost]
+seeds: [101, 102, 103]
+asset_files:
+  train:
+    path: data/raw/clutrr/v1/gen_train234_test2to10/train.csv
+    sha256: a6123f6e305cc528f0cd9fe441014fc244cc4b4a1e13a56c381624a7ca26c392
+  validation:
+    path: data/raw/clutrr/v1/gen_train234_test2to10/validation.csv
+    sha256: 414390d3322b9fd27ca00d99e442df63b497c9c05918a09f72843c926556cfaa
+  test:
+    path: data/raw/clutrr/v1/gen_train234_test2to10/test.csv
+    sha256: e139a9ebeece6901f0aa076dd6dd86ee9ff4a750473e3d477362b7f81da359cf

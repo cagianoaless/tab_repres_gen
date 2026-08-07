@@ -1,0 +1,9 @@
+decoder,contrast,chain_length,context_per_relation,equal_world_mean_delta,hierarchical_bootstrap_ci95_low,hierarchical_bootstrap_ci95_high,world_wins,world_ties,world_losses,analysis_role
+logistic,shared_multiset_minus_absolute,4,40,0.07532683166812801,0.03027770866999612,0.12125845692587243,38,0,19,registered_secondary_length_diagnostic
+logistic,block_permuted_minus_aligned_combined,4,40,0.024620347048602345,-0.010022465783057207,0.05993032118561303,33,0,24,registered_secondary_length_diagnostic
+logistic,shared_multiset_minus_absolute,5,40,0.053873090930144536,0.019990183008882174,0.08774443416433918,38,0,19,registered_secondary_length_diagnostic
+logistic,block_permuted_minus_aligned_combined,5,40,0.015170011808151742,-0.013366898157208104,0.04348742042495407,34,0,23,registered_secondary_length_diagnostic
+catboost,shared_multiset_minus_absolute,4,40,-0.22779297800464274,-0.27320454795352567,-0.18328339414274034,2,1,54,registered_secondary_length_diagnostic
+catboost,block_permuted_minus_aligned_combined,4,40,-0.11184942322462642,-0.14979984568542953,-0.0749566100559943,8,1,48,registered_secondary_length_diagnostic
+catboost,shared_multiset_minus_absolute,5,40,-0.08714109919401589,-0.12327864990059688,-0.04944277465736464,16,0,41,registered_secondary_length_diagnostic
+catboost,block_permuted_minus_aligned_combined,5,40,-0.07129748114830274,-0.09506011145422806,-0.046698218687361924,9,0,48,registered_secondary_length_diagnostic

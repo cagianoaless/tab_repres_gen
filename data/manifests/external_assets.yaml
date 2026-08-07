@@ -1,0 +1,89 @@
+schema_version: 1
+
+assets:
+  - asset_id: graphlog_v1_1_author_mirror
+    kind: http
+    url: https://drive.usercontent.google.com/download?id=1s6oG_5Ul199puKAu67z3QrOAm943hGV2&export=download&confirm=t
+    sha256: 1788b5bbfaf9caf553db15437aa053c9a3810fbaefad9bd7b76a412b15122673
+    target: data/raw/graphlog/graphlog_v1.1.zip
+    license_note: GraphLog v1.1 author-provided mirror; upstream GraphLog repository is MIT licensed
+
+  - asset_id: clutrr_v1_gen23_train
+    kind: http
+    url: https://raw.githubusercontent.com/kliang5/CLUTRR_huggingface_dataset/main/gen_train23_test2to10/train.csv
+    sha256: 38963d01a20789acdd38bc4a338f59070457928072f018657c9cb59e6d7447de
+    target: data/raw/clutrr/v1/gen_train23_test2to10/train.csv
+    license_note: CC-BY-NC-4.0; CLUTRR official Hugging Face packaging
+
+  - asset_id: clutrr_v1_gen23_validation
+    kind: http
+    url: https://raw.githubusercontent.com/kliang5/CLUTRR_huggingface_dataset/main/gen_train23_test2to10/validation.csv
+    sha256: 418d712579e6c9bb3f0e835cb0971372c06bc7816ea97c5e2ac5f24d9b896e51
+    target: data/raw/clutrr/v1/gen_train23_test2to10/validation.csv
+    license_note: CC-BY-NC-4.0; CLUTRR official Hugging Face packaging
+
+  - asset_id: clutrr_v1_gen23_test
+    kind: http
+    url: https://raw.githubusercontent.com/kliang5/CLUTRR_huggingface_dataset/main/gen_train23_test2to10/test.csv
+    sha256: d49c7cbe4f575b48b279313e706ef43e127bfa85b0e860db94fdeb617aea07e9
+    target: data/raw/clutrr/v1/gen_train23_test2to10/test.csv
+    license_note: CC-BY-NC-4.0; CLUTRR official Hugging Face packaging
+
+  - asset_id: clutrr_v1_gen234_train
+    kind: http
+    url: https://raw.githubusercontent.com/kliang5/CLUTRR_huggingface_dataset/main/gen_train234_test2to10/train.csv
+    sha256: a6123f6e305cc528f0cd9fe441014fc244cc4b4a1e13a56c381624a7ca26c392
+    target: data/raw/clutrr/v1/gen_train234_test2to10/train.csv
+    license_note: CC-BY-NC-4.0; CLUTRR official Hugging Face packaging
+
+  - asset_id: clutrr_v1_gen234_validation
+    kind: http
+    url: https://raw.githubusercontent.com/kliang5/CLUTRR_huggingface_dataset/main/gen_train234_test2to10/validation.csv
+    sha256: 414390d3322b9fd27ca00d99e442df63b497c9c05918a09f72843c926556cfaa
+    target: data/raw/clutrr/v1/gen_train234_test2to10/validation.csv
+    license_note: CC-BY-NC-4.0; CLUTRR official Hugging Face packaging
+
+  - asset_id: clutrr_v1_gen234_test
+    kind: http
+    url: https://raw.githubusercontent.com/kliang5/CLUTRR_huggingface_dataset/main/gen_train234_test2to10/test.csv
+    sha256: e139a9ebeece6901f0aa076dd6dd86ee9ff4a750473e3d477362b7f81da359cf
+    target: data/raw/clutrr/v1/gen_train234_test2to10/test.csv
+    license_note: CC-BY-NC-4.0; CLUTRR official Hugging Face packaging
+
+  - asset_id: movielens_100k_official
+    kind: http
+    url: https://files.grouplens.org/datasets/movielens/ml-100k.zip
+    sha256: 50d2a982c66986937beb9ffb3aa76efe955bf3d5c6b761f4e3a7cd717c6a3229
+    target: data/raw/archives/ml-100k.zip
+    unpack: zip
+    unpack_target: data/raw/movielens
+    license_note: data/raw/movielens/ml-100k/README
+
+  - asset_id: snap_email_eu_core_official
+    kind: http
+    url: https://snap.stanford.edu/data/email-Eu-core.txt.gz
+    sha256: 4b47acdb80197b085fe63c819c357ae488131ee904ed93d1b219a68b0f9e245f
+    target: data/raw/archives/email-Eu-core.txt.gz
+    unpack: gzip
+    unpack_target: data/raw/snap_email_eu_core
+    unpacked_name: email-Eu-core.txt
+    license_note: follow SNAP dataset terms and citation requirements
+
+  - asset_id: auto_kbc_pinned
+    kind: git
+    url: https://github.com/pminervini/auto-kbc
+    commit: ed4fba75ece87a3dd4f884b4ed8aa9933e890154
+    target: external/auto-kbc
+    provides:
+      - umls
+      - kinship
+      - nations
+      - wn18rr
+      - fb15k-237
+      - yago3-10
+
+  - asset_id: facebook_kbc_pinned
+    kind: git
+    url: https://github.com/facebookresearch/kbc
+    commit: 248e93136448661cac54020054b929997394f3d2
+    target: external/kbc

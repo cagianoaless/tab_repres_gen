@@ -1,0 +1,3 @@
+contrast,tuned_minus_fixed_equal_world_delta,world_wins,world_ties,world_losses,world_minimum,world_maximum
+shared_multiset_minus_absolute,0.008442031737375268,30,1,26,-0.04997194163860824,0.12506853900807463
+block_permuted_minus_aligned_combined,0.0053071458895396564,34,0,23,-0.08696934062208661,0.08059264018784257

@@ -1,0 +1,7 @@
+{
+  "base_context_hashes_match": true,
+  "expected_cells_per_arm": 30,
+  "interpretation": "added length-4 versus added length-2/3 at equal total budget, with an identical nested length-2/3 base and fixed test population",
+  "paired_length_rows": 270,
+  "status": "PASS"
+}

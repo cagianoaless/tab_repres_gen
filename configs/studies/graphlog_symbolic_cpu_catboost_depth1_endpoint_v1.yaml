@@ -1,0 +1,83 @@
+schema_version: 8
+study_id: graphlog_symbolic_cpu_catboost_depth1_endpoint_v1
+status: development
+task_family: graphlog_symbolic
+resource_class: cpu
+design_role: capacity-restricted CatBoost sensitivity at the registered primary GraphLog endpoint
+dataset: GraphLog/v1.1
+asset:
+  path: data/raw/graphlog/graphlog_v1.1.zip
+  sha256: 1788b5bbfaf9caf553db15437aa053c9a3810fbaefad9bd7b76a412b15122673
+worlds:
+  - rule_0
+  - rule_1
+  - rule_2
+  - rule_3
+  - rule_4
+  - rule_5
+  - rule_6
+  - rule_7
+  - rule_8
+  - rule_9
+  - rule_10
+  - rule_11
+  - rule_12
+  - rule_13
+  - rule_14
+  - rule_15
+  - rule_16
+  - rule_17
+  - rule_18
+  - rule_19
+  - rule_20
+  - rule_21
+  - rule_22
+  - rule_23
+  - rule_24
+  - rule_25
+  - rule_26
+  - rule_27
+  - rule_28
+  - rule_29
+  - rule_30
+  - rule_31
+  - rule_32
+  - rule_33
+  - rule_34
+  - rule_35
+  - rule_36
+  - rule_37
+  - rule_38
+  - rule_39
+  - rule_40
+  - rule_41
+  - rule_42
+  - rule_43
+  - rule_44
+  - rule_45
+  - rule_46
+  - rule_47
+  - rule_48
+  - rule_49
+  - rule_50
+  - rule_51
+  - rule_52
+  - rule_53
+  - rule_54
+  - rule_55
+  - rule_56
+context_inner_split: train
+evaluation_inner_split: test
+train_chain_lengths: [2, 3]
+evaluation_chain_lengths: [4, 5]
+max_path_length: 5
+contexts_per_relation: [40]
+max_context_per_relation: 40
+encoders:
+  - relation_multiset
+  - ordered_typed_path
+  - ordered_plus_multiset
+  - aligned_multiset_with_ordered_block_permutation
+decoders:
+  - catboost_depth1
+seeds: [101, 102, 103]

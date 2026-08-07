@@ -1,0 +1,31 @@
+schema_version: 6
+study_id: clutrr_symbolic_cpu_ordered_interference_v1
+status: development
+task_family: clutrr_symbolic
+resource_class: cpu
+design_role: targeted prospective absolute-coordinate interference sensitivity
+dataset_config: gen_train23_test2to10
+train_chain_lengths: [2, 3]
+evaluation_chain_lengths: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+max_path_length: 10
+contexts_per_relation: [5, 10, 20, 40, 80]
+max_context_per_relation: 80
+encoders:
+  - aligned_multiset_with_ordered_block_permutation
+decoders:
+  - logistic
+  - logistic_tuned
+  - catboost
+  - catboost_tuned
+  - mlp
+seeds: [101, 102, 103]
+asset_files:
+  train:
+    path: data/raw/clutrr/v1/gen_train23_test2to10/train.csv
+    sha256: 38963d01a20789acdd38bc4a338f59070457928072f018657c9cb59e6d7447de
+  validation:
+    path: data/raw/clutrr/v1/gen_train23_test2to10/validation.csv
+    sha256: 418d712579e6c9bb3f0e835cb0971372c06bc7816ea97c5e2ac5f24d9b896e51
+  test:
+    path: data/raw/clutrr/v1/gen_train23_test2to10/test.csv
+    sha256: d49c7cbe4f575b48b279313e706ef43e127bfa85b0e860db94fdeb617aea07e9

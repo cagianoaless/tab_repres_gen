@@ -1,0 +1,36 @@
+{
+  "audit_sha256": "45f374a11dfa0d52c3f2d460329aa1ba0d3486b495a9fc0af29a9eaee2401ed9",
+  "audited_context_and_evaluation_rows": 25560,
+  "configs": [
+    {
+      "cells": 30,
+      "path": "configs/studies/clutrr_symbolic_cpu_supported_prefix_v1.yaml",
+      "plan_sha256": "b79695cce1226249e4e76b6173603744d05d40ddc9ad77f9544181d63eff219a",
+      "study_id": "clutrr_symbolic_cpu_supported_prefix_v1"
+    },
+    {
+      "cells": 15,
+      "path": "configs/studies/clutrr_symbolic_gpu_tabpfn_supported_prefix_v1.yaml",
+      "plan_sha256": "d79d377854011288e0a54e03d631391d886b0e421fbe9a7cc3a1608d27ef4c75",
+      "study_id": "clutrr_symbolic_gpu_tabpfn_supported_prefix_v1"
+    }
+  ],
+  "encoder_feature_counts": {
+    "aligned_multiset_with_supported_prefix": 155
+  },
+  "evaluation_populations": {
+    "gen_train23_test2to10": 1146
+  },
+  "leakage_checks": {
+    "raw_entity_ids_exposed": false,
+    "story_text_exposed": false,
+    "target_relation_exposed": false
+  },
+  "length_stratified_control_invariant_checks": 360,
+  "nested_context_checks": 12,
+  "schema_version": 1,
+  "status": "PASS",
+  "target_relations": 18,
+  "total_registered_cells": 45,
+  "unique_episodes": 15
+}

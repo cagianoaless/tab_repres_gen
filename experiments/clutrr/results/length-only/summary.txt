@@ -1,0 +1,14 @@
+{
+  "context_per_relation": 80,
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "mean_accuracy": 0.010762070971495057,
+  "majority_class_accuracy": 0.13699825479930192,
+  "uniform_random_expected_accuracy": 0.05555555555555555,
+  "seen_length_mean_accuracy": 0.0,
+  "seen_length_context_mode_accuracy": 0.0,
+  "seen_length_context_test_total_variation": 0.8101608364577082
+}

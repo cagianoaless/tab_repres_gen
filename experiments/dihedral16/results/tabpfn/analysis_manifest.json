@@ -1,0 +1,29 @@
+{
+  "analysis": "compositional_d8_gpu_tabpfn_confirmation_v1",
+  "analysis_commit": "ca9c9b2cf",
+  "execution_commit": "artifact-source-revision",
+  "files": {
+    "aggregate.csv": {
+      "bytes": 3938,
+      "sha256": "9cf2bf515059c4100874be9d2294d17cba93ffd13096e9b47c5305fff248ccd2"
+    },
+    "ceiling_summary.csv": {
+      "bytes": 420,
+      "sha256": "441aa228cb14f082997711a42e3cbae7aa0fea90b49bc929ae2117a13abde304"
+    },
+    "primary_length_contrasts.csv": {
+      "bytes": 963,
+      "sha256": "5c5db242da649ae495a0d97865df7d992392fd74c73ffd60e16c5172e4ead8d1"
+    },
+    "primary_seed_contrasts.csv": {
+      "bytes": 2131,
+      "sha256": "5963709a3fe1c24fd3a2588b504ba6619e120e951d770b7ba78ad8cd0afd9c40"
+    },
+    "summary.json": {
+      "bytes": 1515,
+      "sha256": "c3617afc4fc6beabb9b56807e3f5b990394188909ac9fc850c066d0e8465e1ec"
+    }
+  },
+  "plan_sha256": "cec127de036bca92f4f710e53b429d72431c1c1c83f3509edfb436d9547085d1",
+  "status": "PASS"
+}

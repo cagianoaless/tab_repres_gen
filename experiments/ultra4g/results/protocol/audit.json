@@ -1,0 +1,214 @@
+{
+  "asset_id": "rfmlink_frozen_interface_ultra57_v2",
+  "context_protocol": {
+    "audited_dataset_seed_budget_cells": 684,
+    "base_negative_rows_matching_a_q64_evaluation_positive": 32,
+    "dataset_seed_contexts_with_duplicate_triples": 0,
+    "negative_construction": "uniform-random head and tail entities at the matched positive relation; source builder does not claim hard or truth-filtered negatives",
+    "nested_budgets_per_class": [
+      20,
+      50,
+      100,
+      200
+    ],
+    "positive_context_evaluation_overlap_cells": 0,
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "selected_negative_overlap_cells": 8,
+    "selected_negative_overlap_incidences_across_nested_budgets": 19,
+    "source": "nested class-balanced subsets of the immutable 400+400 contexts",
+    "source_negative_rows": 400,
+    "source_positive_rows": 400,
+    "source_rows_per_seed": 800
+  },
+  "dataset_count": 57,
+  "direction_counts_sha256": "11f188b1bbf0fbb5a08caa71077fd36848d9b86f4651e9caff840a2eea6d7a54",
+  "feature_graph": "complete observed target training graph",
+  "interface_schemas": {
+    "b0_dyadic_only": {
+      "columns": [
+        "pair_other_relation_count",
+        "reverse_pair_relation_count",
+        "same_entity"
+      ],
+      "dimension": 3
+    },
+    "b0_local_only": {
+      "columns": [
+        "relation_id",
+        "head_total_out",
+        "head_total_in",
+        "tail_total_out",
+        "tail_total_in",
+        "head_relation_out_degree",
+        "tail_relation_in_degree",
+        "relation_frequency",
+        "relation_functionality",
+        "relation_inverse_functionality",
+        "pair_other_relation_count",
+        "reverse_pair_relation_count",
+        "two_hop_count",
+        "two_hop_start_relation_count",
+        "two_hop_end_relation_count",
+        "reverse_two_hop_count",
+        "same_entity_cluster",
+        "cluster_relation_density"
+      ],
+      "dimension": 18
+    },
+    "b0_local_ultra": {
+      "columns": [
+        "relation_id",
+        "head_total_out",
+        "head_total_in",
+        "tail_total_out",
+        "tail_total_in",
+        "head_relation_out_degree",
+        "tail_relation_in_degree",
+        "relation_frequency",
+        "relation_functionality",
+        "relation_inverse_functionality",
+        "pair_other_relation_count",
+        "reverse_pair_relation_count",
+        "two_hop_count",
+        "two_hop_start_relation_count",
+        "two_hop_end_relation_count",
+        "reverse_two_hop_count",
+        "same_entity_cluster",
+        "cluster_relation_density",
+        "ultra_score"
+      ],
+      "dimension": 19
+    },
+    "b0_paths_only": {
+      "columns": [
+        "two_hop_count",
+        "two_hop_start_relation_count",
+        "two_hop_end_relation_count",
+        "reverse_two_hop_count"
+      ],
+      "dimension": 4
+    },
+    "b2v2_full": {
+      "columns": [
+        "relation_id",
+        "head_total_out",
+        "head_total_in",
+        "tail_total_out",
+        "tail_total_in",
+        "head_relation_out_degree",
+        "tail_relation_in_degree",
+        "relation_frequency",
+        "relation_functionality",
+        "relation_inverse_functionality",
+        "pair_other_relation_count",
+        "reverse_pair_relation_count",
+        "two_hop_count",
+        "two_hop_start_relation_count",
+        "two_hop_end_relation_count",
+        "reverse_two_hop_count",
+        "same_entity_cluster",
+        "cluster_relation_density",
+        "ultra_score",
+        "head_pagerank",
+        "tail_pagerank",
+        "same_connected_component",
+        "head_component_log_fraction",
+        "tail_component_log_fraction",
+        "heat_similarity_t0p1",
+        "heat_similarity_t1p0",
+        "heat_similarity_t10p0",
+        "heat_similarity_t100p0",
+        "diffusion_distance_t0p1",
+        "diffusion_distance_t1p0",
+        "diffusion_distance_t10p0",
+        "diffusion_distance_t100p0"
+      ],
+      "dimension": 32
+    },
+    "b2v2_only": {
+      "columns": [
+        "head_pagerank",
+        "tail_pagerank",
+        "same_connected_component",
+        "head_component_log_fraction",
+        "tail_component_log_fraction",
+        "heat_similarity_t0p1",
+        "heat_similarity_t1p0",
+        "heat_similarity_t10p0",
+        "heat_similarity_t100p0",
+        "diffusion_distance_t0p1",
+        "diffusion_distance_t1p0",
+        "diffusion_distance_t10p0",
+        "diffusion_distance_t100p0"
+      ],
+      "dimension": 13
+    },
+    "b2v2_structure_only": {
+      "columns": [
+        "relation_id",
+        "head_total_out",
+        "head_total_in",
+        "tail_total_out",
+        "tail_total_in",
+        "head_relation_out_degree",
+        "tail_relation_in_degree",
+        "relation_frequency",
+        "relation_functionality",
+        "relation_inverse_functionality",
+        "pair_other_relation_count",
+        "reverse_pair_relation_count",
+        "two_hop_count",
+        "two_hop_start_relation_count",
+        "two_hop_end_relation_count",
+        "reverse_two_hop_count",
+        "same_entity_cluster",
+        "cluster_relation_density",
+        "head_pagerank",
+        "tail_pagerank",
+        "same_connected_component",
+        "head_component_log_fraction",
+        "tail_component_log_fraction",
+        "heat_similarity_t0p1",
+        "heat_similarity_t1p0",
+        "heat_similarity_t10p0",
+        "heat_similarity_t100p0",
+        "diffusion_distance_t0p1",
+        "diffusion_distance_t1p0",
+        "diffusion_distance_t10p0",
+        "diffusion_distance_t100p0"
+      ],
+      "dimension": 31
+    },
+    "entity_tokens_only": {
+      "columns": [
+        "head_entity_token",
+        "tail_entity_token"
+      ],
+      "dimension": 2
+    },
+    "ultra_score_only": {
+      "columns": [
+        "ultra_score"
+      ],
+      "dimension": 1
+    }
+  },
+  "manifest_sha256": "6c3977f6e14e89a636415d96a78ad638f0cc550df5b04b960a8b423a9bebb317",
+  "query_protocol": {
+    "candidate_set": "all entities with standard filtered ranking masks",
+    "directional_queries_per_dataset": 128,
+    "directions": [
+      "head",
+      "tail"
+    ],
+    "query_triples_per_dataset": 64,
+    "selection": "exact RFMLink relation_stratified_indices(test, 64, 20260715), both head and tail directions"
+  },
+  "schema_version": 1,
+  "scope": "protocol integrity audit only; it does not validate model predictions or claim that uniform-random context negatives are hard negatives",
+  "status": "PASS"
+}

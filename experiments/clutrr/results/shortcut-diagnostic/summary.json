@@ -1,0 +1,39 @@
+{
+  "files": {
+    "aggregate.csv": {
+      "rows": 12,
+      "sha256": "3af43721974acbeaff20e15eba1bda9e7ea66abf30d42f67f43a8c94c0cb6f99"
+    },
+    "cells.csv": {
+      "rows": 36,
+      "sha256": "1bbc749a9495ed3a2168fc5779b9c0cfafcab9c159e4471437e6ea1fa4a822a6"
+    },
+    "dihedral16_matched_context.csv": {
+      "rows": 4,
+      "sha256": "0ff3feace66ab9e2ba6b2ed457f9920b033fbfce1b771877d197c3514c8674f0"
+    },
+    "matched_length_4_5.csv": {
+      "rows": 3,
+      "sha256": "68f67030df12dff5a1462285adec3b33ba0bdba8fd0e091bb2cb7e17e8cbd2db"
+    },
+    "representation_audit.csv": {
+      "rows": 2,
+      "sha256": "786bee75d465672e78f271b483e974b78f11ad3985765522bca1d407e18dea95"
+    }
+  },
+  "interpretation": "Absolute-prefix interfaces fit the short-chain context almost perfectly but transfer worse than the coarser multiset. The supported-prefix interface has a higher finite-population ceiling than the multiset, so the reversal is decoder extraction rather than information loss. The effect persists on CLUTRR lengths 4--5 but not on D8 at matched small contexts.",
+  "schema_version": 1,
+  "scientific_role": "post-hoc shortcut diagnostic with matched-shift and independent-algebra boundary checks",
+  "source_commit": "artifact-source-revision",
+  "status": "PASS",
+  "streams": {
+    "cpu": {
+      "cells": 24,
+      "plan_sha256": "a8f7ceb2f7fa35cb0ab3c3550b8d63158c640facc6094592f2561a8ea70f505b"
+    },
+    "gpu": {
+      "cells": 12,
+      "plan_sha256": "69e32a668814177079dcbc54f65c1fb8f91c2c6f3197bc0209ec88c1ceb96efc"
+    }
+  }
+}

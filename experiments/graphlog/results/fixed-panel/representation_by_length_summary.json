@@ -1,0 +1,22 @@
+{
+  "evaluation_lengths": [
+    4,
+    5
+  ],
+  "files": {
+    "representation_by_length_summary.csv": {
+      "rows": 12,
+      "sha256": "7645ebd7d84cfefda79706cd4596b440c5cea2487650f4a9eb8a6229e7ed9de3"
+    },
+    "representation_by_world_and_length.csv": {
+      "rows": 684,
+      "sha256": "a1f47e397eb5b0105be8da48995e7dce655edc1d7c8b16a920a921a6d362dc46"
+    }
+  },
+  "plan_sha256": "dc6872565a8726a715a9437cf5029db6c733c469b08e15fc097b5fd9dc8e7006",
+  "representative_seed": 101,
+  "schema_version": 1,
+  "scientific_role": "exact finite-population GraphLog representation audit by OOD length",
+  "status": "PASS",
+  "worlds": 57
+}

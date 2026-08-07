@@ -1,0 +1,271 @@
+{
+  "catboost_capacity_sensitivity": [
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "catboost",
+      "equal_world_mean_delta": -0.15746703859932934,
+      "fixed_panel_sensitivity_high": -0.12689265426790833,
+      "fixed_panel_sensitivity_low": -0.18738402754206993,
+      "world_losses": 51,
+      "world_ties": 0,
+      "world_wins": 6
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "catboost",
+      "equal_world_mean_delta": -0.09157345218646458,
+      "fixed_panel_sensitivity_high": -0.06882519411339894,
+      "fixed_panel_sensitivity_low": -0.11395210767874614,
+      "world_losses": 50,
+      "world_ties": 0,
+      "world_wins": 7
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "catboost_depth1",
+      "equal_world_mean_delta": -0.06998791342836747,
+      "fixed_panel_sensitivity_high": -0.03989879367549413,
+      "fixed_panel_sensitivity_low": -0.09971244496927835,
+      "world_losses": 43,
+      "world_ties": 0,
+      "world_wins": 14
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "catboost_depth1",
+      "equal_world_mean_delta": -0.052315263057921106,
+      "fixed_panel_sensitivity_high": -0.02884516835467796,
+      "fixed_panel_sensitivity_low": -0.07683978970966897,
+      "world_losses": 40,
+      "world_ties": 0,
+      "world_wins": 17
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "catboost_tuned",
+      "equal_world_mean_delta": -0.14902500686195405,
+      "fixed_panel_sensitivity_high": -0.11691492115754679,
+      "fixed_panel_sensitivity_low": -0.18018335717815245,
+      "world_losses": 50,
+      "world_ties": 0,
+      "world_wins": 7
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "catboost_tuned",
+      "equal_world_mean_delta": -0.08626630629692492,
+      "fixed_panel_sensitivity_high": -0.06210166172772714,
+      "fixed_panel_sensitivity_low": -0.11044353843805228,
+      "world_losses": 48,
+      "world_ties": 0,
+      "world_wins": 9
+    }
+  ],
+  "catboost_tuning_sensitivity": [
+    {
+      "contrast": "shared_multiset_minus_absolute",
+      "tuned_minus_fixed_equal_world_delta": 0.008442031737375268,
+      "world_losses": 26,
+      "world_maximum": 0.12506853900807463,
+      "world_minimum": -0.04997194163860824,
+      "world_ties": 1,
+      "world_wins": 30
+    },
+    {
+      "contrast": "block_permuted_minus_aligned_combined",
+      "tuned_minus_fixed_equal_world_delta": 0.0053071458895396564,
+      "world_losses": 23,
+      "world_maximum": 0.08059264018784257,
+      "world_minimum": -0.08696934062208661,
+      "world_ties": 0,
+      "world_wins": 34
+    }
+  ],
+  "contrasts": [
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "catboost",
+      "equal_world_mean_delta": -0.15746703859932934,
+      "fixed_panel_sensitivity_high": -0.12689265426790833,
+      "fixed_panel_sensitivity_low": -0.18738402754206993,
+      "world_losses": 51,
+      "world_ties": 0,
+      "world_wins": 6
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "catboost",
+      "equal_world_mean_delta": -0.09157345218646458,
+      "fixed_panel_sensitivity_high": -0.06882519411339894,
+      "fixed_panel_sensitivity_low": -0.11395210767874614,
+      "world_losses": 50,
+      "world_ties": 0,
+      "world_wins": 7
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "catboost_depth1",
+      "equal_world_mean_delta": -0.06998791342836747,
+      "fixed_panel_sensitivity_high": -0.03989879367549413,
+      "fixed_panel_sensitivity_low": -0.09971244496927835,
+      "world_losses": 43,
+      "world_ties": 0,
+      "world_wins": 14
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "catboost_depth1",
+      "equal_world_mean_delta": -0.052315263057921106,
+      "fixed_panel_sensitivity_high": -0.02884516835467796,
+      "fixed_panel_sensitivity_low": -0.07683978970966897,
+      "world_losses": 40,
+      "world_ties": 0,
+      "world_wins": 17
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "catboost_tuned",
+      "equal_world_mean_delta": -0.14902500686195405,
+      "fixed_panel_sensitivity_high": -0.11691492115754679,
+      "fixed_panel_sensitivity_low": -0.18018335717815245,
+      "world_losses": 50,
+      "world_ties": 0,
+      "world_wins": 7
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "catboost_tuned",
+      "equal_world_mean_delta": -0.08626630629692492,
+      "fixed_panel_sensitivity_high": -0.06210166172772714,
+      "fixed_panel_sensitivity_low": -0.11044353843805228,
+      "world_losses": 48,
+      "world_ties": 0,
+      "world_wins": 9
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "logistic",
+      "equal_world_mean_delta": 0.06459996129913628,
+      "fixed_panel_sensitivity_high": 0.0971257389770206,
+      "fixed_panel_sensitivity_low": 0.03328388948046174,
+      "world_losses": 16,
+      "world_ties": 0,
+      "world_wins": 41
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "logistic",
+      "equal_world_mean_delta": 0.019895179428377045,
+      "fixed_panel_sensitivity_high": 0.044559375600457723,
+      "fixed_panel_sensitivity_low": -0.004215540518261406,
+      "world_losses": 25,
+      "world_ties": 0,
+      "world_wins": 32
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "tabpfn",
+      "equal_world_mean_delta": -0.07887201798691272,
+      "fixed_panel_sensitivity_high": -0.0544624048681806,
+      "fixed_panel_sensitivity_low": -0.10308930766472951,
+      "world_losses": 46,
+      "world_ties": 0,
+      "world_wins": 11
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "tabpfn",
+      "equal_world_mean_delta": -0.07574878752807533,
+      "fixed_panel_sensitivity_high": -0.05048684123214931,
+      "fixed_panel_sensitivity_low": -0.10011238673795796,
+      "world_losses": 45,
+      "world_ties": 0,
+      "world_wins": 12
+    }
+  ],
+  "depth1_source_commit": "artifact-source-revision",
+  "files": {
+    "catboost_capacity_sensitivity.csv": {
+      "rows": 6,
+      "sha256": "c71ab67a8e8187e54f2e460383852126f929f0a9fec14a57daa98e1011157f44"
+    },
+    "catboost_tuning_sensitivity.csv": {
+      "rows": 2,
+      "sha256": "393f74823aea3d5723eaefbb6397f24ba01f4eddcbb71b4b2e2b5effc827be7f"
+    },
+    "cells.csv": {
+      "rows": 13680,
+      "sha256": "49a980a714fdf4600b9ef60caa498bf3835badfab3a225193d95f065b12c2ff7"
+    },
+    "endpoint_encoder_scores.csv": {
+      "rows": 26,
+      "sha256": "83553eebc6863ff37dfe9beec7751fedfd3328e2aa8b1dc49fa78bdb39d19c51"
+    },
+    "primary_contrasts.csv": {
+      "rows": 10,
+      "sha256": "0f58aee5ef4375c1136d3cdeb16189919e66c2d6371f7a1a4e4b43303c6ccafa"
+    },
+    "primary_contrasts_by_world.csv": {
+      "rows": 570,
+      "sha256": "6a08cf429eb7b154da007147987dea8e8487f939a5876c8272ee7c6cecf8132a"
+    }
+  },
+  "fixed_panel_sensitivity": {
+    "interpretation": "descriptive sensitivity for this fixed 57-world panel, not a confidence interval for a population of logical worlds",
+    "replicates": 20000,
+    "resampling": "worlds_then_context_seeds_with_replacement",
+    "seed": 20260729
+  },
+  "primary_context_per_relation": 40,
+  "primary_endpoint": "equal_length_macro_balanced_accuracy",
+  "schema_version": 1,
+  "scientific_role": "complete GraphLog decoder sensitivity on the fixed 57-world panel",
+  "status": "PASS",
+  "streams": {
+    "depth1_catboost": {
+      "cells": 684,
+      "decoders": [
+        "catboost_depth1"
+      ],
+      "plan_sha256": "37230cb4f827567de0c14428661efe39dfddee212fbec044c32d3c7c85761487"
+    },
+    "fixed_cpu": {
+      "cells": 8208,
+      "decoders": [
+        "catboost",
+        "logistic"
+      ],
+      "plan_sha256": "dc6872565a8726a715a9437cf5029db6c733c469b08e15fc097b5fd9dc8e7006"
+    },
+    "tabpfn": {
+      "cells": 4104,
+      "decoders": [
+        "tabpfn"
+      ],
+      "plan_sha256": "decac0f768513abfd742bbd3e84bf3934aefa22043043e35a940ebf14406b75d"
+    },
+    "tuned_catboost": {
+      "cells": 684,
+      "decoders": [
+        "catboost_tuned"
+      ],
+      "plan_sha256": "4a84be6406befdf810dd174a8abfa1d307d04b6c65e1c1b1d65c565ec0ac8b2b"
+    }
+  }
+}

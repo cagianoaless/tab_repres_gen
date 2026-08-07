@@ -1,0 +1,59 @@
+{
+  "all_six_metric_decoder_comparisons_favor_multiset": true,
+  "cpu_cells": 150,
+  "cpu_plan_sha256": "cca4114229dbfac4938d707252c4257817149817becabb4b8e8b43a7bf86df98",
+  "cpu_result_commit": "artifact-source-revision",
+  "cpu_study": "clutrr_symbolic_cpu_confirmation_v2",
+  "estimand": "equal-length mean over fixed CLUTRR OOD lengths 4--10 at 80 context examples per target relation, then mean over seeds 101--103",
+  "gpu_cells": 75,
+  "gpu_plan_sha256": "d118695450af93907a347aab5760dfb6bb3067ed30ffe3255771722bfd348a4b",
+  "gpu_result_commit": "artifact-source-revision",
+  "gpu_study": "clutrr_symbolic_gpu_tabpfn_confirmation_v2",
+  "per_length_metrics": {
+    "accuracy": {
+      "comparisons": 21,
+      "maximum": 0.4017543859649123,
+      "minimum": 0.0784313725490196,
+      "negative": 0,
+      "positive": 21,
+      "zero": 0
+    },
+    "balanced_accuracy": {
+      "comparisons": 21,
+      "maximum": 0.4733984623239008,
+      "minimum": -0.01938821412505623,
+      "negative": 1,
+      "positive": 20,
+      "zero": 0
+    },
+    "macro_f1": {
+      "comparisons": 21,
+      "maximum": 0.4305577006110526,
+      "minimum": 0.026694325254740525,
+      "negative": 0,
+      "positive": 21,
+      "zero": 0
+    }
+  },
+  "per_target_relation_accuracy": {
+    "catboost": {
+      "negative": 2,
+      "positive": 16,
+      "zero": 0
+    },
+    "logistic": {
+      "negative": 2,
+      "positive": 16,
+      "zero": 0
+    },
+    "tabpfn": {
+      "negative": 3,
+      "positive": 15,
+      "zero": 0
+    }
+  },
+  "primary_cells": 18,
+  "schema_version": 1,
+  "scope": "fixed official CLUTRR test population and three context seeds; not uncertainty over datasets or relation ontologies",
+  "status": "PASS"
+}

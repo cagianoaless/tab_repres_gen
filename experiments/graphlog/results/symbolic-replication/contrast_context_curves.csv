@@ -1,0 +1,17 @@
+decoder,contrast,context_per_relation,equal_world_mean_delta,hierarchical_bootstrap_ci95_low,hierarchical_bootstrap_ci95_high,world_wins,world_ties,world_losses,analysis_role
+logistic,shared_multiset_minus_absolute,5,-0.007121195151916789,-0.029953734699082496,0.01592240280039187,26,0,31,registered_secondary_context_curve
+logistic,block_permuted_minus_aligned_combined,5,-0.0379085179202104,-0.059872013001253714,-0.016089422663459103,18,0,39,registered_secondary_context_curve
+logistic,shared_multiset_minus_absolute,10,0.02201669373684063,-0.005774213239308395,0.050051852080397204,32,0,25,registered_secondary_context_curve
+logistic,block_permuted_minus_aligned_combined,10,-0.01870760438315058,-0.041502580772187374,0.005827596201585001,23,0,34,registered_secondary_context_curve
+logistic,shared_multiset_minus_absolute,20,0.046985469790158454,0.01991196460623069,0.07543875823404794,37,0,20,registered_secondary_context_curve
+logistic,block_permuted_minus_aligned_combined,20,5.0465274186093445e-05,-0.02373155801110905,0.025009758153371902,25,0,32,registered_secondary_context_curve
+logistic,shared_multiset_minus_absolute,40,0.06459996129913628,0.03393657697185622,0.09688510423104178,41,0,16,registered_primary
+logistic,block_permuted_minus_aligned_combined,40,0.019895179428377045,-0.004449080093078909,0.04493665086336768,32,0,25,registered_primary
+catboost,shared_multiset_minus_absolute,5,-0.11744102524547906,-0.1451620569631255,-0.09160556052857288,3,0,54,registered_secondary_context_curve
+catboost,block_permuted_minus_aligned_combined,5,-0.07283019791723196,-0.09255682714847518,-0.053279250666283626,9,0,48,registered_secondary_context_curve
+catboost,shared_multiset_minus_absolute,10,-0.13535673337083903,-0.16216779279264043,-0.11001564408588661,1,0,56,registered_secondary_context_curve
+catboost,block_permuted_minus_aligned_combined,10,-0.07195408043734243,-0.09222166687704188,-0.05172189724377938,8,0,49,registered_secondary_context_curve
+catboost,shared_multiset_minus_absolute,20,-0.1511099452899981,-0.18142034833848172,-0.12152157930092311,2,0,55,registered_secondary_context_curve
+catboost,block_permuted_minus_aligned_combined,20,-0.08080724108778059,-0.102910004162024,-0.05907022657052518,11,0,46,registered_secondary_context_curve
+catboost,shared_multiset_minus_absolute,40,-0.15746703859932934,-0.1876132604381032,-0.12662720521562862,6,0,51,registered_primary
+catboost,block_permuted_minus_aligned_combined,40,-0.09157345218646458,-0.11427184108144292,-0.0686390389045819,7,0,50,registered_primary

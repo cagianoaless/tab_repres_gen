@@ -1,0 +1,19 @@
+interface,decoder,context,mrr
+Local,Logistic,Filtered uniform,0.199042
+Local,CatBoost,Filtered uniform,0.262354
+Local,TabPFN-3,Filtered uniform,0.266951
+Score,Logistic,Filtered uniform,0.334684
+Score,CatBoost,Filtered uniform,0.298709
+Score,TabPFN-3,Filtered uniform,0.331750
+Local + score,Logistic,Filtered uniform,0.327676
+Local + score,CatBoost,Filtered uniform,0.310495
+Local + score,TabPFN-3,Filtered uniform,0.391219
+Local,Logistic,Structural,0.178586
+Local,CatBoost,Structural,0.199070
+Local,TabPFN-3,Structural,0.213149
+Score,Logistic,Structural,0.301186
+Score,CatBoost,Structural,0.196999
+Score,TabPFN-3,Structural,0.245320
+Local + score,Logistic,Structural,0.261885
+Local + score,CatBoost,Structural,0.260513
+Local + score,TabPFN-3,Structural,0.268952

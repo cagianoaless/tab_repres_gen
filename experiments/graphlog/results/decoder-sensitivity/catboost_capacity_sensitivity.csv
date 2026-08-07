@@ -1,0 +1,7 @@
+decoder,contrast,context_per_relation,equal_world_mean_delta,fixed_panel_sensitivity_low,fixed_panel_sensitivity_high,world_wins,world_ties,world_losses
+catboost,shared_multiset_minus_absolute,40,-0.15746703859932934,-0.18738402754206993,-0.12689265426790833,6,0,51
+catboost,block_permuted_minus_aligned_combined,40,-0.09157345218646458,-0.11395210767874614,-0.06882519411339894,7,0,50
+catboost_depth1,shared_multiset_minus_absolute,40,-0.06998791342836747,-0.09971244496927835,-0.03989879367549413,14,0,43
+catboost_depth1,block_permuted_minus_aligned_combined,40,-0.052315263057921106,-0.07683978970966897,-0.02884516835467796,17,0,40
+catboost_tuned,shared_multiset_minus_absolute,40,-0.14902500686195405,-0.18018335717815245,-0.11691492115754679,7,0,50
+catboost_tuned,block_permuted_minus_aligned_combined,40,-0.08626630629692492,-0.11044353843805228,-0.06210166172772714,9,0,48

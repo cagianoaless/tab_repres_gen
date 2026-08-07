@@ -1,0 +1,5 @@
+decoder,contrast,left_encoder,right_encoder,context_per_relation,equal_world_mean_delta,hierarchical_bootstrap_ci95_low,hierarchical_bootstrap_ci95_high,world_wins,world_ties,world_losses,registered_positive_mean,registered_majority_worlds
+logistic,shared_multiset_minus_absolute,relation_multiset,ordered_typed_path,40,0.06459996129913628,0.03393657697185622,0.09688510423104178,41,0,16,True,True
+logistic,block_permuted_minus_aligned_combined,aligned_multiset_with_ordered_block_permutation,ordered_plus_multiset,40,0.019895179428377045,-0.004449080093078909,0.04493665086336768,32,0,25,True,True
+catboost,shared_multiset_minus_absolute,relation_multiset,ordered_typed_path,40,-0.15746703859932934,-0.1876132604381032,-0.12662720521562862,6,0,51,False,False
+catboost,block_permuted_minus_aligned_combined,aligned_multiset_with_ordered_block_permutation,ordered_plus_multiset,40,-0.09157345218646458,-0.11427184108144292,-0.0686390389045819,7,0,50,False,False

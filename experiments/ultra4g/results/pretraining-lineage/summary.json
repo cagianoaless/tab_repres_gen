@@ -1,0 +1,106 @@
+{
+  "contrasts": [
+    {
+      "contrast_id": "local_relational_vs_entity_tokens_c200_combined",
+      "retained_equal_family_effect": 0.22362275475446147,
+      "retained_family_losses": 0,
+      "retained_family_maximum": 0.9549057890193968,
+      "retained_family_minimum": 0.0670364930418284,
+      "retained_family_ties": 0,
+      "retained_family_wins": 11
+    },
+    {
+      "contrast_id": "ultra_score_given_global_structure_c200_combined",
+      "retained_equal_family_effect": 0.09674986676234268,
+      "retained_family_losses": 0,
+      "retained_family_maximum": 0.1844739768280626,
+      "retained_family_minimum": 0.0004774305555557,
+      "retained_family_ties": 0,
+      "retained_family_wins": 11
+    },
+    {
+      "contrast_id": "global_structure_given_ultra_c20_combined",
+      "retained_equal_family_effect": -0.00867575320519199,
+      "retained_family_losses": 7,
+      "retained_family_maximum": 0.029843696885975,
+      "retained_family_minimum": -0.0516276249704131,
+      "retained_family_ties": 0,
+      "retained_family_wins": 4
+    },
+    {
+      "contrast_id": "global_structure_given_ultra_c200_combined",
+      "retained_equal_family_effect": 0.002401203339429818,
+      "retained_family_losses": 3,
+      "retained_family_maximum": 0.0231613227494639,
+      "retained_family_minimum": -0.0220909413671219,
+      "retained_family_ties": 0,
+      "retained_family_wins": 8
+    },
+    {
+      "contrast_id": "global_structure_given_ultra_c200_head",
+      "retained_equal_family_effect": -0.0013706301273935816,
+      "retained_family_losses": 4,
+      "retained_family_maximum": 0.0287698412698412,
+      "retained_family_minimum": -0.0370173231462352,
+      "retained_family_ties": 0,
+      "retained_family_wins": 7
+    },
+    {
+      "contrast_id": "global_structure_given_ultra_c200_tail",
+      "retained_equal_family_effect": 0.006173036806253201,
+      "retained_family_losses": 3,
+      "retained_family_maximum": 0.0426120816808778,
+      "retained_family_minimum": -0.0086805555555556,
+      "retained_family_ties": 0,
+      "retained_family_wins": 8
+    },
+    {
+      "contrast_id": "global_structure_x_ultra_score_c200_combined",
+      "retained_equal_family_effect": 0.009145071078855534,
+      "retained_family_losses": 3,
+      "retained_family_maximum": 0.0311886216549629,
+      "retained_family_minimum": -0.0140478706736875,
+      "retained_family_ties": 0,
+      "retained_family_wins": 8
+    },
+    {
+      "contrast_id": "full_interface_vs_native_ultra_c200_combined",
+      "retained_equal_family_effect": 0.025337156395755088,
+      "retained_family_losses": 9,
+      "retained_family_maximum": 0.7224614795496357,
+      "retained_family_minimum": -0.1175270944488444,
+      "retained_family_ties": 0,
+      "retained_family_wins": 2
+    }
+  ],
+  "excluded_families": {
+    "codex": "CoDEx-Medium is an ultra_4g pretraining graph",
+    "fb15k237": "FB15k-237 is an ultra_4g pretraining graph",
+    "fbnell": "FBNELL is constructed from FB15k-237 and NELL-995",
+    "nell": "NELL-995 is an ultra_4g pretraining graph",
+    "wn18rr": "WN18RR is an ultra_4g pretraining graph"
+  },
+  "files": {
+    "contrast_summary.csv": "cecbf1decc67bb1219dcceff768dd6422ab389cb53812607aba412804fdae599",
+    "retained_family_effects.csv": "f7d1566f95255f9be954c04b9bec0d2dc046ebe8afb66b1ab0f00010140838c1"
+  },
+  "input_sha256": "c2b073bd802bf96eda469356b86469838311a474d6a551ea160318188cebb405",
+  "interpretation_boundary": "This restriction addresses known source lineage only; it is not a claim that all remaining data are distributionally independent of ULTRA pretraining. Several retained families share a broad Wikidata upstream source with CoDEx, which is disclosed separately and is not treated as direct dataset lineage.",
+  "retained_families": [
+    "aristov4",
+    "conceptnet100k",
+    "dbpedia100k",
+    "hetionet",
+    "hm",
+    "ilpc2022",
+    "metafam",
+    "wdsinger",
+    "wiki_topics",
+    "wk_ingram",
+    "yago310"
+  ],
+  "retained_family_count": 11,
+  "schema_version": 1,
+  "scientific_role": "descriptive sensitivity excluding provenance families with direct lineage to the four ultra_4g pretraining graphs",
+  "status": "PASS"
+}

@@ -1,0 +1,27 @@
+{
+  "cells": 45,
+  "contexts_per_relation": [
+    5,
+    10,
+    20,
+    40,
+    80
+  ],
+  "cpu_plan_sha256": "b79695cce1226249e4e76b6173603744d05d40ddc9ad77f9544181d63eff219a",
+  "decoders": [
+    "catboost",
+    "logistic",
+    "tabpfn"
+  ],
+  "files": {
+    "by_length.csv": "c5d2d25d57634264970338d1c8421c68bee592960d275a0b20ec4d9fc6e48af6",
+    "cells.csv": "a53109552eb26cce5a176a4f02c78a73d08287112f0ab9195c641e5f1f61650a",
+    "comparison.csv": "96373fc0bdc486968c4e8d1e88ef95c53d992b69dcef0cbd994dbbed4f5887b2"
+  },
+  "gpu_plan_sha256": "d79d377854011288e0a54e03d631391d886b0e421fbe9a7cc3a1608d27ef4c75",
+  "interpretation": "Removing evaluation-only suffix coordinates did not change the OOD accuracy curve. The earlier block-permutation gain therefore cannot be attributed to unsupported suffix coordinates alone.",
+  "maximum_absolute_accuracy_change": 2.7755575615628914e-17,
+  "schema_version": 1,
+  "scientific_role": "targeted intervention that retains the aligned multiset and absolute positions 1--3 while zeroing only positions 4--10",
+  "status": "PASS"
+}

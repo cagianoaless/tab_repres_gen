@@ -1,0 +1,39 @@
+{
+  "balanced_accuracy_chance_range": [
+    0.07692307692307693,
+    0.16666666666666666
+  ],
+  "evaluation_class_count_range": [
+    6,
+    13
+  ],
+  "files": {
+    "fixed_panel_sign_sensitivity.csv": {
+      "rows": 10,
+      "sha256": "2031d8bcb52cc36d5d0393afdc30cf806693c2a0d2c82726bb773ac73170dfa1"
+    },
+    "representation_by_world.csv": {
+      "rows": 342,
+      "sha256": "3e6aab826b2960981350bd286bd2ee3b9c889afb89ddaaa5f224b63d73e835b6"
+    },
+    "representation_summary.csv": {
+      "rows": 6,
+      "sha256": "a77e9fdb54b0516b026b2863b77a8562baf5fd694687e94de2a5d2a29c9ebb04"
+    }
+  },
+  "inputs": {
+    "contrasts": {
+      "path": "results/graphlog/decoder-sensitivity/primary_contrasts.csv",
+      "sha256": "0f58aee5ef4375c1136d3cdeb16189919e66c2d6371f7a1a4e4b43303c6ccafa"
+    },
+    "schedule_audit": {
+      "path": "results/graphlog/protocol/schedule-audit.json",
+      "sha256": "d4dbb8f5b183ffc416cb0c634914fbd4d7acd02d03e47d2a308bee361b9e6451"
+    }
+  },
+  "schema_version": 1,
+  "scientific_role": "descriptive representation audit and across-world sign sensitivity for the complete fixed GraphLog v1.1 panel",
+  "sign_test_interpretation": "sensitivity to directional consistency under a 0.5 exchangeable-sign null; not an interval for a population of logical worlds",
+  "status": "PASS",
+  "worlds": 57
+}

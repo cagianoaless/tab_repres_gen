@@ -1,0 +1,44 @@
+schema_version: 6
+study_id: clutrr_symbolic_gpu_tabpfn_additive_short_control_v1
+status: development
+task_family: clutrr_symbolic
+resource_class: gpu
+design_role: prospective TabPFN equal-budget control adding short chains to a fixed nested length-2/3 base
+dataset_config: gen_train234_test2to10
+train_chain_lengths: [2, 3, 4]
+evaluation_chain_lengths: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+max_path_length: 10
+contexts_per_relation: [5, 10, 20, 40, 80]
+max_context_per_relation: 100
+context_sampling:
+  protocol: paired_additive_length_control_v1
+  base_chain_lengths: [2, 3]
+  added_chain_lengths: [2, 3]
+  added_per_relation: 20
+encoders:
+  - relation_multiset
+  - ordered_typed_path
+decoders: [tabpfn]
+model_identity:
+  package: tabpfn
+  package_version: 8.1.0
+  model_version: V3
+  n_estimators: 4
+  auto_scale_n_estimators: false
+  fit_mode: fit_with_cache
+  prediction_batch_size: 50000
+  keep_cache_on_device: true
+  inference_precision: auto
+  memory_saving_mode: auto
+  checkpoint_sha256: d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988
+seeds: [101, 102, 103]
+asset_files:
+  train:
+    path: data/raw/clutrr/v1/gen_train234_test2to10/train.csv
+    sha256: a6123f6e305cc528f0cd9fe441014fc244cc4b4a1e13a56c381624a7ca26c392
+  validation:
+    path: data/raw/clutrr/v1/gen_train234_test2to10/validation.csv
+    sha256: 414390d3322b9fd27ca00d99e442df63b497c9c05918a09f72843c926556cfaa
+  test:
+    path: data/raw/clutrr/v1/gen_train234_test2to10/test.csv
+    sha256: e139a9ebeece6901f0aa076dd6dd86ee9ff4a750473e3d477362b7f81da359cf

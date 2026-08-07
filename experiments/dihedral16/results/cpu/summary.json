@@ -1,0 +1,89 @@
+{
+  "bootstrap": {
+    "draws": 20000,
+    "scope": "fixed D8 panel sensitivity, not graph-population inference",
+    "seed": 20260728,
+    "unit": "generated_population_seed"
+  },
+  "cells": 600,
+  "contexts_per_class": [
+    20,
+    50,
+    100,
+    200,
+    400
+  ],
+  "cpu_replication_supported": false,
+  "failures": 0,
+  "final_replication_status": "awaiting_registered_tabpfn_cells",
+  "ood_lengths": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "plan_sha256": "91558079d61c7006ced18d1885d074fd2de31ac221bfdcd2c96c1591137c0d55",
+  "primary_context_per_class": 400,
+  "primary_contrasts": [
+    {
+      "context_per_class": 400,
+      "contrast": "shared_lossy_minus_absolute",
+      "decoder": "logistic",
+      "fixed_panel_bootstrap_lower": -0.00277622767857143,
+      "fixed_panel_bootstrap_upper": 0.001994977678571426,
+      "positive_ood_lengths": 2,
+      "positive_seeds": 4,
+      "seed_mean_difference": -0.0004324776785714295
+    },
+    {
+      "context_per_class": 400,
+      "contrast": "shared_lossy_minus_absolute",
+      "decoder": "catboost",
+      "fixed_panel_bootstrap_lower": 0.010588727678571427,
+      "fixed_panel_bootstrap_upper": 0.014662388392857145,
+      "positive_ood_lengths": 5,
+      "positive_seeds": 10,
+      "seed_mean_difference": 0.012611607142857143
+    },
+    {
+      "context_per_class": 400,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "logistic",
+      "fixed_panel_bootstrap_lower": -0.001143973214285713,
+      "fixed_panel_bootstrap_upper": 0.0034741210937499706,
+      "positive_ood_lengths": 4,
+      "positive_seeds": 7,
+      "seed_mean_difference": 0.001130022321428572
+    },
+    {
+      "context_per_class": 400,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "catboost",
+      "fixed_panel_bootstrap_lower": -0.004338727678571431,
+      "fixed_panel_bootstrap_upper": 0.00029296875000000275,
+      "positive_ood_lengths": 3,
+      "positive_seeds": 3,
+      "seed_mean_difference": -0.001939174107142856
+    }
+  ],
+  "schema_version": 1,
+  "seeds": [
+    701,
+    702,
+    703,
+    704,
+    705,
+    706,
+    707,
+    708,
+    709,
+    710
+  ],
+  "shards": 6,
+  "source_commit": "artifact-source-revision",
+  "status": "PASS",
+  "study_id": "compositional_d8_cpu_confirmation_v1"
+}

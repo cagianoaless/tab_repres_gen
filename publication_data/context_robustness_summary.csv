@@ -1,0 +1,19 @@
+contrast,decoder,context,effect,ci_low,ci_high,wins,ties,losses
+local_minus_random_ids,Logistic,Filtered uniform,0.197133,0.116998,0.314476,57,0,0
+local_minus_random_ids,CatBoost,Filtered uniform,0.257591,0.176944,0.372066,57,0,0
+local_minus_random_ids,TabPFN-3,Filtered uniform,0.261684,0.184436,0.377533,57,0,0
+local_minus_random_ids,Logistic,Structural,0.176745,0.096688,0.301233,57,0,0
+local_minus_random_ids,CatBoost,Structural,0.194333,0.118259,0.313944,57,0,0
+local_minus_random_ids,TabPFN-3,Structural,0.208217,0.128297,0.328805,57,0,0
+score_given_local,Logistic,Filtered uniform,0.128634,0.092826,0.162223,56,0,1
+score_given_local,CatBoost,Filtered uniform,0.048140,0.033480,0.065075,48,3,6
+score_given_local,TabPFN-3,Filtered uniform,0.124267,0.095503,0.151988,54,3,0
+score_given_local,Logistic,Structural,0.083299,0.040516,0.128593,41,0,16
+score_given_local,CatBoost,Structural,0.061442,0.030203,0.096124,36,5,16
+score_given_local,TabPFN-3,Structural,0.055802,0.023292,0.091967,38,3,16
+local_given_score,Logistic,Filtered uniform,-0.007008,-0.064749,0.095169,4,6,47
+local_given_score,CatBoost,Filtered uniform,0.011786,-0.053941,0.124504,10,2,45
+local_given_score,TabPFN-3,Filtered uniform,0.059468,0.005257,0.157866,28,12,17
+local_given_score,Logistic,Structural,-0.039301,-0.115182,0.076198,10,3,44
+local_given_score,CatBoost,Structural,0.063513,-0.002859,0.168037,39,3,15
+local_given_score,TabPFN-3,Structural,0.023632,-0.038469,0.128071,18,6,33

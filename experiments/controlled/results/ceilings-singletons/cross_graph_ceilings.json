@@ -1,0 +1,5224 @@
+{
+  "groups": [
+    {
+      "ceiling": 0.79375,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.5404166666666667,
+      "collision_rows": 2594,
+      "conditional_label_entropy_bits": 0.5019269085451419,
+      "encoder": "aligned_permutation",
+      "equivalence_class_histogram": [
+        {
+          "classes": 893,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 70,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 10,
+          "negative_count": 0,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 0,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 0,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 6
+        },
+        {
+          "classes": 899,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 131,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 33,
+          "negative_count": 1,
+          "positive_count": 2
+        },
+        {
+          "classes": 19,
+          "negative_count": 1,
+          "positive_count": 3
+        },
+        {
+          "classes": 12,
+          "negative_count": 1,
+          "positive_count": 4
+        },
+        {
+          "classes": 5,
+          "negative_count": 1,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 8
+        },
+        {
+          "classes": 58,
+          "negative_count": 2,
+          "positive_count": 0
+        },
+        {
+          "classes": 43,
+          "negative_count": 2,
+          "positive_count": 1
+        },
+        {
+          "classes": 20,
+          "negative_count": 2,
+          "positive_count": 2
+        },
+        {
+          "classes": 12,
+          "negative_count": 2,
+          "positive_count": 3
+        },
+        {
+          "classes": 13,
+          "negative_count": 2,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 5
+        },
+        {
+          "classes": 3,
+          "negative_count": 2,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 8
+        },
+        {
+          "classes": 17,
+          "negative_count": 3,
+          "positive_count": 0
+        },
+        {
+          "classes": 21,
+          "negative_count": 3,
+          "positive_count": 1
+        },
+        {
+          "classes": 13,
+          "negative_count": 3,
+          "positive_count": 2
+        },
+        {
+          "classes": 14,
+          "negative_count": 3,
+          "positive_count": 3
+        },
+        {
+          "classes": 9,
+          "negative_count": 3,
+          "positive_count": 4
+        },
+        {
+          "classes": 7,
+          "negative_count": 3,
+          "positive_count": 5
+        },
+        {
+          "classes": 5,
+          "negative_count": 3,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 3,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 11
+        },
+        {
+          "classes": 5,
+          "negative_count": 4,
+          "positive_count": 0
+        },
+        {
+          "classes": 4,
+          "negative_count": 4,
+          "positive_count": 1
+        },
+        {
+          "classes": 10,
+          "negative_count": 4,
+          "positive_count": 2
+        },
+        {
+          "classes": 7,
+          "negative_count": 4,
+          "positive_count": 3
+        },
+        {
+          "classes": 10,
+          "negative_count": 4,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 4,
+          "positive_count": 5
+        },
+        {
+          "classes": 4,
+          "negative_count": 4,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 4,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 0
+        },
+        {
+          "classes": 3,
+          "negative_count": 5,
+          "positive_count": 1
+        },
+        {
+          "classes": 8,
+          "negative_count": 5,
+          "positive_count": 2
+        },
+        {
+          "classes": 7,
+          "negative_count": 5,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 4
+        },
+        {
+          "classes": 8,
+          "negative_count": 5,
+          "positive_count": 5
+        },
+        {
+          "classes": 3,
+          "negative_count": 5,
+          "positive_count": 6
+        },
+        {
+          "classes": 4,
+          "negative_count": 5,
+          "positive_count": 7
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 9
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 1
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 2
+        },
+        {
+          "classes": 3,
+          "negative_count": 6,
+          "positive_count": 3
+        },
+        {
+          "classes": 4,
+          "negative_count": 6,
+          "positive_count": 4
+        },
+        {
+          "classes": 4,
+          "negative_count": 6,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 7
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 11
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 0
+        },
+        {
+          "classes": 3,
+          "negative_count": 7,
+          "positive_count": 3
+        },
+        {
+          "classes": 4,
+          "negative_count": 7,
+          "positive_count": 4
+        },
+        {
+          "classes": 5,
+          "negative_count": 7,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 7,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 9
+        },
+        {
+          "classes": 2,
+          "negative_count": 8,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 4
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 494,
+      "property": "discovery_block_affinity",
+      "pure_rows": 2206,
+      "roc_auc_ceiling": 0.9046140625,
+      "rows": 4800,
+      "singleton_classes": 1792,
+      "singleton_fraction": 0.37333333333333335,
+      "singleton_rows": 1792,
+      "unique_representations": 2456
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "categorical_ordinal",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_block_affinity",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "dimension_matched_noise",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_block_affinity",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_dyadic_invariants",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_block_affinity",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.735625,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.7322916666666667,
+      "collision_rows": 3515,
+      "conditional_label_entropy_bits": 0.6631248291653267,
+      "encoder": "query_local_roles",
+      "equivalence_class_histogram": [
+        {
+          "classes": 363,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 76,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 19,
+          "negative_count": 0,
+          "positive_count": 3
+        },
+        {
+          "classes": 6,
+          "negative_count": 0,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 0,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 8
+        },
+        {
+          "classes": 364,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 148,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 65,
+          "negative_count": 1,
+          "positive_count": 2
+        },
+        {
+          "classes": 41,
+          "negative_count": 1,
+          "positive_count": 3
+        },
+        {
+          "classes": 11,
+          "negative_count": 1,
+          "positive_count": 4
+        },
+        {
+          "classes": 13,
+          "negative_count": 1,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 1,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 12
+        },
+        {
+          "classes": 81,
+          "negative_count": 2,
+          "positive_count": 0
+        },
+        {
+          "classes": 65,
+          "negative_count": 2,
+          "positive_count": 1
+        },
+        {
+          "classes": 49,
+          "negative_count": 2,
+          "positive_count": 2
+        },
+        {
+          "classes": 21,
+          "negative_count": 2,
+          "positive_count": 3
+        },
+        {
+          "classes": 16,
+          "negative_count": 2,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 2,
+          "positive_count": 5
+        },
+        {
+          "classes": 6,
+          "negative_count": 2,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 7
+        },
+        {
+          "classes": 3,
+          "negative_count": 2,
+          "positive_count": 8
+        },
+        {
+          "classes": 27,
+          "negative_count": 3,
+          "positive_count": 0
+        },
+        {
+          "classes": 22,
+          "negative_count": 3,
+          "positive_count": 1
+        },
+        {
+          "classes": 27,
+          "negative_count": 3,
+          "positive_count": 2
+        },
+        {
+          "classes": 15,
+          "negative_count": 3,
+          "positive_count": 3
+        },
+        {
+          "classes": 9,
+          "negative_count": 3,
+          "positive_count": 4
+        },
+        {
+          "classes": 8,
+          "negative_count": 3,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 8
+        },
+        {
+          "classes": 2,
+          "negative_count": 3,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 13
+        },
+        {
+          "classes": 7,
+          "negative_count": 4,
+          "positive_count": 0
+        },
+        {
+          "classes": 13,
+          "negative_count": 4,
+          "positive_count": 1
+        },
+        {
+          "classes": 13,
+          "negative_count": 4,
+          "positive_count": 2
+        },
+        {
+          "classes": 8,
+          "negative_count": 4,
+          "positive_count": 3
+        },
+        {
+          "classes": 11,
+          "negative_count": 4,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 4,
+          "positive_count": 5
+        },
+        {
+          "classes": 5,
+          "negative_count": 4,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 4,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 10
+        },
+        {
+          "classes": 3,
+          "negative_count": 5,
+          "positive_count": 0
+        },
+        {
+          "classes": 8,
+          "negative_count": 5,
+          "positive_count": 1
+        },
+        {
+          "classes": 14,
+          "negative_count": 5,
+          "positive_count": 2
+        },
+        {
+          "classes": 8,
+          "negative_count": 5,
+          "positive_count": 3
+        },
+        {
+          "classes": 7,
+          "negative_count": 5,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 5
+        },
+        {
+          "classes": 7,
+          "negative_count": 5,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 9
+        },
+        {
+          "classes": 3,
+          "negative_count": 6,
+          "positive_count": 1
+        },
+        {
+          "classes": 6,
+          "negative_count": 6,
+          "positive_count": 3
+        },
+        {
+          "classes": 6,
+          "negative_count": 6,
+          "positive_count": 4
+        },
+        {
+          "classes": 4,
+          "negative_count": 6,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 6
+        },
+        {
+          "classes": 3,
+          "negative_count": 6,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 8
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 11
+        },
+        {
+          "classes": 2,
+          "negative_count": 7,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 2
+        },
+        {
+          "classes": 6,
+          "negative_count": 7,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 5
+        },
+        {
+          "classes": 3,
+          "negative_count": 7,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 7,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 9
+        },
+        {
+          "classes": 2,
+          "negative_count": 10,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 10,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 12,
+          "positive_count": 6
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 697,
+      "property": "discovery_block_affinity",
+      "pure_rows": 1285,
+      "roc_auc_ceiling": 0.8390865451388889,
+      "rows": 4800,
+      "singleton_classes": 727,
+      "singleton_fraction": 0.15145833333333333,
+      "singleton_rows": 727,
+      "unique_representations": 1649
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_relation_only",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_block_affinity",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.9989583333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0020833333333333333,
+      "collision_rows": 10,
+      "conditional_label_entropy_bits": 0.0020833333333333333,
+      "encoder": "shared_embedding_symmetric",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2387,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 4,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 2377,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 5,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 9,
+          "negative_count": 2,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 5,
+      "property": "discovery_block_affinity",
+      "pure_rows": 4790,
+      "roc_auc_ceiling": 0.9999978298611111,
+      "rows": 4800,
+      "singleton_classes": 4764,
+      "singleton_fraction": 0.9925,
+      "singleton_rows": 4764,
+      "unique_representations": 4782
+    },
+    {
+      "ceiling": 0.80125,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.5491666666666667,
+      "collision_rows": 2636,
+      "conditional_label_entropy_bits": 0.49789602313885273,
+      "encoder": "topology_evidence_bank",
+      "equivalence_class_histogram": [
+        {
+          "classes": 882,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 62,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 10,
+          "negative_count": 0,
+          "positive_count": 3
+        },
+        {
+          "classes": 3,
+          "negative_count": 0,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 8
+        },
+        {
+          "classes": 910,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 133,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 48,
+          "negative_count": 1,
+          "positive_count": 2
+        },
+        {
+          "classes": 26,
+          "negative_count": 1,
+          "positive_count": 3
+        },
+        {
+          "classes": 7,
+          "negative_count": 1,
+          "positive_count": 4
+        },
+        {
+          "classes": 8,
+          "negative_count": 1,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 1,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 12
+        },
+        {
+          "classes": 64,
+          "negative_count": 2,
+          "positive_count": 0
+        },
+        {
+          "classes": 36,
+          "negative_count": 2,
+          "positive_count": 1
+        },
+        {
+          "classes": 17,
+          "negative_count": 2,
+          "positive_count": 2
+        },
+        {
+          "classes": 11,
+          "negative_count": 2,
+          "positive_count": 3
+        },
+        {
+          "classes": 11,
+          "negative_count": 2,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 5
+        },
+        {
+          "classes": 4,
+          "negative_count": 2,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 7
+        },
+        {
+          "classes": 3,
+          "negative_count": 2,
+          "positive_count": 8
+        },
+        {
+          "classes": 9,
+          "negative_count": 3,
+          "positive_count": 0
+        },
+        {
+          "classes": 18,
+          "negative_count": 3,
+          "positive_count": 1
+        },
+        {
+          "classes": 17,
+          "negative_count": 3,
+          "positive_count": 2
+        },
+        {
+          "classes": 12,
+          "negative_count": 3,
+          "positive_count": 3
+        },
+        {
+          "classes": 5,
+          "negative_count": 3,
+          "positive_count": 4
+        },
+        {
+          "classes": 7,
+          "negative_count": 3,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 8
+        },
+        {
+          "classes": 2,
+          "negative_count": 3,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 13
+        },
+        {
+          "classes": 3,
+          "negative_count": 4,
+          "positive_count": 0
+        },
+        {
+          "classes": 7,
+          "negative_count": 4,
+          "positive_count": 1
+        },
+        {
+          "classes": 10,
+          "negative_count": 4,
+          "positive_count": 2
+        },
+        {
+          "classes": 6,
+          "negative_count": 4,
+          "positive_count": 3
+        },
+        {
+          "classes": 8,
+          "negative_count": 4,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 4,
+          "positive_count": 5
+        },
+        {
+          "classes": 4,
+          "negative_count": 4,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 4,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 10
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 0
+        },
+        {
+          "classes": 6,
+          "negative_count": 5,
+          "positive_count": 1
+        },
+        {
+          "classes": 9,
+          "negative_count": 5,
+          "positive_count": 2
+        },
+        {
+          "classes": 6,
+          "negative_count": 5,
+          "positive_count": 3
+        },
+        {
+          "classes": 5,
+          "negative_count": 5,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 5
+        },
+        {
+          "classes": 6,
+          "negative_count": 5,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 9
+        },
+        {
+          "classes": 3,
+          "negative_count": 6,
+          "positive_count": 1
+        },
+        {
+          "classes": 6,
+          "negative_count": 6,
+          "positive_count": 3
+        },
+        {
+          "classes": 5,
+          "negative_count": 6,
+          "positive_count": 4
+        },
+        {
+          "classes": 4,
+          "negative_count": 6,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 8
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 11
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 2
+        },
+        {
+          "classes": 5,
+          "negative_count": 7,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 5
+        },
+        {
+          "classes": 3,
+          "negative_count": 7,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 7,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 10,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 12,
+          "positive_count": 6
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 507,
+      "property": "discovery_block_affinity",
+      "pure_rows": 2164,
+      "roc_auc_ceiling": 0.9091444444444444,
+      "rows": 4800,
+      "singleton_classes": 1792,
+      "singleton_fraction": 0.37333333333333335,
+      "singleton_rows": 1792,
+      "unique_representations": 2456
+    },
+    {
+      "ceiling": 0.9945833333333334,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.010833333333333334,
+      "collision_rows": 52,
+      "conditional_label_entropy_bits": 0.010833333333333322,
+      "encoder": "unordered_onehot",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2338,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 18,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 2324,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 26,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 25,
+          "negative_count": 2,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 26,
+      "property": "discovery_block_affinity",
+      "pure_rows": 4748,
+      "roc_auc_ceiling": 0.9999413194444444,
+      "rows": 4800,
+      "singleton_classes": 4662,
+      "singleton_fraction": 0.97125,
+      "singleton_rows": 4662,
+      "unique_representations": 4731
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "aligned_permutation",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_reciprocity",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "categorical_ordinal",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_reciprocity",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "dimension_matched_noise",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_reciprocity",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_dyadic_invariants",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_reciprocity",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "query_local_roles",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_reciprocity",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_relation_only",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_reciprocity",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "reciprocity_evidence_bank",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_reciprocity",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 0.9975,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.005,
+      "collision_rows": 24,
+      "conditional_label_entropy_bits": 0.004999999999999998,
+      "encoder": "role_onehot",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2384,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 2386,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 12,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 12,
+      "property": "discovery_reciprocity",
+      "pure_rows": 4776,
+      "roc_auc_ceiling": 0.9999875,
+      "rows": 4800,
+      "singleton_classes": 4770,
+      "singleton_fraction": 0.99375,
+      "singleton_rows": 4770,
+      "unique_representations": 4785
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "shared_embedding_directed",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_reciprocity",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 0.53375,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9915063175853853,
+      "encoder": "aligned_permutation",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 13,
+          "positive_count": 13
+        },
+        {
+          "classes": 1,
+          "negative_count": 13,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 13,
+          "positive_count": 15
+        },
+        {
+          "classes": 1,
+          "negative_count": 13,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 13,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 14,
+          "positive_count": 29
+        },
+        {
+          "classes": 1,
+          "negative_count": 15,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 15,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 11
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 16
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 19
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 25
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 26
+        },
+        {
+          "classes": 1,
+          "negative_count": 17,
+          "positive_count": 21
+        },
+        {
+          "classes": 1,
+          "negative_count": 17,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 17,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 17,
+          "positive_count": 25
+        },
+        {
+          "classes": 1,
+          "negative_count": 18,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 18,
+          "positive_count": 18
+        },
+        {
+          "classes": 1,
+          "negative_count": 18,
+          "positive_count": 21
+        },
+        {
+          "classes": 1,
+          "negative_count": 19,
+          "positive_count": 16
+        },
+        {
+          "classes": 1,
+          "negative_count": 19,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 19,
+          "positive_count": 24
+        },
+        {
+          "classes": 3,
+          "negative_count": 20,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 20,
+          "positive_count": 18
+        },
+        {
+          "classes": 1,
+          "negative_count": 20,
+          "positive_count": 19
+        },
+        {
+          "classes": 1,
+          "negative_count": 20,
+          "positive_count": 21
+        },
+        {
+          "classes": 1,
+          "negative_count": 20,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 21,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 21,
+          "positive_count": 20
+        },
+        {
+          "classes": 2,
+          "negative_count": 21,
+          "positive_count": 21
+        },
+        {
+          "classes": 1,
+          "negative_count": 21,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 21,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 22,
+          "positive_count": 16
+        },
+        {
+          "classes": 1,
+          "negative_count": 22,
+          "positive_count": 19
+        },
+        {
+          "classes": 2,
+          "negative_count": 23,
+          "positive_count": 12
+        },
+        {
+          "classes": 1,
+          "negative_count": 23,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 23,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 23,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 24,
+          "positive_count": 18
+        },
+        {
+          "classes": 1,
+          "negative_count": 24,
+          "positive_count": 20
+        },
+        {
+          "classes": 1,
+          "negative_count": 24,
+          "positive_count": 21
+        },
+        {
+          "classes": 1,
+          "negative_count": 25,
+          "positive_count": 25
+        },
+        {
+          "classes": 1,
+          "negative_count": 26,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 26,
+          "positive_count": 25
+        },
+        {
+          "classes": 1,
+          "negative_count": 27,
+          "positive_count": 26
+        },
+        {
+          "classes": 1,
+          "negative_count": 28,
+          "positive_count": 19
+        },
+        {
+          "classes": 1,
+          "negative_count": 28,
+          "positive_count": 21
+        },
+        {
+          "classes": 1,
+          "negative_count": 28,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 29,
+          "positive_count": 11
+        },
+        {
+          "classes": 1,
+          "negative_count": 30,
+          "positive_count": 28
+        },
+        {
+          "classes": 1,
+          "negative_count": 31,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 105,
+          "positive_count": 128
+        },
+        {
+          "classes": 1,
+          "negative_count": 108,
+          "positive_count": 119
+        },
+        {
+          "classes": 1,
+          "negative_count": 207,
+          "positive_count": 204
+        },
+        {
+          "classes": 1,
+          "negative_count": 221,
+          "positive_count": 208
+        },
+        {
+          "classes": 1,
+          "negative_count": 290,
+          "positive_count": 295
+        },
+        {
+          "classes": 1,
+          "negative_count": 302,
+          "positive_count": 292
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 64,
+      "property": "discovery_structural_roles",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5534514756944444,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 64
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "categorical_ordinal",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_structural_roles",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 0.948125,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.121875,
+      "collision_rows": 585,
+      "conditional_label_entropy_bits": 0.1165583770997472,
+      "encoder": "dimension_matched_noise",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1950,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 67,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 6,
+          "negative_count": 0,
+          "positive_count": 3
+        },
+        {
+          "classes": 3,
+          "negative_count": 0,
+          "positive_count": 4
+        },
+        {
+          "classes": 1944,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 127,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 18,
+          "negative_count": 1,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 6
+        },
+        {
+          "classes": 68,
+          "negative_count": 2,
+          "positive_count": 0
+        },
+        {
+          "classes": 23,
+          "negative_count": 2,
+          "positive_count": 1
+        },
+        {
+          "classes": 13,
+          "negative_count": 2,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 4
+        },
+        {
+          "classes": 7,
+          "negative_count": 3,
+          "positive_count": 0
+        },
+        {
+          "classes": 3,
+          "negative_count": 3,
+          "positive_count": 1
+        },
+        {
+          "classes": 4,
+          "negative_count": 3,
+          "positive_count": 2
+        },
+        {
+          "classes": 3,
+          "negative_count": 3,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 5
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 206,
+      "property": "discovery_structural_roles",
+      "pure_rows": 4215,
+      "roc_auc_ceiling": 0.9943821180555555,
+      "rows": 4800,
+      "singleton_classes": 3894,
+      "singleton_fraction": 0.81125,
+      "singleton_rows": 3894,
+      "unique_representations": 4251
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_dyadic_invariants",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_structural_roles",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.8866666666666667,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.9702083333333333,
+      "collision_rows": 4657,
+      "conditional_label_entropy_bits": 0.4874273591913533,
+      "encoder": "query_local_roles",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 18,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 3,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 13
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 16
+        },
+        {
+          "classes": 2,
+          "negative_count": 1,
+          "positive_count": 17
+        },
+        {
+          "classes": 7,
+          "negative_count": 2,
+          "positive_count": 0
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 22
+        },
+        {
+          "classes": 6,
+          "negative_count": 3,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 22,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 22,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 25,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 25,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 26,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 26,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 27,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 28,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 29,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 30,
+          "positive_count": 7
+        },
+        {
+          "classes": 6,
+          "negative_count": 31,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 31,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 31,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 32,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 33,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 33,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 33,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 33,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 34,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 34,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 34,
+          "positive_count": 7
+        },
+        {
+          "classes": 2,
+          "negative_count": 35,
+          "positive_count": 0
+        },
+        {
+          "classes": 2,
+          "negative_count": 35,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 35,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 36,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 37,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 37,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 37,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 38,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 38,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 38,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 39,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 39,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 39,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 40,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 40,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 40,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 41,
+          "positive_count": 192
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 43,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 44,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 45,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 45,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 46,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 48,
+          "positive_count": 356
+        },
+        {
+          "classes": 1,
+          "negative_count": 49,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 49,
+          "positive_count": 459
+        },
+        {
+          "classes": 1,
+          "negative_count": 51,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 53,
+          "positive_count": 174
+        },
+        {
+          "classes": 1,
+          "negative_count": 54,
+          "positive_count": 357
+        },
+        {
+          "classes": 1,
+          "negative_count": 58,
+          "positive_count": 536
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 72,
+      "property": "discovery_structural_roles",
+      "pure_rows": 143,
+      "roc_auc_ceiling": 0.9135622395833334,
+      "rows": 4800,
+      "singleton_classes": 19,
+      "singleton_fraction": 0.003958333333333334,
+      "singleton_rows": 19,
+      "unique_representations": 107
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_relation_only",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_structural_roles",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.8864583333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.9808333333333333,
+      "collision_rows": 4708,
+      "conditional_label_entropy_bits": 0.49108216231927854,
+      "encoder": "role_evidence_bank",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 22,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 23,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 25,
+          "positive_count": 1
+        },
+        {
+          "classes": 2,
+          "negative_count": 26,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 27,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 27,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 30,
+          "positive_count": 7
+        },
+        {
+          "classes": 4,
+          "negative_count": 31,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 31,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 32,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 32,
+          "positive_count": 7
+        },
+        {
+          "classes": 2,
+          "negative_count": 33,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 33,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 33,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 34,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 34,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 34,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 34,
+          "positive_count": 9
+        },
+        {
+          "classes": 2,
+          "negative_count": 35,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 35,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 35,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 36,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 37,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 37,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 37,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 38,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 38,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 38,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 39,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 39,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 39,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 40,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 40,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 40,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 40,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 41,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 41,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 41,
+          "positive_count": 192
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 43,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 44,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 45,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 45,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 46,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 49,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 51,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 52,
+          "positive_count": 377
+        },
+        {
+          "classes": 1,
+          "negative_count": 53,
+          "positive_count": 174
+        },
+        {
+          "classes": 1,
+          "negative_count": 54,
+          "positive_count": 357
+        },
+        {
+          "classes": 1,
+          "negative_count": 54,
+          "positive_count": 531
+        },
+        {
+          "classes": 1,
+          "negative_count": 58,
+          "positive_count": 536
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 61,
+      "property": "discovery_structural_roles",
+      "pure_rows": 92,
+      "roc_auc_ceiling": 0.9119989583333333,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 64
+    },
+    {
+      "ceiling": 0.9989583333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0020833333333333333,
+      "collision_rows": 10,
+      "conditional_label_entropy_bits": 0.0020833333333333333,
+      "encoder": "role_onehot",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2387,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 4,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 2379,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 5,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 8,
+          "negative_count": 2,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 5,
+      "property": "discovery_structural_roles",
+      "pure_rows": 4790,
+      "roc_auc_ceiling": 0.9999978298611111,
+      "rows": 4800,
+      "singleton_classes": 4766,
+      "singleton_fraction": 0.9929166666666667,
+      "singleton_rows": 4766,
+      "unique_representations": 4783
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "shared_embedding_directed",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_structural_roles",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 0.5633333333333334,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.9660416666666667,
+      "collision_rows": 4637,
+      "conditional_label_entropy_bits": 0.9506989553500242,
+      "encoder": "aligned_permutation",
+      "equivalence_class_histogram": [
+        {
+          "classes": 40,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 10,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 0,
+          "positive_count": 5
+        },
+        {
+          "classes": 50,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 13,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 4,
+          "negative_count": 1,
+          "positive_count": 2
+        },
+        {
+          "classes": 3,
+          "negative_count": 1,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 1,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 1,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 6
+        },
+        {
+          "classes": 7,
+          "negative_count": 2,
+          "positive_count": 0
+        },
+        {
+          "classes": 6,
+          "negative_count": 2,
+          "positive_count": 1
+        },
+        {
+          "classes": 6,
+          "negative_count": 2,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 4
+        },
+        {
+          "classes": 4,
+          "negative_count": 2,
+          "positive_count": 5
+        },
+        {
+          "classes": 3,
+          "negative_count": 3,
+          "positive_count": 0
+        },
+        {
+          "classes": 4,
+          "negative_count": 3,
+          "positive_count": 1
+        },
+        {
+          "classes": 2,
+          "negative_count": 3,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 3
+        },
+        {
+          "classes": 4,
+          "negative_count": 3,
+          "positive_count": 4
+        },
+        {
+          "classes": 4,
+          "negative_count": 3,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 3,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 8
+        },
+        {
+          "classes": 3,
+          "negative_count": 4,
+          "positive_count": 0
+        },
+        {
+          "classes": 2,
+          "negative_count": 4,
+          "positive_count": 1
+        },
+        {
+          "classes": 3,
+          "negative_count": 4,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 4
+        },
+        {
+          "classes": 4,
+          "negative_count": 4,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 9
+        },
+        {
+          "classes": 4,
+          "negative_count": 6,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 6,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 7
+        },
+        {
+          "classes": 2,
+          "negative_count": 8,
+          "positive_count": 8
+        },
+        {
+          "classes": 2,
+          "negative_count": 8,
+          "positive_count": 11
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 8
+        },
+        {
+          "classes": 2,
+          "negative_count": 10,
+          "positive_count": 11
+        },
+        {
+          "classes": 2,
+          "negative_count": 10,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 12,
+          "positive_count": 24
+        },
+        {
+          "classes": 2,
+          "negative_count": 13,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 13,
+          "positive_count": 13
+        },
+        {
+          "classes": 2,
+          "negative_count": 13,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 14,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 14,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 15,
+          "positive_count": 26
+        },
+        {
+          "classes": 1,
+          "negative_count": 17,
+          "positive_count": 20
+        },
+        {
+          "classes": 1,
+          "negative_count": 17,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 18,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 18,
+          "positive_count": 21
+        },
+        {
+          "classes": 1,
+          "negative_count": 19,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 21,
+          "positive_count": 19
+        },
+        {
+          "classes": 1,
+          "negative_count": 22,
+          "positive_count": 15
+        },
+        {
+          "classes": 1,
+          "negative_count": 25,
+          "positive_count": 25
+        },
+        {
+          "classes": 1,
+          "negative_count": 25,
+          "positive_count": 30
+        },
+        {
+          "classes": 1,
+          "negative_count": 25,
+          "positive_count": 34
+        },
+        {
+          "classes": 1,
+          "negative_count": 26,
+          "positive_count": 13
+        },
+        {
+          "classes": 1,
+          "negative_count": 26,
+          "positive_count": 27
+        },
+        {
+          "classes": 1,
+          "negative_count": 26,
+          "positive_count": 35
+        },
+        {
+          "classes": 1,
+          "negative_count": 27,
+          "positive_count": 32
+        },
+        {
+          "classes": 1,
+          "negative_count": 29,
+          "positive_count": 28
+        },
+        {
+          "classes": 1,
+          "negative_count": 31,
+          "positive_count": 26
+        },
+        {
+          "classes": 1,
+          "negative_count": 31,
+          "positive_count": 39
+        },
+        {
+          "classes": 1,
+          "negative_count": 31,
+          "positive_count": 43
+        },
+        {
+          "classes": 1,
+          "negative_count": 32,
+          "positive_count": 20
+        },
+        {
+          "classes": 1,
+          "negative_count": 32,
+          "positive_count": 26
+        },
+        {
+          "classes": 1,
+          "negative_count": 37,
+          "positive_count": 31
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 39
+        },
+        {
+          "classes": 1,
+          "negative_count": 46,
+          "positive_count": 50
+        },
+        {
+          "classes": 1,
+          "negative_count": 48,
+          "positive_count": 29
+        },
+        {
+          "classes": 1,
+          "negative_count": 53,
+          "positive_count": 54
+        },
+        {
+          "classes": 1,
+          "negative_count": 57,
+          "positive_count": 56
+        },
+        {
+          "classes": 1,
+          "negative_count": 62,
+          "positive_count": 60
+        },
+        {
+          "classes": 1,
+          "negative_count": 64,
+          "positive_count": 59
+        },
+        {
+          "classes": 1,
+          "negative_count": 66,
+          "positive_count": 58
+        },
+        {
+          "classes": 1,
+          "negative_count": 71,
+          "positive_count": 60
+        },
+        {
+          "classes": 1,
+          "negative_count": 84,
+          "positive_count": 80
+        },
+        {
+          "classes": 1,
+          "negative_count": 89,
+          "positive_count": 75
+        },
+        {
+          "classes": 1,
+          "negative_count": 100,
+          "positive_count": 91
+        },
+        {
+          "classes": 1,
+          "negative_count": 112,
+          "positive_count": 126
+        },
+        {
+          "classes": 1,
+          "negative_count": 123,
+          "positive_count": 128
+        },
+        {
+          "classes": 1,
+          "negative_count": 140,
+          "positive_count": 130
+        },
+        {
+          "classes": 1,
+          "negative_count": 142,
+          "positive_count": 134
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 148,
+      "property": "discovery_typed_composition",
+      "pure_rows": 163,
+      "roc_auc_ceiling": 0.6016569444444444,
+      "rows": 4800,
+      "singleton_classes": 90,
+      "singleton_fraction": 0.01875,
+      "singleton_rows": 90,
+      "unique_representations": 265
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "categorical_ordinal",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_typed_composition",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    },
+    {
+      "ceiling": 0.7935416666666667,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.92375,
+      "collision_rows": 4434,
+      "conditional_label_entropy_bits": 0.6418761624035817,
+      "encoder": "composition_evidence_bank",
+      "equivalence_class_histogram": [
+        {
+          "classes": 68,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 15,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 6,
+          "negative_count": 0,
+          "positive_count": 3
+        },
+        {
+          "classes": 4,
+          "negative_count": 0,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 0,
+          "positive_count": 5
+        },
+        {
+          "classes": 4,
+          "negative_count": 0,
+          "positive_count": 6
+        },
+        {
+          "classes": 3,
+          "negative_count": 0,
+          "positive_count": 7
+        },
+        {
+          "classes": 3,
+          "negative_count": 0,
+          "positive_count": 9
+        },
+        {
+          "classes": 2,
+          "negative_count": 0,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 20
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 24
+        },
+        {
+          "classes": 22,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 10,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 3,
+          "negative_count": 1,
+          "positive_count": 2
+        },
+        {
+          "classes": 6,
+          "negative_count": 1,
+          "positive_count": 3
+        },
+        {
+          "classes": 3,
+          "negative_count": 1,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 5
+        },
+        {
+          "classes": 3,
+          "negative_count": 1,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 1,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 14
+        },
+        {
+          "classes": 5,
+          "negative_count": 2,
+          "positive_count": 0
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 1
+        },
+        {
+          "classes": 4,
+          "negative_count": 2,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 3
+        },
+        {
+          "classes": 3,
+          "negative_count": 2,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 7
+        },
+        {
+          "classes": 2,
+          "negative_count": 2,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 14
+        },
+        {
+          "classes": 3,
+          "negative_count": 3,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 1
+        },
+        {
+          "classes": 2,
+          "negative_count": 3,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 3,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 12
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 35
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 55
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 19
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 36
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 13
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 63
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 13
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 19
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 44
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 51
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 48
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 25
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 30
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 43
+        },
+        {
+          "classes": 1,
+          "negative_count": 11,
+          "positive_count": 1
+        },
+        {
+          "classes": 1,
+          "negative_count": 12,
+          "positive_count": 25
+        },
+        {
+          "classes": 1,
+          "negative_count": 13,
+          "positive_count": 37
+        },
+        {
+          "classes": 1,
+          "negative_count": 13,
+          "positive_count": 44
+        },
+        {
+          "classes": 1,
+          "negative_count": 14,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 14,
+          "positive_count": 22
+        },
+        {
+          "classes": 1,
+          "negative_count": 15,
+          "positive_count": 40
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 0
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 20
+        },
+        {
+          "classes": 1,
+          "negative_count": 19,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 19,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 19,
+          "positive_count": 17
+        },
+        {
+          "classes": 1,
+          "negative_count": 19,
+          "positive_count": 18
+        },
+        {
+          "classes": 1,
+          "negative_count": 20,
+          "positive_count": 20
+        },
+        {
+          "classes": 1,
+          "negative_count": 21,
+          "positive_count": 18
+        },
+        {
+          "classes": 1,
+          "negative_count": 36,
+          "positive_count": 128
+        },
+        {
+          "classes": 1,
+          "negative_count": 38,
+          "positive_count": 85
+        },
+        {
+          "classes": 1,
+          "negative_count": 40,
+          "positive_count": 151
+        },
+        {
+          "classes": 1,
+          "negative_count": 42,
+          "positive_count": 80
+        },
+        {
+          "classes": 1,
+          "negative_count": 44,
+          "positive_count": 63
+        },
+        {
+          "classes": 1,
+          "negative_count": 47,
+          "positive_count": 117
+        },
+        {
+          "classes": 1,
+          "negative_count": 49,
+          "positive_count": 82
+        },
+        {
+          "classes": 1,
+          "negative_count": 50,
+          "positive_count": 74
+        },
+        {
+          "classes": 1,
+          "negative_count": 52,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 56,
+          "positive_count": 57
+        },
+        {
+          "classes": 1,
+          "negative_count": 59,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 63,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 64,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 68,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 73,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 84,
+          "positive_count": 12
+        },
+        {
+          "classes": 1,
+          "negative_count": 217,
+          "positive_count": 21
+        },
+        {
+          "classes": 1,
+          "negative_count": 227,
+          "positive_count": 24
+        },
+        {
+          "classes": 1,
+          "negative_count": 237,
+          "positive_count": 33
+        },
+        {
+          "classes": 1,
+          "negative_count": 248,
+          "positive_count": 28
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 121,
+      "property": "discovery_typed_composition",
+      "pure_rows": 366,
+      "roc_auc_ceiling": 0.8638204861111111,
+      "rows": 4800,
+      "singleton_classes": 90,
+      "singleton_fraction": 0.01875,
+      "singleton_rows": 90,
+      "unique_representations": 265
+    },
+    {
+      "ceiling": 0.7535416666666667,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.628125,
+      "collision_rows": 3015,
+      "conditional_label_entropy_bits": 0.5918012437416222,
+      "encoder": "dimension_matched_noise",
+      "equivalence_class_histogram": [
+        {
+          "classes": 628,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 82,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 21,
+          "negative_count": 0,
+          "positive_count": 3
+        },
+        {
+          "classes": 6,
+          "negative_count": 0,
+          "positive_count": 4
+        },
+        {
+          "classes": 2,
+          "negative_count": 0,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 0,
+          "positive_count": 6
+        },
+        {
+          "classes": 631,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 173,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 56,
+          "negative_count": 1,
+          "positive_count": 2
+        },
+        {
+          "classes": 18,
+          "negative_count": 1,
+          "positive_count": 3
+        },
+        {
+          "classes": 6,
+          "negative_count": 1,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 1,
+          "positive_count": 7
+        },
+        {
+          "classes": 75,
+          "negative_count": 2,
+          "positive_count": 0
+        },
+        {
+          "classes": 49,
+          "negative_count": 2,
+          "positive_count": 1
+        },
+        {
+          "classes": 30,
+          "negative_count": 2,
+          "positive_count": 2
+        },
+        {
+          "classes": 23,
+          "negative_count": 2,
+          "positive_count": 3
+        },
+        {
+          "classes": 8,
+          "negative_count": 2,
+          "positive_count": 4
+        },
+        {
+          "classes": 5,
+          "negative_count": 2,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 2,
+          "positive_count": 10
+        },
+        {
+          "classes": 21,
+          "negative_count": 3,
+          "positive_count": 0
+        },
+        {
+          "classes": 28,
+          "negative_count": 3,
+          "positive_count": 1
+        },
+        {
+          "classes": 17,
+          "negative_count": 3,
+          "positive_count": 2
+        },
+        {
+          "classes": 8,
+          "negative_count": 3,
+          "positive_count": 3
+        },
+        {
+          "classes": 7,
+          "negative_count": 3,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 3,
+          "positive_count": 5
+        },
+        {
+          "classes": 3,
+          "negative_count": 3,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 7
+        },
+        {
+          "classes": 2,
+          "negative_count": 3,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 3,
+          "positive_count": 9
+        },
+        {
+          "classes": 9,
+          "negative_count": 4,
+          "positive_count": 0
+        },
+        {
+          "classes": 11,
+          "negative_count": 4,
+          "positive_count": 1
+        },
+        {
+          "classes": 13,
+          "negative_count": 4,
+          "positive_count": 2
+        },
+        {
+          "classes": 8,
+          "negative_count": 4,
+          "positive_count": 3
+        },
+        {
+          "classes": 8,
+          "negative_count": 4,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 4,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 4,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 4,
+          "positive_count": 9
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 0
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 1
+        },
+        {
+          "classes": 7,
+          "negative_count": 5,
+          "positive_count": 2
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 3
+        },
+        {
+          "classes": 4,
+          "negative_count": 5,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 6
+        },
+        {
+          "classes": 2,
+          "negative_count": 5,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 5,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 2
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 3
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 5
+        },
+        {
+          "classes": 2,
+          "negative_count": 6,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 6,
+          "positive_count": 7
+        },
+        {
+          "classes": 4,
+          "negative_count": 6,
+          "positive_count": 9
+        },
+        {
+          "classes": 2,
+          "negative_count": 7,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 8
+        },
+        {
+          "classes": 1,
+          "negative_count": 7,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 4
+        },
+        {
+          "classes": 3,
+          "negative_count": 8,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 8,
+          "positive_count": 8
+        },
+        {
+          "classes": 4,
+          "negative_count": 8,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 3
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 4
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 6
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 9,
+          "positive_count": 11
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 5
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 9
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 10,
+          "positive_count": 15
+        },
+        {
+          "classes": 1,
+          "negative_count": 11,
+          "positive_count": 19
+        },
+        {
+          "classes": 1,
+          "negative_count": 12,
+          "positive_count": 7
+        },
+        {
+          "classes": 1,
+          "negative_count": 12,
+          "positive_count": 11
+        },
+        {
+          "classes": 1,
+          "negative_count": 14,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 16,
+          "positive_count": 10
+        },
+        {
+          "classes": 1,
+          "negative_count": 17,
+          "positive_count": 11
+        },
+        {
+          "classes": 1,
+          "negative_count": 17,
+          "positive_count": 15
+        },
+        {
+          "classes": 1,
+          "negative_count": 18,
+          "positive_count": 12
+        },
+        {
+          "classes": 1,
+          "negative_count": 18,
+          "positive_count": 23
+        },
+        {
+          "classes": 1,
+          "negative_count": 20,
+          "positive_count": 14
+        },
+        {
+          "classes": 1,
+          "negative_count": 28,
+          "positive_count": 25
+        },
+        {
+          "classes": 1,
+          "negative_count": 32,
+          "positive_count": 48
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 562,
+      "property": "discovery_typed_composition",
+      "pure_rows": 1785,
+      "roc_auc_ceiling": 0.86459609375,
+      "rows": 4800,
+      "singleton_classes": 1259,
+      "singleton_fraction": 0.26229166666666665,
+      "singleton_rows": 1259,
+      "unique_representations": 2040
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_dyadic_invariants",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_typed_composition",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_graph_reachability",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_typed_composition",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.9972916666666667,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.005416666666666667,
+      "collision_rows": 26,
+      "conditional_label_entropy_bits": 0.005416666666666664,
+      "encoder": "query_local_roles",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2377,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 5,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 2373,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 13,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 7,
+          "negative_count": 2,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 13,
+      "property": "discovery_typed_composition",
+      "pure_rows": 4774,
+      "roc_auc_ceiling": 0.9999853298611111,
+      "rows": 4800,
+      "singleton_classes": 4750,
+      "singleton_fraction": 0.9895833333333334,
+      "singleton_rows": 4750,
+      "unique_representations": 4775
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_relation_only",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_typed_composition",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_typed_path_k2",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_typed_composition",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.5033333333333333,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 1.0,
+      "collision_rows": 4800,
+      "conditional_label_entropy_bits": 0.9999566355014573,
+      "encoder": "query_typed_path_k3",
+      "equivalence_class_histogram": [
+        {
+          "classes": 1,
+          "negative_count": 568,
+          "positive_count": 574
+        },
+        {
+          "classes": 1,
+          "negative_count": 601,
+          "positive_count": 608
+        },
+        {
+          "classes": 1,
+          "negative_count": 611,
+          "positive_count": 614
+        },
+        {
+          "classes": 1,
+          "negative_count": 620,
+          "positive_count": 604
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 4,
+      "property": "discovery_typed_composition",
+      "pure_rows": 0,
+      "roc_auc_ceiling": 0.5037505208333334,
+      "rows": 4800,
+      "singleton_classes": 0,
+      "singleton_fraction": 0.0,
+      "singleton_rows": 0,
+      "unique_representations": 4
+    },
+    {
+      "ceiling": 0.998125,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.00375,
+      "collision_rows": 18,
+      "conditional_label_entropy_bits": 0.0037500000000000003,
+      "encoder": "role_onehot",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2381,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 5,
+          "negative_count": 0,
+          "positive_count": 2
+        },
+        {
+          "classes": 2385,
+          "negative_count": 1,
+          "positive_count": 0
+        },
+        {
+          "classes": 9,
+          "negative_count": 1,
+          "positive_count": 1
+        },
+        {
+          "classes": 3,
+          "negative_count": 2,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 9,
+      "property": "discovery_typed_composition",
+      "pure_rows": 4782,
+      "roc_auc_ceiling": 0.99999296875,
+      "rows": 4800,
+      "singleton_classes": 4766,
+      "singleton_fraction": 0.9929166666666667,
+      "singleton_rows": 4766,
+      "unique_representations": 4783
+    },
+    {
+      "ceiling": 1.0,
+      "ceiling_seeds": [
+        19001,
+        19002,
+        19003
+      ],
+      "collision_coverage": 0.0,
+      "collision_rows": 0,
+      "conditional_label_entropy_bits": 0.0,
+      "encoder": "shared_embedding_directed",
+      "equivalence_class_histogram": [
+        {
+          "classes": 2400,
+          "negative_count": 0,
+          "positive_count": 1
+        },
+        {
+          "classes": 2400,
+          "negative_count": 1,
+          "positive_count": 0
+        }
+      ],
+      "graph_count": 3,
+      "label_entropy_bits": 1.0,
+      "majority_prior": 0.5,
+      "mixed_classes": 0,
+      "property": "discovery_typed_composition",
+      "pure_rows": 4800,
+      "roc_auc_ceiling": 1.0,
+      "rows": 4800,
+      "singleton_classes": 4800,
+      "singleton_fraction": 1.0,
+      "singleton_rows": 4800,
+      "unique_representations": 4800
+    }
+  ],
+  "scope": "exact pooled ceiling over independently generated and relabelled graphs; repeated rows must share semantic coordinates across graphs"
+}

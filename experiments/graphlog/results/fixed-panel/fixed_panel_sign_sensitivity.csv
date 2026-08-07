@@ -1,0 +1,11 @@
+decoder,contrast,context_per_relation,equal_world_mean_delta,world_wins,world_ties,world_losses,two_sided_exact_sign_p
+catboost,shared_multiset_minus_absolute,40,-0.15746703859932934,6,0,51,5.676193126635809e-10
+catboost,block_permuted_minus_aligned_combined,40,-0.09157345218646458,7,0,50,4.236709844063213e-09
+catboost_depth1,shared_multiset_minus_absolute,40,-0.06998791342836747,14,0,43,0.00015388902244434233
+catboost_depth1,block_permuted_minus_aligned_combined,40,-0.052315263057921106,17,0,40,0.003201543767450382
+catboost_tuned,shared_multiset_minus_absolute,40,-0.14902500686195405,7,0,50,4.236709844063213e-09
+catboost_tuned,block_permuted_minus_aligned_combined,40,-0.08626630629692492,9,0,48,1.520195229143262e-07
+logistic,shared_multiset_minus_absolute,40,0.06459996129913628,41,0,16,0.0012635594724354632
+logistic,block_permuted_minus_aligned_combined,40,0.019895179428377045,32,0,25,0.42704285650325524
+tabpfn,shared_multiset_minus_absolute,40,-0.07887201798691272,11,0,46,3.3118847623803127e-06
+tabpfn,block_permuted_minus_aligned_combined,40,-0.07574878752807533,12,0,45,1.3127443164284713e-05

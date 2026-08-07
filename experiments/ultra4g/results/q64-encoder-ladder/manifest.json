@@ -1,0 +1,86 @@
+{
+  "files": [
+    {
+      "bytes": 4812,
+      "path": "README.md",
+      "sha256": "29634ef50339d43a882c39069592aa01b3ef64dac5bb8cd8539fcf654830ebb2"
+    },
+    {
+      "bytes": 1424,
+      "path": "absolute_mrr_equal_dataset.csv",
+      "sha256": "62ebb8a813765e9e44fa0947f339db0f45da37e221fc9a8184de57654c276cbb"
+    },
+    {
+      "bytes": 1424,
+      "path": "absolute_mrr_equal_family.csv",
+      "sha256": "a273dbedbbbc6b04f4c951fad072bcd1d004591ddf9f15b5d5d506fc57953d5e"
+    },
+    {
+      "bytes": 2347,
+      "path": "audit.json",
+      "sha256": "fdbed75088c3203da2652a8d4bc6147d279cfa2f1ce02fd563787c5ce6092c54"
+    },
+    {
+      "bytes": 5699,
+      "path": "constant_fallback_summary.csv",
+      "sha256": "4f97bb545e197d874cb5a91f3b44d4b39ab41e94261e7e820d4c6ac1e65542ed"
+    },
+    {
+      "bytes": 43529,
+      "path": "context_scaling_by_family.csv",
+      "sha256": "e7771ed391d390c4866ad67c74113e886145a8c7729c87be48ff313a35d40b74"
+    },
+    {
+      "bytes": 6668,
+      "path": "context_scaling_summary.csv",
+      "sha256": "f22d89d093569e8156077533a6f1efb14a7215cf384b1a760b888853cb24840f"
+    },
+    {
+      "bytes": 631796,
+      "path": "contrast_by_dataset.csv",
+      "sha256": "ab6bfbb3372df55eed2f1a98edd412c22ebd46536728514a34187806c4c63763"
+    },
+    {
+      "bytes": 120672,
+      "path": "contrast_by_family.csv",
+      "sha256": "3ce32ed9b54bc9debb3077a6388923f94cfdc5c6a1e2fcdcf8cb220469787796"
+    },
+    {
+      "bytes": 48444,
+      "path": "contrast_by_regime.csv",
+      "sha256": "3e05fe706e673174bcb8c12d7a8a283018c6d210ffa3ad2b30bc8d4cd5fafc2a"
+    },
+    {
+      "bytes": 22362,
+      "path": "contrast_summary.csv",
+      "sha256": "b0630b8cfdc66b71120212dc3239530c8ba71ebda44de265683947d3bdef3e11"
+    },
+    {
+      "bytes": 1886138,
+      "path": "dataset_metrics.csv",
+      "sha256": "d8939e3e0aff479f393811b0d93088866a1cdf65383e9b880679a7e022a70d94"
+    },
+    {
+      "bytes": 17849,
+      "path": "finding_summary.json",
+      "sha256": "11c468a2b3a83e9845eb804800c61d523a27f768a6d48aa847046c0faa3601ba"
+    },
+    {
+      "bytes": 1055,
+      "path": "native_ultra_sensitivity.csv",
+      "sha256": "a1538ee85772f8fe005d4611c3a751188cb34fac44f0a032c39709f8e53aad63"
+    },
+    {
+      "bytes": 1176,
+      "path": "provenance_map.csv",
+      "sha256": "831a6bf892503688e58ed2728e3b701c66d64d690cd2f0c2d34a2d3b8c03e830"
+    },
+    {
+      "bytes": 26421,
+      "path": "rfmlink_complete57.pdf",
+      "sha256": "3dd3ad9f2e2cd6d30756856a053bb6c364bf478db5c6bc3e772d2ca0aa5029a6"
+    }
+  ],
+  "status": "COMPLETE_PANEL_57_AUDITED",
+  "study_id": "rfmlink_ultra57_q64_complete57_v1"
+}

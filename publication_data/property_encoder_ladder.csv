@@ -1,0 +1,63 @@
+property,context_per_class,encoder_family,encoder,mean_roc_auc,graph_seeds
+discovery_reciprocity,20,Query relation only,query_relation_only,0.4947159375,10
+discovery_reciprocity,20,Random entity tokens,categorical_ordinal,0.5016212499999999,10
+discovery_reciprocity,20,One-hot entity IDs,role_onehot,0.4964324999999999,10
+discovery_reciprocity,20,Random entity embeddings,shared_embedding_directed,0.502519375,10
+discovery_reciprocity,20,Dyadic invariants,query_dyadic_invariants,0.4947159375,10
+discovery_reciprocity,20,Local role counts,query_local_roles,0.5104328124999999,10
+discovery_reciprocity,20,Matched property evidence,property_evidence_bank,0.863175,10
+discovery_typed_composition,20,Query relation only,query_relation_only,0.4947159375,10
+discovery_typed_composition,20,Random entity tokens,categorical_ordinal,0.5052190624999999,10
+discovery_typed_composition,20,One-hot entity IDs,role_onehot,0.507335625,10
+discovery_typed_composition,20,Random entity embeddings,shared_embedding_directed,0.5120218750000001,10
+discovery_typed_composition,20,Dyadic invariants,query_dyadic_invariants,0.4947159375,10
+discovery_typed_composition,20,Local role counts,query_local_roles,0.5101209375,10
+discovery_typed_composition,20,Reachability,query_graph_reachability,0.4947159375,10
+discovery_typed_composition,20,"Typed paths, length 2",query_typed_path_k2,0.4947159375,10
+discovery_typed_composition,20,"Typed paths, length 3",query_typed_path_k3,0.4947159375,10
+discovery_typed_composition,20,Matched property evidence,property_evidence_bank,0.7990543750000001,10
+discovery_structural_roles,20,Query relation only,query_relation_only,0.4947159375,10
+discovery_structural_roles,20,Random entity tokens,categorical_ordinal,0.5006253125,10
+discovery_structural_roles,20,One-hot entity IDs,role_onehot,0.494633125,10
+discovery_structural_roles,20,Random entity embeddings,shared_embedding_directed,0.494008125,10
+discovery_structural_roles,20,Dyadic invariants,query_dyadic_invariants,0.4947159375,10
+discovery_structural_roles,20,Local role counts,query_local_roles,0.8786993750000001,10
+discovery_structural_roles,20,Matched property evidence,property_evidence_bank,0.8943199999999999,10
+discovery_block_affinity,20,Query relation only,query_relation_only,0.4947159375,10
+discovery_block_affinity,20,Random entity tokens,categorical_ordinal,0.50087,10
+discovery_block_affinity,20,One-hot entity IDs,unordered_onehot,0.4989128125000001,10
+discovery_block_affinity,20,Random entity embeddings,shared_embedding_symmetric,0.502621875,10
+discovery_block_affinity,20,Dyadic invariants,query_dyadic_invariants,0.4947159375,10
+discovery_block_affinity,20,Local role counts,query_local_roles,0.5135153125,10
+discovery_block_affinity,20,Matched property evidence,property_evidence_bank,0.5167046875000001,10
+discovery_reciprocity,400,Query relation only,query_relation_only,0.4956240625000001,10
+discovery_reciprocity,400,Random entity tokens,categorical_ordinal,0.5076962500000001,10
+discovery_reciprocity,400,One-hot entity IDs,role_onehot,0.5045862500000001,10
+discovery_reciprocity,400,Random entity embeddings,shared_embedding_directed,0.499075625,10
+discovery_reciprocity,400,Dyadic invariants,query_dyadic_invariants,0.4956240625000001,10
+discovery_reciprocity,400,Local role counts,query_local_roles,0.5730446874999999,10
+discovery_reciprocity,400,Matched property evidence,property_evidence_bank,0.9001524999999999,10
+discovery_typed_composition,400,Query relation only,query_relation_only,0.4956240625,10
+discovery_typed_composition,400,Random entity tokens,categorical_ordinal,0.505324375,10
+discovery_typed_composition,400,One-hot entity IDs,role_onehot,0.5192115625,10
+discovery_typed_composition,400,Random entity embeddings,shared_embedding_directed,0.5032228125,10
+discovery_typed_composition,400,Dyadic invariants,query_dyadic_invariants,0.4956240625,10
+discovery_typed_composition,400,Local role counts,query_local_roles,0.5669087500000001,10
+discovery_typed_composition,400,Reachability,query_graph_reachability,0.4956240625000001,10
+discovery_typed_composition,400,"Typed paths, length 2",query_typed_path_k2,0.4956240625,10
+discovery_typed_composition,400,"Typed paths, length 3",query_typed_path_k3,0.4956240625000001,10
+discovery_typed_composition,400,Matched property evidence,property_evidence_bank,0.902254375,10
+discovery_structural_roles,400,Query relation only,query_relation_only,0.4956240625000001,10
+discovery_structural_roles,400,Random entity tokens,categorical_ordinal,0.5285009374999999,10
+discovery_structural_roles,400,One-hot entity IDs,role_onehot,0.6701553125,10
+discovery_structural_roles,400,Random entity embeddings,shared_embedding_directed,0.4970171875,10
+discovery_structural_roles,400,Dyadic invariants,query_dyadic_invariants,0.4956240625000001,10
+discovery_structural_roles,400,Local role counts,query_local_roles,0.8992093750000001,10
+discovery_structural_roles,400,Matched property evidence,property_evidence_bank,0.900776875,10
+discovery_block_affinity,400,Query relation only,query_relation_only,0.4956240624999999,10
+discovery_block_affinity,400,Random entity tokens,categorical_ordinal,0.4994234375,10
+discovery_block_affinity,400,One-hot entity IDs,unordered_onehot,0.4946346874999999,10
+discovery_block_affinity,400,Random entity embeddings,shared_embedding_symmetric,0.502731875,10
+discovery_block_affinity,400,Dyadic invariants,query_dyadic_invariants,0.4956240625,10
+discovery_block_affinity,400,Local role counts,query_local_roles,0.6869746875,10
+discovery_block_affinity,400,Matched property evidence,property_evidence_bank,0.6881275,10

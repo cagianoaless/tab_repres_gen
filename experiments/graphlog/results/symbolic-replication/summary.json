@@ -1,0 +1,116 @@
+{
+  "bootstrap": {
+    "replicates": 20000,
+    "resampling": "worlds_then_context_seeds_with_replacement",
+    "scope": "fixed_panel_sensitivity",
+    "seed": 20260728
+  },
+  "cells": 8208,
+  "context_seeds": [
+    101,
+    102,
+    103
+  ],
+  "cpu_decoder_registered_criterion": {
+    "catboost": false,
+    "logistic": true
+  },
+  "cpu_two_decoder_criterion": false,
+  "files": {
+    "aggregate_context_curves.csv": {
+      "rows": 48,
+      "sha256": "70697b7a1d52e4d384183a7cc47ea1bc667e0b83e8ca40129df67bf01a42cf35"
+    },
+    "cell_metrics_by_length.csv": {
+      "rows": 16416,
+      "sha256": "997e03822de261035621b8091b5f82346a4a7aa9ee2e9b676db7e40623745999"
+    },
+    "contrast_by_length.csv": {
+      "rows": 8,
+      "sha256": "4ae0e258373cb5cd74761013a9037d9d48477382e089f880a6382d21af8c326e"
+    },
+    "contrast_context_curves.csv": {
+      "rows": 16,
+      "sha256": "9902a7461fbb79bd207c98ceed0a33c59c7d9c3e11028192ebcfc146e299ee8e"
+    },
+    "primary_contrasts.csv": {
+      "rows": 4,
+      "sha256": "c4983aa71817ae46c09c2d9214545d386a0af9387a2e9233c7927be4ca35cc3d"
+    },
+    "primary_contrasts_by_world.csv": {
+      "rows": 228,
+      "sha256": "09e0f77e9f73a004c339466959e5c035bc5300cea8cbe2396ab92d18386affeb"
+    }
+  },
+  "plan_sha256": "dc6872565a8726a715a9437cf5029db6c733c469b08e15fc097b5fd9dc8e7006",
+  "primary_context_per_relation": 40,
+  "primary_contrasts": [
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "logistic",
+      "equal_world_mean_delta": 0.06459996129913628,
+      "hierarchical_bootstrap_ci95_high": 0.09688510423104178,
+      "hierarchical_bootstrap_ci95_low": 0.03393657697185622,
+      "left_encoder": "relation_multiset",
+      "registered_majority_worlds": true,
+      "registered_positive_mean": true,
+      "right_encoder": "ordered_typed_path",
+      "world_losses": 16,
+      "world_ties": 0,
+      "world_wins": 41
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "logistic",
+      "equal_world_mean_delta": 0.019895179428377045,
+      "hierarchical_bootstrap_ci95_high": 0.04493665086336768,
+      "hierarchical_bootstrap_ci95_low": -0.004449080093078909,
+      "left_encoder": "aligned_multiset_with_ordered_block_permutation",
+      "registered_majority_worlds": true,
+      "registered_positive_mean": true,
+      "right_encoder": "ordered_plus_multiset",
+      "world_losses": 25,
+      "world_ties": 0,
+      "world_wins": 32
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "shared_multiset_minus_absolute",
+      "decoder": "catboost",
+      "equal_world_mean_delta": -0.15746703859932934,
+      "hierarchical_bootstrap_ci95_high": -0.12662720521562862,
+      "hierarchical_bootstrap_ci95_low": -0.1876132604381032,
+      "left_encoder": "relation_multiset",
+      "registered_majority_worlds": false,
+      "registered_positive_mean": false,
+      "right_encoder": "ordered_typed_path",
+      "world_losses": 51,
+      "world_ties": 0,
+      "world_wins": 6
+    },
+    {
+      "context_per_relation": 40,
+      "contrast": "block_permuted_minus_aligned_combined",
+      "decoder": "catboost",
+      "equal_world_mean_delta": -0.09157345218646458,
+      "hierarchical_bootstrap_ci95_high": -0.0686390389045819,
+      "hierarchical_bootstrap_ci95_low": -0.11427184108144292,
+      "left_encoder": "aligned_multiset_with_ordered_block_permutation",
+      "registered_majority_worlds": false,
+      "registered_positive_mean": false,
+      "right_encoder": "ordered_plus_multiset",
+      "world_losses": 50,
+      "world_ties": 0,
+      "world_wins": 7
+    }
+  ],
+  "primary_endpoint": "equal_length_macro_balanced_accuracy",
+  "schema_version": 1,
+  "shards": 8,
+  "status": "PASS",
+  "study_id": "graphlog_symbolic_cpu_confirmation_v1",
+  "tabpfn_required_for_cross_decoder_final": true,
+  "worlds": 57
+}

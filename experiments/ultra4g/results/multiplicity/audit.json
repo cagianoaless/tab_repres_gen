@@ -1,0 +1,19 @@
+{
+  "contrast_count": 8,
+  "exact_joint_sign_patterns": 65536,
+  "family_count": 16,
+  "interpretation": "fixed_panel_sensitivity_not_population_inference",
+  "scientific_status": "post_hoc_fixed_panel_multiplicity_sensitivity",
+  "shared_signs_across_contrasts": true,
+  "source_sha256": "3ce32ed9b54bc9debb3077a6388923f94cfdc5c6a1e2fcdcf8cb220469787796",
+  "source_study_id": "rfmlink_ultra57_q64_complete57_v1",
+  "source_table": "results/audits/rfmlink_ultra57_q64_complete57_v1/contrast_by_family.csv",
+  "statistics": [
+    "two_sided_exact_family_sign_flip",
+    "holm_adjusted",
+    "joint_max_abs_studentized_statistic"
+  ],
+  "status": "COMPLETE",
+  "study_id": "rfmlink_ultra57_q64_multiplicity_complete57_v1",
+  "unit": "metric_free_provenance_family"
+}

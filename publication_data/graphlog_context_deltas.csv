@@ -1,0 +1,29 @@
+decoder,contrast,context_per_relation,delta
+catboost,block permuted minus combined,5,-0.07283019791723196
+catboost,block permuted minus combined,10,-0.07195408043734242
+catboost,block permuted minus combined,20,-0.08080724108778059
+catboost,block permuted minus combined,40,-0.0915734521864646
+catboost,shared minus absolute,5,-0.11744102524547907
+catboost,shared minus absolute,10,-0.13535673337083906
+catboost,shared minus absolute,20,-0.1511099452899981
+catboost,shared minus absolute,40,-0.15746703859932934
+catboost_depth1,block permuted minus combined,40,-0.05231526305792112
+catboost_depth1,shared minus absolute,40,-0.06998791342836747
+catboost_tuned,block permuted minus combined,40,-0.08626630629692493
+catboost_tuned,shared minus absolute,40,-0.14902500686195408
+logistic,block permuted minus combined,5,-0.037908517920210404
+logistic,block permuted minus combined,10,-0.018707604383150583
+logistic,block permuted minus combined,20,5.046527418609044e-05
+logistic,block permuted minus combined,40,0.019895179428377034
+logistic,shared minus absolute,5,-0.007121195151916788
+logistic,shared minus absolute,10,0.02201669373684063
+logistic,shared minus absolute,20,0.04698546979015846
+logistic,shared minus absolute,40,0.06459996129913628
+tabpfn,block permuted minus combined,5,-0.07442975533084076
+tabpfn,block permuted minus combined,10,-0.08663966840655113
+tabpfn,block permuted minus combined,20,-0.07862008063641339
+tabpfn,block permuted minus combined,40,-0.07574878752807535
+tabpfn,shared minus absolute,5,-0.04909454992491419
+tabpfn,shared minus absolute,10,-0.06860863206848321
+tabpfn,shared minus absolute,20,-0.07894057733613914
+tabpfn,shared minus absolute,40,-0.07887201798691272

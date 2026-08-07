@@ -1,0 +1,58 @@
+{
+  "outputs": {
+    "corrected_logistic_dataset_metrics.csv": {
+      "bytes": 384468,
+      "sha256": "6282be34a5373917bb6762754607041adc081cfb3181eaa7f6797b0e0acf6692"
+    },
+    "corrected_logistic_query_effects.csv.gz": {
+      "bytes": 4479083,
+      "sha256": "e5adb663f302c7eecada5342435ce65927f8cba74b581cb362f26fc586afd320"
+    },
+    "corrected_logistic_query_predictions.csv.gz": {
+      "bytes": 17880053,
+      "sha256": "855af0dc2cd1f7ba0c57ae6997110e1a07ba39989602429ff23f13f8fb283842"
+    },
+    "query_evidence_strata.csv": {
+      "bytes": 4394,
+      "sha256": "f8423f38f51c8531699929cb2d6f5ef8d76299004afb1057d53dc6badbafea5c"
+    }
+  },
+  "query_audit": {
+    "outcomes": {
+      "cells": 6156,
+      "registrations": [
+        {
+          "path": "[artifact-input-root]/ultra57_logistic_ranking_correction_v2",
+          "plan_sha256": "69a9465314ba698e42ba506ca312f320c00f8f72e750e51c32705a18fbd5b2d7",
+          "registered_cells": 6156,
+          "registration_sha256": "ff42c6d2518eda988d20868a25e2d80ea1c9e3a6144945051560db7696e30da9",
+          "source_commit": "artifact-source-revision"
+        }
+      ],
+      "seed_averaged_rows": 262656,
+      "stream": "encoder_ladder"
+    },
+    "properties": {
+      "reused_query_properties_sha256": "71450efd4c62fba4cd3acc739170bc0ff1d7751c44fa9ab868499964f5e098d7"
+    }
+  },
+  "ranking_audit": {
+    "maximum_score_only_rank_difference": 0.0,
+    "plan_sha256": "69a9465314ba698e42ba506ca312f320c00f8f72e750e51c32705a18fbd5b2d7",
+    "prediction_policies": [
+      "context_prior_fallback",
+      "least-compressed positive-class ranking score over row-aligned query blocks; decision_function when available, probability otherwise",
+      "native upstream score ordered by fitted logistic orientation; preserves upstream ties exactly"
+    ],
+    "query_prediction_rows": 787968,
+    "registered_cells": 6156,
+    "registration_sha256": "ff42c6d2518eda988d20868a25e2d80ea1c9e3a6144945051560db7696e30da9",
+    "score_only_cells": 684,
+    "score_only_exact_native_rank_cells": 684,
+    "source_commit": "artifact-source-revision",
+    "verified_shards": 228
+  },
+  "schema_version": 1,
+  "scientific_role": "implementation correction of binary ranking scores",
+  "status": "PASS"
+}

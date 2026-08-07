@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "bytes": 3080,
+      "path": "README.md",
+      "sha256": "91108e88114468e1ad1d9d8b46856ad2b4997f04d2b8eba9fc1e116a7cb2d079"
+    },
+    {
+      "bytes": 766,
+      "path": "audit.json",
+      "sha256": "1e6a7b7c9ddfe800c9519cb9b49c1cd0bcb3402d26d93af21dd4889c16b73cf7"
+    },
+    {
+      "bytes": 9840,
+      "path": "leave_one_family_out_estimates.csv",
+      "sha256": "9fe46776aee4da0ae12764a23c8037acafdfdb6d6d780b5b483bd53d87cb0a6b"
+    },
+    {
+      "bytes": 1343,
+      "path": "leave_one_family_out_summary.csv",
+      "sha256": "9348c5a2285fb10062cb3f403da9fdcb291ab68cfa4d3a2dfa697b5b49ffdf89"
+    },
+    {
+      "bytes": 1422,
+      "path": "multiplicity_summary.csv",
+      "sha256": "4e1c2608e233c3151b462e29a42a665976fcf1926f343421b9cecc332cac35be"
+    },
+    {
+      "bytes": 2971,
+      "path": "selected_family_effects.csv",
+      "sha256": "c2b073bd802bf96eda469356b86469838311a474d6a551ea160318188cebb405"
+    }
+  ],
+  "status": "COMPLETE",
+  "study_id": "rfmlink_ultra57_q64_multiplicity_complete57_v1"
+}

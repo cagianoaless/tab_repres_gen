@@ -1,0 +1,62 @@
+schema_version: 2
+study_id: property_discovery_encoder_ladder_cpu_confirmation_v1
+status: confirmation
+task_family: synthetic_relational
+resource_class: cpu
+design_role: paired encoder-mechanism ladder on graph-disjoint property-confirmation episodes
+decoders: [logistic, catboost]
+contexts_per_class: [20, 400]
+context_negative_ratios: [1]
+max_context_per_class: 400
+evaluation_per_class: 400
+evaluation_negative_ratio: 1
+seeds: [12001, 12002, 12003, 12004, 12005, 12006, 12007, 12008, 12009, 12010]
+ceiling_seeds: [19001, 19002, 19003]
+property_specs:
+  - property: discovery_reciprocity
+    encoders:
+      - query_relation_only
+      - categorical_ordinal
+      - role_onehot
+      - shared_embedding_directed
+      - query_dyadic_invariants
+      - query_local_roles
+    graph_sizes: [256]
+    noise_regimes: [none]
+    macro_graph_family: directed_multi_relation
+  - property: discovery_typed_composition
+    encoders:
+      - query_relation_only
+      - categorical_ordinal
+      - role_onehot
+      - shared_embedding_directed
+      - query_dyadic_invariants
+      - query_local_roles
+      - query_graph_reachability
+      - query_typed_path_k2
+      - query_typed_path_k3
+    graph_sizes: [288]
+    noise_regimes: [none]
+    macro_graph_family: directed_typed_layered
+  - property: discovery_structural_roles
+    encoders:
+      - query_relation_only
+      - categorical_ordinal
+      - role_onehot
+      - shared_embedding_directed
+      - query_dyadic_invariants
+      - query_local_roles
+    graph_sizes: [256]
+    noise_regimes: [none]
+    macro_graph_family: directed_role_structured
+  - property: discovery_block_affinity
+    encoders:
+      - query_relation_only
+      - categorical_ordinal
+      - unordered_onehot
+      - shared_embedding_symmetric
+      - query_dyadic_invariants
+      - query_local_roles
+    graph_sizes: [256]
+    noise_regimes: [none]
+    macro_graph_family: undirected_reciprocal_block

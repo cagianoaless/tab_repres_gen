@@ -1,0 +1,43 @@
+{
+  "cells": 60,
+  "largest_context_aggregate": [
+    {
+      "context_per_relation": 80,
+      "encoder": "ordered_plus_multiset",
+      "seed_max_ood_accuracy": 0.1974832842715253,
+      "seed_mean_ood_accuracy": 0.1874272680013162,
+      "seed_min_ood_accuracy": 0.18128388527134878
+    },
+    {
+      "context_per_relation": 80,
+      "encoder": "relation_transition_counts",
+      "seed_max_ood_accuracy": 0.174694143772361,
+      "seed_mean_ood_accuracy": 0.15615690769186663,
+      "seed_min_ood_accuracy": 0.1231584550810673
+    },
+    {
+      "context_per_relation": 80,
+      "encoder": "within_length_ordered_plus_multiset_joint_permutation",
+      "seed_max_ood_accuracy": 0.14684836295221654,
+      "seed_mean_ood_accuracy": 0.08650768586915292,
+      "seed_min_ood_accuracy": 0.04770848077797645
+    },
+    {
+      "context_per_relation": 80,
+      "encoder": "within_length_transition_joint_permutation",
+      "seed_max_ood_accuracy": 0.08584345262888754,
+      "seed_mean_ood_accuracy": 0.07552046459116389,
+      "seed_min_ood_accuracy": 0.0637861325362503
+    }
+  ],
+  "largest_context_contrasts": {
+    "ordered_plus_multiset_aligned_minus_null": 0.10091958213216327,
+    "transition_aligned_minus_null": 0.08063644310070275
+  },
+  "plan_sha256": "f911307adcd680acaeb25db68429fd8357c1b190544f6f318fa06b59f92229d5",
+  "schema_version": 1,
+  "shards": 15,
+  "status": "PASS",
+  "study_id": "clutrr_symbolic_gpu_tabpfn_shared_coordinates_v1",
+  "uncertainty_scope": "descriptive variation over three context seeds on one fixed official CLUTRR population"
+}
