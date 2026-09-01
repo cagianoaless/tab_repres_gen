@@ -7,7 +7,7 @@ import pandas as pd
 import pytest
 
 SCRIPT = Path(__file__).parents[1] / "analysis" / "analyze_ultra4g_controls.py"
-SPEC = importlib.util.spec_from_file_location("analyze_reviewer_kg_controls", SCRIPT)
+SPEC = importlib.util.spec_from_file_location("analyze_ultra4g_controls", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)

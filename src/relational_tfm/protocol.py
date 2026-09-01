@@ -377,7 +377,7 @@ FROZEN_KG_RELATION_CONTEXT_ASSET_ID: Final = "rfmlink_ultra57_relation_context_v
 FROZEN_KG_NEGATIVE_ROBUSTNESS_ASSET_ID: Final = (
     "rfmlink_ultra4g_negative_robustness_v1"
 )
-FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID: Final = (
+FROZEN_KG_MATCHED_FILTER_ASSET_ID: Final = (
     "rfmlink_ultra57_reviewer_matched_filtering_v1"
 )
 FROZEN_KG_ASSETS: Final = {
@@ -407,7 +407,7 @@ def frozen_kg_asset(asset_id: str) -> dict:
         FROZEN_KG_GRAPHLET_CONTEXT_ASSET_ID,
         FROZEN_KG_RELATION_CONTEXT_ASSET_ID,
         FROZEN_KG_NEGATIVE_ROBUSTNESS_ASSET_ID,
-        FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID,
+        FROZEN_KG_MATCHED_FILTER_ASSET_ID,
     }:
         override = os.environ.get("RTFM_FROZEN_KG_ASSET_ROOT")
         if not override:
@@ -441,7 +441,7 @@ def frozen_kg_asset(asset_id: str) -> dict:
                     FROZEN_KG_GRAPHLET_CONTEXT_ASSET_ID,
                     FROZEN_KG_RELATION_CONTEXT_ASSET_ID,
                     FROZEN_KG_NEGATIVE_ROBUSTNESS_ASSET_ID,
-                    FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID,
+                    FROZEN_KG_MATCHED_FILTER_ASSET_ID,
                 }
                 else (20, 50, 100, 200)
             ),

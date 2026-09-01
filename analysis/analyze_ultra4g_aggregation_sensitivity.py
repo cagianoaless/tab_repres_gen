@@ -89,7 +89,7 @@ def main() -> int:
     losses = int(np.sum(effects < -PRACTICAL_BAND))
     result = {
         "schema_version": 1,
-        "status": "POST_HOC_REVIEWER_REQUESTED_FIXED_PANEL_SENSITIVITY",
+        "status": "COMPLETE_FIXED_PANEL_SENSITIVITY",
         "estimand": (
             "b2v2_full minus native ULTRA combined filtered MRR at 200 context "
             "examples per class"

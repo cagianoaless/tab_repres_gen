@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the frozen reviewer-requested GraphLog CatBoost capacity sweep."""
+"""Run the frozen GraphLog CatBoost capacity sweep."""
 
 from __future__ import annotations
 

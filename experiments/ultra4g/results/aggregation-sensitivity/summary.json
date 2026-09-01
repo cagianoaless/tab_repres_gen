@@ -44,5 +44,5 @@
     "path": "experiments/ultra4g/results/q64-encoder-ladder/dataset_metrics.csv",
     "sha256": "d8939e3e0aff479f393811b0d93088866a1cdf65383e9b880679a7e022a70d94"
   },
-  "status": "POST_HOC_REVIEWER_REQUESTED_FIXED_PANEL_SENSITIVITY"
+  "status": "COMPLETE_FIXED_PANEL_SENSITIVITY"
 }

@@ -6,14 +6,14 @@ from pathlib import Path
 
 import yaml
 
-from relational_tfm.protocol import FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID
+from relational_tfm.protocol import FROZEN_KG_MATCHED_FILTER_ASSET_ID
 
 SCRIPT = (
     Path(__file__).resolve().parents[1]
     / "analysis"
     / "generate_ultra4g_control_registration.py"
 )
-SPEC = importlib.util.spec_from_file_location("reviewer_kg_registration", SCRIPT)
+SPEC = importlib.util.spec_from_file_location("ultra4g_control_registration", SCRIPT)
 assert SPEC is not None and SPEC.loader is not None
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
@@ -21,7 +21,7 @@ SPEC.loader.exec_module(MODULE)
 
 def _manifest(path: Path) -> Path:
     payload = {
-        "asset_id": FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID,
+        "asset_id": FROZEN_KG_MATCHED_FILTER_ASSET_ID,
         "context_modes": ["unfiltered_uniform", "filtered_uniform"],
         "datasets": {
             "tiny": {

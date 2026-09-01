@@ -16,7 +16,7 @@ import numpy as np
 
 from relational_tfm.hashing import file_sha256, object_sha256
 from relational_tfm.plan import atomic_write_json
-from relational_tfm.protocol import FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID
+from relational_tfm.protocol import FROZEN_KG_MATCHED_FILTER_ASSET_ID
 
 CONTEXT_SEEDS = (101, 102, 103)
 CONTEXT_POSITIVES = 200
@@ -236,7 +236,7 @@ def finalize(*, hard_root: Path, output_root: Path) -> dict[str, Any]:
             )
         }
     manifest = {
-        "asset_id": FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID,
+        "asset_id": FROZEN_KG_MATCHED_FILTER_ASSET_ID,
         "archive_schema": 4,
         "source_asset_id": hard_manifest["asset_id"],
         "source_manifest_sha256": file_sha256(hard_manifest_path),

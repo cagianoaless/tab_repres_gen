@@ -14,9 +14,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 sys.path[:0] = [str(REPO_ROOT / "src"), str(SCRIPT_DIR), str(REPO_ROOT)]
 
-from relational_tfm.protocol import (  # noqa: E402
-    FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID,
-)
+from relational_tfm.protocol import FROZEN_KG_MATCHED_FILTER_ASSET_ID  # noqa: E402
 
 INTERFACES = ("ultra_score_only", "b0_local_only", "b0_local_ultra")
 SEEDS = (101, 102, 103)
@@ -74,13 +72,13 @@ def generate_config(
     specification = PROFILES[profile]
     manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
-    if manifest.get("asset_id") != FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID:
-        raise ValueError("reviewer KG control manifest has the wrong asset ID")
+    if manifest.get("asset_id") != FROZEN_KG_MATCHED_FILTER_ASSET_ID:
+        raise ValueError("KG control manifest has the wrong asset ID")
     if tuple(manifest.get("context_modes", ())) != (
         "unfiltered_uniform",
         "filtered_uniform",
     ):
-        raise ValueError("reviewer KG control context modes changed")
+        raise ValueError("KG control context modes changed")
     datasets = manifest["datasets"]
     names = sorted(datasets, key=lambda name: (datasets[name]["num_entities"], name))
     payload: dict[str, Any] = {
@@ -94,7 +92,7 @@ def generate_config(
             if profile == "matched-filter-tabpfn"
             else "reviewer-requested pointwise versus query-relative control"
         ),
-        "asset_id": FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID,
+        "asset_id": FROZEN_KG_MATCHED_FILTER_ASSET_ID,
         "asset_manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
         "query_triples": 64,
         "decoders": list(specification["decoders"]),

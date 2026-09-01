@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Summarize the reviewer-requested GraphLog CatBoost capacity sweep."""
+"""Summarize the GraphLog CatBoost capacity sweep."""
 
 from __future__ import annotations
 
@@ -149,7 +149,7 @@ def main() -> int:
     summary.to_csv(output / "capacity_curve.csv", index=False)
     result = {
         "schema_version": 1,
-        "status": "COMPLETE_REVIEWER_REQUESTED_CAPACITY_SWEEP",
+        "status": "COMPLETE_CAPACITY_SWEEP",
         "plan_sha256": EXPECTED_PLAN_SHA256,
         "cells": EXPECTED_CELLS,
         "worlds": 57,
