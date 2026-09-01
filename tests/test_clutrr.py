@@ -6,6 +6,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from analysis.audit_clutrr_coordinate_coverage import coordinate_support
 from relational_tfm.config import load_study_config
 from relational_tfm.datasets.clutrr import (
     CLUTRR_EDGE_RELATIONS,
@@ -19,7 +20,6 @@ from relational_tfm.encoders.clutrr import encode_clutrr_rows
 from relational_tfm.hashing import file_sha256
 from relational_tfm.plan import atomic_write_json, build_plan
 from relational_tfm.runner import build_shard_manifest, run_clutrr_cell, verify_shard
-from analysis.audit_clutrr_coordinate_coverage import coordinate_support
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 FIELDS = (

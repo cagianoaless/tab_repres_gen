@@ -5,7 +5,6 @@ from pathlib import Path
 
 import numpy as np
 
-
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "analysis" / "build_rfmlink_negative_robustness_asset.py"
 SPEC = importlib.util.spec_from_file_location("structural_context_builder", SCRIPT)

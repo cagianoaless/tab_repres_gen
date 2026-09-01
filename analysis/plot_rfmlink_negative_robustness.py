@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-
 DECODER_LABELS = {
     "logistic_nominal": "Logistic",
     "catboost_nominal": "CatBoost",
@@ -66,7 +65,7 @@ def main() -> int:
         "relation_matched_role_degree": 0.11,
     }
 
-    for panel_index, ((contrast, title), axis) in enumerate(zip(PANELS, axes)):
+    for panel_index, ((contrast, title), axis) in enumerate(zip(PANELS, axes, strict=False)):
         subset = data.loc[data["contrast"] == contrast]
         for context in CONTEXT_LABELS:
             rows = subset.set_index(["decoder", "context_mode"])

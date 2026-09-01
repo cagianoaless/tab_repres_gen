@@ -1,0 +1,10 @@
+decoder,query_transform,exact_rank_cells,cells,rank_match_fraction,queries
+catboost,raw,0,171,0.3447551169590643,21888
+catboost,within_query_percentile,0,171,0.0010964912280701754,21888
+catboost,within_query_zscore,0,171,0.0015533625730994151,21888
+logistic,raw,171,171,1.0,21888
+logistic,within_query_percentile,171,171,1.0,21888
+logistic,within_query_zscore,171,171,1.0,21888
+tabpfn,raw,0,171,0.5512152777777778,21888
+tabpfn,within_query_percentile,0,171,0.2099780701754386,21888
+tabpfn,within_query_zscore,0,171,0.00013706140350877192,21888

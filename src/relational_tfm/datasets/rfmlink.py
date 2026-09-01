@@ -11,6 +11,7 @@ from typing import Any
 
 import numpy as np
 
+from relational_tfm.evaluation.query_relative import within_query_transform
 from relational_tfm.hashing import file_sha256, object_sha256
 from relational_tfm.protocol import (
     FROZEN_KG_INTERFACES,
@@ -369,6 +370,35 @@ def _candidate_interface(
     )
 
 
+@lru_cache(maxsize=12)
+def _candidate_query_relative_interface(
+    asset_root: str,
+    dataset: str,
+    manifest_sha256: str,
+    archive_sha256: str,
+    interface: str,
+    query_transform: str,
+) -> tuple[np.ndarray, tuple[str, ...], tuple[int, ...]]:
+    values, names, categorical = _candidate_interface(
+        asset_root,
+        dataset,
+        manifest_sha256,
+        archive_sha256,
+        interface,
+    )
+    if query_transform == "raw":
+        return values, names, categorical
+    arrays, _ = _load_archive(
+        asset_root, dataset, manifest_sha256, archive_sha256
+    )
+    transformed = within_query_transform(
+        values,
+        mode=query_transform,
+        group_size=int(arrays["num_entities"]),
+    )
+    return transformed, names, ()
+
+
 def load_frozen_kg_task(repo_root: Path, cell: dict[str, Any]) -> FrozenKGTask:
     dataset = str(cell["dataset"])
     seed = int(cell["seed"])
@@ -429,13 +459,33 @@ def load_frozen_kg_task(repo_root: Path, cell: dict[str, Any]) -> FrozenKGTask:
         token_columns=context_tokens,
         same_entity_column=context_same_entity,
     )
+    query_transform = str(cell.get("query_transform", "raw"))
+    if query_transform != "raw":
+        source_query_key = f"{context_prefix}_source_directional_queries"
+        if source_query_key not in arrays:
+            raise ValueError(
+                "query-relative context requires stored directional query IDs"
+            )
+        source_queries = np.asarray(arrays[source_query_key], dtype=np.int64)
+        if 2 * len(source_queries) != len(labels):
+            raise ValueError("context query IDs do not match positive/negative rows")
+        context_query_ids = np.concatenate([source_queries, source_queries])[selected]
+        context_values = within_query_transform(
+            context_values,
+            mode=query_transform,
+            group_ids=context_query_ids,
+        )
+        categorical = ()
     candidate_b0 = np.asarray(arrays["candidate_b0"], dtype=np.float32)
-    candidate_values, candidate_names, candidate_categorical = _candidate_interface(
-        str(asset_root),
-        dataset,
-        str(cell["asset_manifest_sha256"]),
-        str(cell["archive_sha256"]),
-        str(cell["interface"]),
+    candidate_values, candidate_names, candidate_categorical = (
+        _candidate_query_relative_interface(
+            str(asset_root),
+            dataset,
+            str(cell["asset_manifest_sha256"]),
+            str(cell["archive_sha256"]),
+            str(cell["interface"]),
+            query_transform,
+        )
     )
     if feature_names != candidate_names or categorical != candidate_categorical:
         raise ValueError("RFMLink context/candidate schemas differ")
@@ -458,6 +508,7 @@ def load_frozen_kg_task(repo_root: Path, cell: dict[str, Any]) -> FrozenKGTask:
         "num_relations": int(arrays["num_relations"]),
         "context_selection": manifest["context_selection"],
         "context_mode": context_mode,
+        "query_transform": query_transform,
         "context_indices_sha256": object_sha256(selected.tolist()),
         "candidate_rows": int(len(candidate_values)),
         "candidate_set": "all entities with standard filtered ranking masks",

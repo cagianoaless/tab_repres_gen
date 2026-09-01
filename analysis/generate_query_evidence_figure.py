@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import to_rgba
 from matplotlib.lines import Line2D
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "publication_data" / "query_evidence_absolute.csv"
 OUTPUT_PDF = ROOT / "generated" / "figures" / "query_evidence.pdf"
@@ -80,7 +79,7 @@ def main() -> None:
         constrained_layout=True,
     )
 
-    for panel_index, (axis, decoder) in enumerate(zip(axes, DECODERS, strict=True)):
+    for axis, decoder in zip(axes, DECODERS, strict=True):
         decoder_rows = [row for row in rows if row["decoder"] == decoder]
         lookup = {
             (str(row["stratum"]), str(row["interface"])): row
@@ -109,7 +108,6 @@ def main() -> None:
                     zorder=3,
                 )
 
-        letter = chr(ord("A") + panel_index)
         axis.set_title(f"{decoder}", loc="left", fontweight="semibold", pad=5)
         axis.set_xlim(-0.015, 0.83)
         axis.set_ylim(-0.55, 3.55)

@@ -1143,6 +1143,7 @@ def run_graphlog_cell(
         )
         prior /= prior.sum()
         probabilities = np.tile(prior, (len(evaluation_labels), 1))
+        context_probabilities = np.tile(prior, (len(context_labels), 1))
         prediction_seconds = time.perf_counter() - prediction_started
         decoder_prediction_status = "context_prior_fallback"
     else:
@@ -1154,6 +1155,11 @@ def run_graphlog_cell(
         probabilities, classes = class_probabilities(
             model, evaluation_encoded.values
         )
+        context_probabilities, context_classes = class_probabilities(
+            model, context_encoded.values
+        )
+        if not np.array_equal(classes, context_classes):
+            raise RuntimeError("context and evaluation class ordering changed")
         _synchronize_gpu_decoder(cell["decoder"])
         prediction_seconds = time.perf_counter() - prediction_started
         decoder_fit_status = "succeeded"
@@ -1161,6 +1167,9 @@ def run_graphlog_cell(
 
     metrics = multiclass_classification_metrics(
         evaluation_labels, probabilities, classes
+    )
+    context_fit_metrics = multiclass_classification_metrics(
+        context_labels, context_probabilities, classes
     )
     ceiling = collision_conditioned_ceiling(
         evaluation_encoded.values, evaluation_labels
@@ -1250,6 +1259,7 @@ def run_graphlog_cell(
         "collision_conditioned_ceiling": ceiling,
         "collision_conditioned_ceiling_by_chain_length": ceiling_by_chain_length,
         "metrics": metrics,
+        "context_fit_metrics": context_fit_metrics,
         "metrics_by_chain_length": per_chain_length,
         "cell_peak_resources": peak_resources(),
         "predictions": {

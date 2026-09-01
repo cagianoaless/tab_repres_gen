@@ -173,6 +173,25 @@ def test_catboost_depth1_is_capacity_restricted(monkeypatch) -> None:
     assert captured["loss_function"] == "MultiClass"
 
 
+def test_catboost_depth_sweep_uses_requested_capacity(monkeypatch) -> None:
+    captured: dict = {}
+
+    class _Classifier:
+        def __init__(self, **kwargs):
+            captured.update(kwargs)
+
+    catboost = ModuleType("catboost")
+    catboost.CatBoostClassifier = _Classifier
+    monkeypatch.setitem(sys.modules, "catboost", catboost)
+
+    for depth in range(1, 8):
+        captured.clear()
+        build_classifier(f"catboost_depth{depth}", 123, multiclass=True)
+        assert captured["depth"] == depth
+        assert captured["iterations"] == 500
+        assert captured["loss_function"] == "MultiClass"
+
+
 def test_catboost_provenance_records_version_and_parameters(monkeypatch) -> None:
     class _Classifier:
         __module__ = "catboost.core"

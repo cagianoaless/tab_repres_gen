@@ -103,7 +103,10 @@ def verify_scientific_inventory() -> None:
     required = (
         "experiments/clutrr/results/ordered-interference/paired_comparisons.csv",
         "experiments/clutrr/results/shortcut-diagnostic/cells.csv",
+        "experiments/clutrr/results/collision-conditioned-ceilings/summary.json",
         "experiments/graphlog/results/decoder-sensitivity/primary_contrasts_by_world.csv",
+        "experiments/graphlog/results/capacity-sweep/capacity_curve.csv",
+        "experiments/graphlog/results/capacity-sweep/summary.json",
         "experiments/dihedral16/results/cpu/aggregate.csv",
         "experiments/dihedral16/results/cpu/primary_seed_contrasts.csv",
         "experiments/dihedral16/results/tabpfn/aggregate.csv",
@@ -111,6 +114,10 @@ def verify_scientific_inventory() -> None:
         "experiments/ultra4g/results/q64-encoder-ladder/dataset_metrics.csv",
         "experiments/ultra4g/results/context-robustness/dataset_metrics.csv",
         "experiments/ultra4g/results/logistic-ranking-correction/query_evidence_strata.csv",
+        "experiments/ultra4g/results/pointwise-and-filtering-controls/summary.json",
+        "experiments/ultra4g/results/pointwise-and-filtering-controls/query_transform_contrasts.csv",
+        "experiments/ultra4g/results/pointwise-and-filtering-controls/matched_filter_contrasts.csv",
+        "experiments/ultra4g/results/aggregation-sensitivity/summary.json",
         "publication_data/context_robustness_summary.csv",
         "publication_data/query_evidence_absolute.csv",
     )
@@ -138,6 +145,64 @@ def verify_scientific_inventory() -> None:
     dataset_key = "dataset" if "dataset" in ladder[0] else "dataset_id"
     if len({row[dataset_key] for row in ladder}) != 57:
         fail("ultra_4g ladder does not cover 57 datasets")
+
+    collision = json.loads(
+        (
+            ROOT
+            / "experiments/clutrr/results/collision-conditioned-ceilings/summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    collision_by_encoder = {row["encoder"]: row for row in collision["encoders"]}
+    multiset = collision_by_encoder["relation_multiset"]["ood_equal_length"]
+    if not 0.756 < multiset["singleton_fraction"] < 0.757:
+        fail("CLUTRR multiset singleton mass changed")
+    if not 0.711 < multiset["nonsingleton_accuracy_ceiling"] < 0.712:
+        fail("CLUTRR conditional non-singleton ceiling changed")
+    absolute = collision_by_encoder["ordered_typed_path"]["ood_equal_length"]
+    if absolute["singleton_fraction"] != 1.0:
+        fail("CLUTRR absolute-position endpoint is no longer injective")
+    if absolute["nonsingleton_accuracy_ceiling"] is not None:
+        fail("CLUTRR injective endpoint has a non-singleton ceiling")
+
+    capacity = json.loads(
+        (ROOT / "experiments/graphlog/results/capacity-sweep/summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    if capacity.get("cells") != 2394 or capacity.get("worlds") != 57:
+        fail("GraphLog capacity sweep is incomplete")
+    if capacity.get("depths") != list(range(1, 8)):
+        fail("GraphLog capacity sweep does not cover depths 1--7")
+
+    controls = json.loads(
+        (
+            ROOT
+            / "experiments/ultra4g/results/pointwise-and-filtering-controls/summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    if controls.get("query_cells") != 4617 or not controls.get("matched_complete"):
+        fail("frozen-KG protocol controls are incomplete")
+    contamination = controls.get("contamination", {})
+    if contamination.get("known_positive_negatives") != 456:
+        fail("matched filtering contamination count changed")
+    if contamination.get("negative_rows") != 34200:
+        fail("matched filtering negative-row count changed")
+
+    aggregation = json.loads(
+        (
+            ROOT / "experiments/ultra4g/results/aggregation-sensitivity/summary.json"
+        ).read_text(encoding="utf-8")
+    )
+    if aggregation.get("panel", {}).get("provenance_families") != 16:
+        fail("aggregation sensitivity does not cover 16 provenance families")
+    dataset_counts = aggregation.get("equal_dataset", {})
+    observed_counts = (
+        dataset_counts.get("wins"),
+        dataset_counts.get("ties"),
+        dataset_counts.get("losses"),
+    )
+    if observed_counts != (5, 4, 48):
+        fail("aggregation sensitivity win/tie/loss counts changed")
 
     provenance = json.loads(
         (ROOT / "publication_data/context_robustness_provenance.json").read_text()

@@ -1,0 +1,48 @@
+{
+  "equal_dataset": {
+    "losses": 48,
+    "mean": -0.03461606091149509,
+    "median": -0.0392158538536041,
+    "ties": 4,
+    "wins": 5
+  },
+  "equal_family": {
+    "excluding_metafam": -0.04135394218980267,
+    "leave_one_family_out": {
+      "aristov4": 0.005001079519534376,
+      "codex": 0.008019309534708679,
+      "conceptnet100k": 0.009905869659494283,
+      "dbpedia100k": 0.010863481635395732,
+      "fb15k237": 0.009729389159131347,
+      "fbnell": 0.008843808565343015,
+      "hetionet": 0.008769394349927082,
+      "hm": 0.011773774298251277,
+      "ilpc2022": 0.0091153730495326,
+      "metafam": -0.04135394218980267,
+      "nell": 0.01159160492264157,
+      "wdsinger": 0.010111331663892434,
+      "wiki_topics": 0.008524098451487392,
+      "wk_ingram": 0.014645296076762671,
+      "wn18rr": 0.0076370949624213,
+      "yago310": 0.008975383043874572
+    },
+    "leave_one_family_out_max": 0.014645296076762671,
+    "leave_one_family_out_min": -0.04135394218980267,
+    "mean": 0.006384521668912228,
+    "median": -0.033528323997958104,
+    "metafam_family": "metafam"
+  },
+  "estimand": "b2v2_full minus native ULTRA combined filtered MRR at 200 context examples per class",
+  "interpretation_boundary": "Equal-family is the primary fixed-panel estimand because related benchmark variants are dependent. Equal-dataset, medians, and leave-one-family-out results are required sensitivities and are not population estimates.",
+  "panel": {
+    "datasets": 57,
+    "practical_tie_band_mrr": 0.005,
+    "provenance_families": 16
+  },
+  "schema_version": 1,
+  "source": {
+    "path": "experiments/ultra4g/results/q64-encoder-ladder/dataset_metrics.csv",
+    "sha256": "d8939e3e0aff479f393811b0d93088866a1cdf65383e9b880679a7e022a70d94"
+  },
+  "status": "POST_HOC_REVIEWER_REQUESTED_FIXED_PANEL_SENSITIVITY"
+}

@@ -24,6 +24,7 @@ DEFAULT_ENCODERS = (
     "ordered_plus_multiset",
     "aligned_multiset_with_supported_prefix",
 )
+OOD_LENGTHS = tuple(range(4, 11))
 
 
 def _summary(values: np.ndarray, labels: np.ndarray) -> dict[str, float | int]:
@@ -35,12 +36,49 @@ def _summary(values: np.ndarray, labels: np.ndarray) -> dict[str, float | int]:
         "unique_representations": int(ceiling["unique_representations"]),
         "singleton_rows": int(ceiling["singleton_rows"]),
         "singleton_fraction": float(ceiling["singleton_fraction"]),
+        "nonsingleton_rows": int(ceiling["nonsingleton_rows"]),
+        "nonsingleton_fraction": float(ceiling["nonsingleton_fraction"]),
+        "nonsingleton_accuracy_ceiling": ceiling[
+            "nonsingleton_accuracy_ceiling"
+        ],
         "mixed_classes": int(ceiling["mixed_classes"]),
         "collision_rows": int(ceiling["collision_rows"]),
         "collision_coverage": float(ceiling["collision_coverage"]),
         "conditional_label_entropy_bits": float(
             ceiling["conditional_label_entropy_bits"]
         ),
+    }
+
+
+def _equal_length_summary(
+    by_length: dict[str, dict[str, float | int]],
+) -> dict[str, float | int | None]:
+    rows = [by_length[str(length)] for length in OOD_LENGTHS]
+    singleton = float(np.mean([row["singleton_fraction"] for row in rows]))
+    nonsingleton = float(
+        np.mean([row["nonsingleton_fraction"] for row in rows])
+    )
+    ceiling = float(np.mean([row["accuracy_ceiling"] for row in rows]))
+    numerator = float(
+        np.mean(
+            [
+                float(row["nonsingleton_fraction"])
+                * float(row["nonsingleton_accuracy_ceiling"] or 0.0)
+                for row in rows
+            ]
+        )
+    )
+    conditional = numerator / nonsingleton if nonsingleton else None
+    if not np.isclose(ceiling, singleton + numerator, atol=1e-12):
+        raise AssertionError("equal-length ceiling decomposition failed")
+    return {
+        "chain_lengths": list(OOD_LENGTHS),
+        "weighting": "equal_chain_length",
+        "accuracy_ceiling": ceiling,
+        "singleton_fraction": singleton,
+        "nonsingleton_fraction": nonsingleton,
+        "nonsingleton_accuracy_ceiling": conditional,
+        "decomposition_numerator": numerator,
     }
 
 
@@ -82,10 +120,11 @@ def audit(
                 "feature_count": len(encoded.feature_names),
                 "overall": _summary(encoded.values, labels),
                 "by_chain_length": by_length,
+                "ood_equal_length": _equal_length_summary(by_length),
             }
         )
     return {
-        "schema_version": 1,
+        "schema_version": 3,
         "status": "PASS",
         "scientific_role": (
             "finite-population collision and singleton audit on the fixed "
@@ -97,8 +136,10 @@ def audit(
         "evaluation_rows": len(task.evaluation),
         "encoders": records,
         "interpretation_boundary": (
-            "A high finite-population ceiling is not evidence of transferable "
-            "semantics when singleton mass is high."
+            "The raw ceiling decomposes exactly into singleton mass plus the "
+            "non-singleton mass times its conditional ceiling. A high raw "
+            "ceiling is not evidence of transferable semantics when singleton "
+            "mass is high."
         ),
     }
 

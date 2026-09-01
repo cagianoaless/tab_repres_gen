@@ -11,7 +11,6 @@ from matplotlib.axes import Axes
 from matplotlib.figure import Figure
 from matplotlib.patches import Circle, FancyArrowPatch, Rectangle
 
-
 # ---------------------------------------------------------------------
 # Output
 # ---------------------------------------------------------------------
@@ -409,7 +408,7 @@ def draw_audit_pair(
     row_names = ("Ref.", "Var.")
 
     for row_index, (y, row_name) in enumerate(
-        zip(row_y_positions, row_names)
+        zip(row_y_positions, row_names, strict=False)
     ):
         ax.text(
             x0 + 0.006,

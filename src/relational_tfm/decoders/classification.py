@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.metadata
 import inspect
 import os
+import re
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -721,14 +722,15 @@ def build_classifier(
         if not multiclass:
             raise ValueError("gru_sequence is registered only for multiclass path tasks")
         return SharedSequenceGRUClassifier(seed)
-    if decoder in {"catboost", "catboost_depth1"}:
+    depth_match = re.fullmatch(r"catboost_depth([1-7])", decoder)
+    if decoder == "catboost" or depth_match:
         try:
             from catboost import CatBoostClassifier
         except ModuleNotFoundError as error:
             raise RuntimeError("install the 'tree' extra to use CatBoost") from error
         return CatBoostClassifier(
             iterations=500,
-            depth=1 if decoder == "catboost_depth1" else 7,
+            depth=int(depth_match.group(1)) if depth_match else 7,
             learning_rate=0.05,
             loss_function="MultiClass" if multiclass else "Logloss",
             random_seed=seed,

@@ -45,6 +45,8 @@ def collision_conditioned_ceiling(
     correct = 0
     balanced_correct = Fraction(0, 1)
     collision_rows = 0
+    nonsingleton_rows = 0
+    nonsingleton_correct = 0
     pure_rows = 0
     singleton_classes = 0
     singleton_rows = 0
@@ -71,6 +73,9 @@ def collision_conditioned_ceiling(
         if group_size == 1:
             singleton_classes += 1
             singleton_rows += 1
+        else:
+            nonsingleton_rows += group_size
+            nonsingleton_correct += int(counts.max())
         if np.count_nonzero(counts) > 1:
             collision_rows += group_size
             mixed_classes += 1
@@ -120,6 +125,13 @@ def collision_conditioned_ceiling(
         "singleton_classes": int(singleton_classes),
         "singleton_rows": int(singleton_rows),
         "singleton_fraction": float(singleton_rows / len(labels)),
+        "nonsingleton_rows": int(nonsingleton_rows),
+        "nonsingleton_fraction": float(nonsingleton_rows / len(labels)),
+        "nonsingleton_accuracy_ceiling": (
+            float(nonsingleton_correct / nonsingleton_rows)
+            if nonsingleton_rows
+            else None
+        ),
         "mixed_classes": int(mixed_classes),
         "collision_rows": int(collision_rows),
         "pure_rows": int(pure_rows),

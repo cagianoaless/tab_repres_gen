@@ -207,8 +207,9 @@ def _expand_frozen_kg_cells(config: StudyConfig) -> list[dict[str, Any]]:
             config.raw.get("context_modes", ["original_uniform"]),
             config.contexts_per_class,
             config.seeds,
+            config.raw.get("query_transforms", ["raw"]),
         )
-        for interface, decoder, context_mode, context, seed in axes:
+        for interface, decoder, context_mode, context, seed, query_transform in axes:
             scientific = {
                 "study_id": config.study_id,
                 "task_family": config.task_family,
@@ -226,6 +227,8 @@ def _expand_frozen_kg_cells(config: StudyConfig) -> list[dict[str, Any]]:
             }
             if "context_modes" in config.raw:
                 scientific["context_mode"] = context_mode
+            if "query_transforms" in config.raw:
+                scientific["query_transform"] = query_transform
             if config.model_identity is not None:
                 scientific["model_identity"] = config.model_identity
             cells.append(

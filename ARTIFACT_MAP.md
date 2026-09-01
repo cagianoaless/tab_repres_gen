@@ -15,6 +15,11 @@ Paths are relative to the repository root.
 | Appendix, dihedral levels | `experiments/dihedral16/results/cpu/` and `tabpfn/` | `analysis/summarize_dihedral16.py`, `analysis/summarize_dihedral16_tabpfn.py` |
 | Appendix, complete nine-interface `ultra_4g` ladder | `experiments/ultra4g/results/q64-encoder-ladder/`, `multiplicity/`, `native-ranking/` | `analysis/analyze_ultra4g_q64_complete_panel.py`, `analysis/analyze_rfmlink_q64_multiplicity_complete57.py` |
 | Appendix, complete context matrix | `experiments/ultra4g/results/context-robustness/` | `analysis/analyze_rfmlink_negative_robustness.py` |
+| Appendix, collision-conditioned ceilings | `experiments/clutrr/results/collision-conditioned-ceilings/` | `analysis/audit_clutrr_singleton_mass.py` |
+| Appendix, GraphLog capacity sweep | `experiments/graphlog/results/capacity-sweep/` | `analysis/run_graphlog_capacity_sweep.py`, `analysis/summarize_graphlog_capacity_sweep.py` |
+| Appendix, pointwise and query-relative KG controls | `experiments/ultra4g/results/pointwise-and-filtering-controls/` | `analysis/generate_ultra4g_control_registration.py`, `analysis/run_ultra4g_controls.py`, `analysis/analyze_ultra4g_controls.py` |
+| Appendix, matched filtering control | `experiments/ultra4g/results/pointwise-and-filtering-controls/matched_filter_*.csv` | `analysis/build_ultra4g_matched_filter_asset.py`, `analysis/analyze_ultra4g_controls.py` |
+| Appendix, aggregation sensitivity | `experiments/ultra4g/results/aggregation-sensitivity/` | `analysis/analyze_ultra4g_aggregation_sensitivity.py` |
 
 ## Endpoints
 
@@ -23,3 +28,6 @@ Paths are relative to the repository root.
 - Dihedral-16: ten generated populations; context lengths 2--3 and evaluation lengths 4--10.
 - Frozen `ultra_4g`: 57 datasets in 16 provenance families; q64 test triples with full filtered entity ranking; three context seeds.
 - Context robustness: 4,104 complete cells = 57 datasets x 4 interfaces x 2 context constructions x 3 decoders x 3 seeds.
+- GraphLog capacity sweep: 2,394 complete cells = 57 worlds x 2 encoders x 7 depths x 3 seeds.
+- Query-relative KG control: 4,617 complete cells across raw, within-query z-score, and within-query percentile representations.
+- Matched filtering control: 1,026 complete TabPFN cells with identical positive context rows and evaluation.

@@ -25,6 +25,7 @@ from relational_tfm.encoders.graphlog import (
     GRAPHLOG_MAX_PATH_LENGTH,
 )
 from relational_tfm.encoders.rule_induction import RULE_INDUCTION_ENCODERS
+from relational_tfm.evaluation.query_relative import QUERY_TRANSFORMS
 from relational_tfm.protocol import (
     FROZEN_KG_INTERFACES,
     MIN_GRAPH_SIZE,
@@ -811,6 +812,12 @@ class StudyConfig:
             "logistic",
             "catboost",
             "catboost_depth1",
+            "catboost_depth2",
+            "catboost_depth3",
+            "catboost_depth4",
+            "catboost_depth5",
+            "catboost_depth6",
+            "catboost_depth7",
             "catboost_tuned",
             "tabpfn",
         }:
@@ -978,8 +985,16 @@ class StudyConfig:
         ):
             raise ConfigError("context_modes must be a non-empty unique string list")
         registered_context_modes = tuple(asset.get("context_modes", ("original_uniform",)))
-        if tuple(context_modes) != registered_context_modes:
+        if not set(context_modes) <= set(registered_context_modes):
             raise ConfigError("the frozen RFMLink context modes changed")
+        query_transforms = mapping.get("query_transforms", ["raw"])
+        if (
+            not isinstance(query_transforms, list)
+            or not query_transforms
+            or len(query_transforms) != len(set(query_transforms))
+            or not set(query_transforms) <= set(QUERY_TRANSFORMS)
+        ):
+            raise ConfigError("query_transforms contains an unsupported transform")
         seeds = _nonempty_unique_positive_ints(mapping, "seeds")
 
         raw_specs = mapping.get("dataset_specs")

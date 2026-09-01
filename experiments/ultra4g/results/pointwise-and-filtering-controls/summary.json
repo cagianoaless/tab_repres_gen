@@ -1,0 +1,45 @@
+{
+  "contamination": {
+    "dataset_seed_cells": 171,
+    "dataset_seed_cells_with_contamination": 88,
+    "known_positive_negatives": 456,
+    "maximum_dataset": "nell_ind_v1",
+    "maximum_fraction": 0.395,
+    "maximum_seed": 101,
+    "negative_rows": 34200,
+    "pooled_fraction": 0.013333333333333334
+  },
+  "matched_complete": true,
+  "query_cells": 4617,
+  "query_complete_cpu": true,
+  "query_datasets": 57,
+  "query_decoders": [
+    "catboost",
+    "logistic",
+    "tabpfn"
+  ],
+  "registrations": {
+    "matched_tabpfn": {
+      "asset_manifest_sha256": "73bca3433b7b10c0787a4b63bfc7ccec163209c65c76b5a77b74a5e753a140d1",
+      "cells": 1026,
+      "plan_sha256": "578210715fac252b892da73cef6d6a0c8923c3d6752b9c7fa91f6d79adef4f3c",
+      "profile": "matched-filter-tabpfn",
+      "shards": 57
+    },
+    "query_cpu": {
+      "asset_manifest_sha256": "73bca3433b7b10c0787a4b63bfc7ccec163209c65c76b5a77b74a5e753a140d1",
+      "cells": 3078,
+      "plan_sha256": "89444c056d3c6ff9110f096a5fe33ed5f643d11904284140592b637fd83cc18b",
+      "profile": "query-relative-cpu",
+      "shards": 57
+    },
+    "query_tabpfn": {
+      "asset_manifest_sha256": "73bca3433b7b10c0787a4b63bfc7ccec163209c65c76b5a77b74a5e753a140d1",
+      "cells": 1539,
+      "plan_sha256": "d9acb7c3af96105e3da771cf41252127830c54ad8ecf41952c731619d779f02b",
+      "profile": "query-relative-tabpfn",
+      "shards": 57
+    }
+  },
+  "tie_band": 0.005
+}

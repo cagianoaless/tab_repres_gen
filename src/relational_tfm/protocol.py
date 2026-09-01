@@ -209,6 +209,12 @@ SUPPORTED_DECODERS: Final = frozenset(
         "catboost",
         "catboost_nominal",
         "catboost_depth1",
+        "catboost_depth2",
+        "catboost_depth3",
+        "catboost_depth4",
+        "catboost_depth5",
+        "catboost_depth6",
+        "catboost_depth7",
         "catboost_tuned",
         "mlp",
         "gru_sequence",
@@ -371,6 +377,9 @@ FROZEN_KG_RELATION_CONTEXT_ASSET_ID: Final = "rfmlink_ultra57_relation_context_v
 FROZEN_KG_NEGATIVE_ROBUSTNESS_ASSET_ID: Final = (
     "rfmlink_ultra4g_negative_robustness_v1"
 )
+FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID: Final = (
+    "rfmlink_ultra57_reviewer_matched_filtering_v1"
+)
 FROZEN_KG_ASSETS: Final = {
     FROZEN_KG_ASSET_ID: {
         "asset_root": FROZEN_KG_ASSET_ROOT,
@@ -398,6 +407,7 @@ def frozen_kg_asset(asset_id: str) -> dict:
         FROZEN_KG_GRAPHLET_CONTEXT_ASSET_ID,
         FROZEN_KG_RELATION_CONTEXT_ASSET_ID,
         FROZEN_KG_NEGATIVE_ROBUSTNESS_ASSET_ID,
+        FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID,
     }:
         override = os.environ.get("RTFM_FROZEN_KG_ASSET_ROOT")
         if not override:
@@ -431,6 +441,7 @@ def frozen_kg_asset(asset_id: str) -> dict:
                     FROZEN_KG_GRAPHLET_CONTEXT_ASSET_ID,
                     FROZEN_KG_RELATION_CONTEXT_ASSET_ID,
                     FROZEN_KG_NEGATIVE_ROBUSTNESS_ASSET_ID,
+                    FROZEN_KG_REVIEWER_MATCHED_FILTER_ASSET_ID,
                 }
                 else (20, 50, 100, 200)
             ),

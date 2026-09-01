@@ -11,7 +11,6 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import to_rgba
 from matplotlib.lines import Line2D
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "publication_data" / "context_robustness_summary.csv"
 PROVENANCE = ROOT / "publication_data" / "context_robustness_provenance.json"
@@ -132,7 +131,13 @@ def main() -> None:
         )
         for context in CONTEXTS
     ]
-    fig.legend(handles=handles, loc="upper center", ncol=2, frameon=False, bbox_to_anchor=(0.5, 1.08))
+    fig.legend(
+        handles=handles,
+        loc="upper center",
+        ncol=2,
+        frameon=False,
+        bbox_to_anchor=(0.5, 1.08),
+    )
     fig.savefig(
         OUTPUT,
         dpi=600,
