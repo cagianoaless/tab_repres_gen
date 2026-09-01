@@ -20,7 +20,7 @@ INTERFACES = ("dyadic", "paths", "local")
 INTERFACE_LABELS = {
     "dyadic": "Dyadic",
     "paths": "Paths",
-    "local": "Full local",
+    "local": "Local",
 }
 COLORS = {
     "dyadic": "#0072B2",

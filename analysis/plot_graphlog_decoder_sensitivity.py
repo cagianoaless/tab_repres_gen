@@ -20,7 +20,10 @@ LABELS = {
     "tabpfn": "TabPFN",
 }
 CONTRASTS = {
-    "shared - absolute": ("relation_multiset", "ordered_typed_path"),
+    "relation multiset - absolute positions": (
+        "relation_multiset",
+        "ordered_typed_path",
+    ),
     "permuted - combined": (
         "aligned_multiset_with_ordered_block_permutation",
         "ordered_plus_multiset",
@@ -94,8 +97,8 @@ def main() -> int:
 
     for decoder in ("logistic", "catboost", "tabpfn"):
         for encoder, linestyle, suffix in (
-            ("relation_multiset", "-", "shared"),
-            ("ordered_typed_path", "--", "absolute"),
+            ("relation_multiset", "-", "relation multiset"),
+            ("ordered_typed_path", "--", "absolute positions"),
         ):
             selected = scores[
                 (scores["decoder"] == decoder) & (scores["encoder"] == encoder)
@@ -110,7 +113,7 @@ def main() -> int:
                 linewidth=1.4,
                 label=f"{LABELS[decoder]}, {suffix}",
             )
-    axes[0].set_title("(a) Scores: solid shared, dashed absolute")
+    axes[0].set_title("(a) Scores: solid relation multiset, dashed absolute positions")
     axes[0].set_xlabel("Context rows per relation")
     axes[0].set_ylabel("Equal-world balanced accuracy")
     axes[0].set_xticks(contexts)
@@ -118,7 +121,7 @@ def main() -> int:
 
     for decoder in ("logistic", "catboost", "tabpfn"):
         for contrast, linestyle in (
-            ("shared - absolute", "-"),
+            ("relation multiset - absolute positions", "-"),
             ("permuted - combined", "--"),
         ):
             selected = contrasts[
@@ -136,7 +139,7 @@ def main() -> int:
             )
     tuned = contrasts[contrasts["decoder"] == "catboost_tuned"]
     for contrast, marker in (
-        ("shared - absolute", "X"),
+        ("relation multiset - absolute positions", "X"),
         ("permuted - combined", "P"),
     ):
         selected = tuned[tuned["contrast"] == contrast]
@@ -150,7 +153,7 @@ def main() -> int:
             label=f"{LABELS['catboost_tuned']}, {contrast}",
         )
     axes[1].axhline(0.0, color="#333333", linewidth=0.8)
-    axes[1].set_title("(b) Deltas: solid shared-absolute, dashed block")
+    axes[1].set_title("(b) Fixed-decoder contrasts")
     axes[1].set_xlabel("Context rows per relation")
     axes[1].set_ylabel("Balanced-accuracy delta")
     axes[1].set_xticks(contexts)
