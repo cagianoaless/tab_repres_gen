@@ -173,6 +173,19 @@ def verify_scientific_inventory() -> None:
         fail("GraphLog capacity sweep is incomplete")
     if capacity.get("depths") != list(range(1, 8)):
         fail("GraphLog capacity sweep does not cover depths 1--7")
+    if "equal-length macro balanced accuracy" not in capacity.get(
+        "primary_effect", ""
+    ):
+        fail("GraphLog capacity sweep does not use the primary evaluation metric")
+    capacity_by_depth = {
+        row["depth"]: row for row in capacity.get("capacity_curve", [])
+    }
+    if not 0.124 < capacity_by_depth.get(7, {}).get("evaluation_shared", 0) < 0.125:
+        fail("GraphLog depth-7 multiset endpoint changed")
+    if not 0.282 < capacity_by_depth.get(7, {}).get("evaluation_absolute", 0) < 0.283:
+        fail("GraphLog depth-7 absolute-position endpoint changed")
+    if capacity_by_depth.get(7, {}).get("shared_worlds_at_or_below_chance") != 30:
+        fail("GraphLog depth-7 multiset chance count changed")
 
     controls = json.loads(
         (

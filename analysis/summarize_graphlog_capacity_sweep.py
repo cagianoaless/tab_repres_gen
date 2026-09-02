@@ -42,7 +42,7 @@ def load_cells(run_root: Path) -> pd.DataFrame:
                 "encoder": cell["encoder"],
                 "depth": int(match.group(1)),
                 "evaluation_balanced_accuracy": float(
-                    payload["metrics"]["balanced_accuracy"]
+                    payload["metrics"]["equal_length_macro_balanced_accuracy"]
                 ),
                 "context_balanced_accuracy": float(
                     payload["context_fit_metrics"]["balanced_accuracy"]
@@ -155,7 +155,10 @@ def main() -> int:
         "worlds": 57,
         "seeds": [101, 102, 103],
         "depths": list(range(1, 8)),
-        "primary_effect": "relation multiset minus ordered typed path balanced accuracy",
+        "primary_effect": (
+            "relation multiset minus ordered typed path equal-length macro "
+            "balanced accuracy"
+        ),
         "outcome_conditioning": "none",
         "capacity_curve": summary.to_dict(orient="records"),
     }
