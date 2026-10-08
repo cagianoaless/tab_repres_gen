@@ -83,7 +83,8 @@ def verify_historical_evidence() -> None:
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
             fail(f"immutable historical evidence changed or missing: {relative}")
     # These are evidence hashes, not a reconstruction of missing execution SHAs.
-    if len(snapshot["files"]) != 188:
+    # Original 188 entries plus two GRU tables and thirteen KG package files.
+    if len(snapshot["files"]) != 203:
         fail("historical result/publication inventory changed")
 
 
@@ -115,6 +116,10 @@ def verify_scientific_inventory() -> None:
         "publication_data/query_evidence_absolute.csv",
         "experiments/ultra4g/results/positive-context/README.md",
         "analysis/analyze_ultra4g_positive_context.py",
+        "analysis/verify_historical_gru.py",
+        "analysis/verify_historical_relation_context.py",
+        "experiments/clutrr/results/recurrent-gru/README.md",
+        "experiments/ultra4g/results/relation-context-historical/RECOVERY.md",
         "TERMINOLOGY.md",
         "PROVENANCE.md",
         "LICENSING.md",
@@ -324,11 +329,23 @@ def verify_primary_endpoints() -> None:
             fail(f"GraphLog primary decoder endpoint changed: {decoder}")
 
 
+def verify_recovered_derived_results() -> None:
+    # Invoke repository modules with the same interpreter; no models or raw assets.
+    for module in ("analysis.verify_historical_gru", "analysis.verify_historical_relation_context"):
+        completed = subprocess.run(
+            [sys.executable, "-m", module], cwd=ROOT, capture_output=True, text=True, check=False
+        )
+        if completed.returncode:
+            fail(f"{module} failed: {completed.stderr or completed.stdout}")
+        print(f"{module}: passed")
+
+
 def main() -> int:
     verify_manifest()
     verify_historical_evidence()
     verify_scientific_inventory()
     verify_primary_endpoints()
+    verify_recovered_derived_results()
     print("Artifact verification passed.")
     return 0
 

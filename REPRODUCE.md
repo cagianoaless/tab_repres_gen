@@ -27,7 +27,8 @@ non-ignored files before they are staged. Refresh it with
 `uv run python tools/build_manifest.py` after intentional release edits.
 Historical result tables must not be overwritten to satisfy verification.
 `tools/historical_results.json` separately pins all 188 original result and
-publication files at the audit HEAD. Refreshing the release manifest cannot
+publication files at the audit HEAD, plus 15 recovered historical files (203
+total). Refreshing the release manifest cannot
 silently change these immutable historical bytes.
 
 ## A. Rerunnable from public assets
@@ -117,10 +118,14 @@ Negative-context and matched-filter builders require the original external q512
 candidate/query inputs and extraction implementation; their `--help` options list
 the inputs. The complete upstream feature/ULTRA materializer is not shipped.
 
-The positive-context analysis is described in
-`experiments/ultra4g/results/positive-context/README.md`. Its required experiment
-matrix and frozen archives are absent, so the real analysis cannot be reproduced
-from this clone alone. Acceptance targets are never encoded as output data.
+The historical relation-context 4,104-cell derived matrix, coverage tables and
+60-test correction outputs are recovered in
+`experiments/ultra4g/results/relation-context-historical/`. The frozen archives,
+raw predictions and execution plans/registrations remain absent: full reruns
+cannot be performed from this clone alone. `RECOVERY.md` lists historically
+recorded asset/plan/checkpoint hashes, not independently rehashed upstream files.
+The `positive-context/` utility is a prospective fixed-negative-row sensitivity
+with 12+12 or 24-test scopes; neither scope reproduces the historical 60 tests.
 
 ## C. Checked-in evidence and table-only reproduction
 
@@ -132,6 +137,22 @@ directly from the checked-in dataset table:
 ```bash
 uv run python analysis/analyze_ultra4g_aggregation_sensitivity.py
 ```
+
+The recovered GRU tables reconstruct the five seed/equal-length OOD means and
+length endpoints. The KG verifier rebuilds combined-direction effects from all
+4,104 derived cells and enumerates 65,536 signs across 16 families and 60 tests:
+
+```bash
+uv run python -m analysis.verify_historical_gru
+uv run python -m analysis.verify_historical_relation_context
+```
+
+Both are also invoked by the artifact verifier. They write no outputs and need
+no model assets. They reproduce derived analysis, not prediction-level metrics
+from absent raw runs. The separate context-robustness 30-test family remains
+unchanged. Historical relation-context uses the same negative-sampling policy
+and 200+200-row budget, but resamples negatives for the matched positive queries;
+evaluation queries, candidates, targets and filtering arrays stay fixed.
 
 Outputs belong in `generated/`; keep `experiments/*/results/` and
 `publication_data/` historical. See `PROVENANCE.md` for unresolved source SHAs.

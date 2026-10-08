@@ -1,0 +1,55 @@
+{
+  "analysis": "rfmlink_ultra57_relation_context_compatibility_v1",
+  "analysis_commit": "02c15111be5b3d622f8358a673bdfcc0225fd05f",
+  "files": {
+    "README.md": {
+      "bytes": 1429,
+      "sha256": "405ceed7eedbec3af4e10c3e31014718945a8e1bb9b2e00e8248ca5cacfe9d0c"
+    },
+    "cell_metrics.csv": {
+      "bytes": 1195254,
+      "sha256": "26b8501449414f68d757928fa1d5b1ed43ade418de08098fac8e4ddf87955796"
+    },
+    "combined_exact_max_t.csv": {
+      "bytes": 6781,
+      "sha256": "a6453395275ed11cecdb26c89b5a0109e2d4e5ebebad8542586ab5319933c6e7"
+    },
+    "completion_audit.json": {
+      "bytes": 31694,
+      "sha256": "7863aef0f8859e75ddb6b5c348a34ace0a351aeb0d80d9417d423ea90fa53f23"
+    },
+    "configuration_summary.csv": {
+      "bytes": 4492,
+      "sha256": "2e829ea13ffd5cbace8acb6b808f926088728b43b198c27c97a001bd38c211c6"
+    },
+    "context_distribution_audit.csv": {
+      "bytes": 52830,
+      "sha256": "791f189ab1b5a57153411e743835191f184074a40d80462412299d6440fe8cc6"
+    },
+    "context_distribution_changes.csv": {
+      "bytes": 19323,
+      "sha256": "b13c96d2dfffe8f8bab1291ba574adc6175303aae8940e5813416232dbefea3a"
+    },
+    "contrast_by_dataset.csv": {
+      "bytes": 2286986,
+      "sha256": "34c3c2688c4426fe68240af7c6a67c2ea06ecedba1df28dc73cf6232eabba3df"
+    },
+    "contrast_by_family.csv": {
+      "bytes": 546081,
+      "sha256": "85683610547710761526c9883b13fefb5533afc419e2e95f246072c7bfbaa7be"
+    },
+    "contrast_summary.csv": {
+      "bytes": 57165,
+      "sha256": "8f29ac7532907acd461b4b638ecbf1e6cda9fd8197cd5982fdbb63e412e3cff3"
+    },
+    "dataset_configuration_metrics.csv": {
+      "bytes": 301680,
+      "sha256": "8e806946f462f61a9df870ac1c52d219c2344a91edb49ed65af7f04e8e2b4d38"
+    },
+    "sampling_effect_moderators.csv": {
+      "bytes": 9049,
+      "sha256": "fee6b789a63c0261ea559353c842ecdf2725a617130bb20490cdd15058dce873"
+    }
+  },
+  "scientific_status": "post-hoc fixed-panel factorial"
+}

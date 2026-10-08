@@ -188,7 +188,35 @@
     "publication_data/property_encoder_ladder.csv": "cc54e4bc6c8b47c8f623d9f01b8f27a9b771a8bbc33efff2a92d9cb1266496e6",
     "publication_data/query_evidence_absolute.csv": "13c42649ef095ac87014044dd2efba694545341a08b496d460e5ab5024d299f2",
     "publication_data/query_evidence_provenance.json": "a8c0cdbf42a2d92966305f804e7a6710d871c0df303589b97634fbb300902210",
-    "publication_data/ultra_interface_ladder.csv": "9b58aaefb588b162c83d1d46859a6a3e32ed96fb097d086bf0723ff8ff8a45e9"
+    "publication_data/ultra_interface_ladder.csv": "9b58aaefb588b162c83d1d46859a6a3e32ed96fb097d086bf0723ff8ff8a45e9",
+    "experiments/clutrr/results/recurrent-gru/gru_by_context.csv": "65a39c0af72be4cb38187b3964c348c32df1ee230f04d12681d1d3b3dcbff3ef",
+    "experiments/clutrr/results/recurrent-gru/gru_by_length.csv": "7e1ea39a98eb11c34b5dd56173b53e783056b32f2cb9d1da627a00482c763430",
+    "experiments/ultra4g/results/relation-context-historical/README.md": "405ceed7eedbec3af4e10c3e31014718945a8e1bb9b2e00e8248ca5cacfe9d0c",
+    "experiments/ultra4g/results/relation-context-historical/analysis_manifest.json": "4dbff7d9ca488ca95aae1645f5cf2c7d1aaa85164abed8321e6a459791d5303d",
+    "experiments/ultra4g/results/relation-context-historical/cell_metrics.csv": "26b8501449414f68d757928fa1d5b1ed43ade418de08098fac8e4ddf87955796",
+    "experiments/ultra4g/results/relation-context-historical/combined_exact_max_t.csv": "a6453395275ed11cecdb26c89b5a0109e2d4e5ebebad8542586ab5319933c6e7",
+    "experiments/ultra4g/results/relation-context-historical/completion_audit.json": "7863aef0f8859e75ddb6b5c348a34ace0a351aeb0d80d9417d423ea90fa53f23",
+    "experiments/ultra4g/results/relation-context-historical/configuration_summary.csv": "2e829ea13ffd5cbace8acb6b808f926088728b43b198c27c97a001bd38c211c6",
+    "experiments/ultra4g/results/relation-context-historical/context_distribution_audit.csv": "791f189ab1b5a57153411e743835191f184074a40d80462412299d6440fe8cc6",
+    "experiments/ultra4g/results/relation-context-historical/context_distribution_changes.csv": "b13c96d2dfffe8f8bab1291ba574adc6175303aae8940e5813416232dbefea3a",
+    "experiments/ultra4g/results/relation-context-historical/contrast_by_dataset.csv": "34c3c2688c4426fe68240af7c6a67c2ea06ecedba1df28dc73cf6232eabba3df",
+    "experiments/ultra4g/results/relation-context-historical/contrast_by_family.csv": "85683610547710761526c9883b13fefb5533afc419e2e95f246072c7bfbaa7be",
+    "experiments/ultra4g/results/relation-context-historical/contrast_summary.csv": "8f29ac7532907acd461b4b638ecbf1e6cda9fd8197cd5982fdbb63e412e3cff3",
+    "experiments/ultra4g/results/relation-context-historical/dataset_configuration_metrics.csv": "8e806946f462f61a9df870ac1c52d219c2344a91edb49ed65af7f04e8e2b4d38",
+    "experiments/ultra4g/results/relation-context-historical/sampling_effect_moderators.csv": "fee6b789a63c0261ea559353c842ecdf2725a617130bb20490cdd15058dce873"
   },
-  "source": "checked-in bytes at audit starting HEAD, not experimental source revision"
+  "source": "checked-in bytes at audit starting HEAD, not experimental source revision",
+  "recovered_sources": {
+    "experiments/clutrr/results/recurrent-gru/": {
+      "files": 2,
+      "result_commit": "7b3acb87da64571d35060da83f290e1bed3266cb",
+      "original_commit_directory": "results/audits/acceptance_controls_v3/"
+    },
+    "experiments/ultra4g/results/relation-context-historical/": {
+      "files": 13,
+      "result_commit": "5311736a48f9a1780bff4cc6378f73a13727da2a",
+      "original_commit_directory": "results/ultra57/relation-context/",
+      "analysis_commit": "02c15111be5b3d622f8358a673bdfcc0225fd05f"
+    }
+  }
 }

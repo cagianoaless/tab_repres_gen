@@ -1,19 +1,21 @@
-# Positive-context and relation-identity controls: missing historical inputs
+# Prospective positive-context and relation-identity sensitivity utility
 
-Status: **not regenerable from this checkout alone**. No real coverage/contrast
-CSVs or `audit.json` are shipped here. The existing protocol identifier
-`rfmlink_ultra57_relation_context_v1` is not an archive or an experiment result.
-Neither the available Git history nor checked-in artifacts supplies its frozen
-archives, sampling registration, plans, result shards, or correction scope.
-The manuscript's acceptance values are not used to construct outputs.
+Status: **prospective/sensitivity analysis**, not historical manuscript
+reproduction. No result CSVs or `audit.json` are manufactured here. The genuine
+historical 4,104-cell derived package is recovered separately in
+[`../relation-context-historical/`](../relation-context-historical/RECOVERY.md).
+Its correction is one 60-test family and its negative rows are resampled under
+a fixed policy. Raw frozen archives, predictions and execution files remain
+unavailable. The manuscript's acceptance values are never used as output data.
 
 `analysis/analyze_ultra4g_positive_context.py` implements a deterministic
 downstream contract using the existing loader selection and statistical helpers.
-It does **not** reconstruct the historical context sampler. The maintainer must
-recover the actual assets/registration before interpreting its outputs as the
-paper's analysis. It requires:
+It does **not** reconstruct the historical context sampler. Its contract holds
+exact negative rows fixed, stricter than the historical policy-only invariant.
+Do not use it to interpret historical outputs as if those rows were identical.
+It requires appropriately registered prospective inputs:
 
-- A `manifest.json` with the exact asset ID above, `datasets` archive hashes,
+- A `manifest.json` with asset ID `rfmlink_ultra57_relation_context_v1`, `datasets` archive hashes,
   19 `b0_feature_names` (relation ID at column 0, ULTRA score at column 18), and
   13 `b2v2_feature_names`, following the existing runtime asset schema. Each
   dataset record needs `transfer_regime`; the manifest also supplies registered
@@ -26,15 +28,15 @@ paper's analysis. It requires:
   `_triples`; `original_uniform` uses `context_<seed>` instead. Triples have
   head/relation/tail columns. Positives change; selected negative triples and
   features must remain identical. Budget and evaluation archive remain fixed.
-- Original plans and complete checksum-verified `results/shard-*` outputs from
+- Registered prospective plans and complete checksum-verified `results/shard-*` outputs from
   the existing runner, including metrics, prediction NPZs, and shard manifests.
   Matrix: 57 datasets × 3 decoders × 4 schema variants × 2 modes × 3 seeds
-  (4,104 cells). This is the analysis contract, not evidence that an original
-  4,104-cell registration has been recovered.
+  (4,104 cells). This prospective contract is distinct from the recovered
+  historical matrix, which does not establish this exact-fixed-negative pairing.
 - A dataset/family CSV with columns `dataset,provenance_family`, covering exactly
   the observed 57 datasets and 16 families. The original mode names, decoder
   settings/checkpoints, sampling seeds, and multiple-testing scope must come
-  from recovered registration, not inference from acceptance targets.
+  from the supplied prospective registration, not inference from acceptance targets.
 
 Decoder IDs are preserved, including `logistic_nominal` / `catboost_nominal`
 where registered. Nominal and numeric treatments of relation IDs are not
@@ -46,7 +48,7 @@ The four variants are Local, Local+score and their no-relation-ID counterparts:
 `b0_local_ultra_no_relation_id`. The last two remove only column 0; tests validate
 all remaining values, ordering and categorical indices.
 
-Example downstream invocation (replace the mode names with registered names):
+Example prospective invocation (replace the mode names with registered names):
 Set `RTFM_FROZEN_KG_ASSET_ROOT` to the same directory passed to `--asset-root`;
 the existing plan validator requires this runtime registration. The current
 relation-context protocol permits 200 examples per class (400 total context
@@ -68,15 +70,17 @@ correction-scope choice remains required:
   contrasts and a separate exact max-|t| correction over the 12 relation-identity
   contrasts (stratified by context mode).
 - `joint` applies one exact max-|t| correction over all 24 contrasts and is
-  retained as a stricter sensitivity analysis.
+  retained as a stricter prospective sensitivity analysis.
 
-The manuscript presents the positive-context and relation-identity contrasts as
-two separately jointly corrected families. Its wording is therefore the reason
-the manuscript-facing reproduction example uses `separate`, not significance
-optimization. Because the historical registration is missing, repository history
-alone cannot independently prove which implementation was used in the original
-experiment. The original registration is still needed to establish that history;
-do not choose a correction scope by its significance outcome.
+Neither scope reproduces the historical 60-test correction. Both are prospective
+sensitivities, and an explicit choice remains required. The example is not a
+manuscript-facing reproduction command and must not be chosen to optimize
+significance. The recovered historical analysis code and correction tables
+establish the actual 60-test procedure despite absent raw execution files:
+
+```bash
+uv run python -m analysis.verify_historical_relation_context
+```
 
 Coverage is recomputed from selected positive relation IDs against the fixed
 evaluation relation distribution: covered evaluation types / evaluation types;

@@ -22,9 +22,13 @@ preparation, ULTRA inference, and feature materialization.
 
 Checked-in `experiments/*/results/` and `publication_data/` are immutable
 historical evidence, validated without running models. Write reruns to
-`generated/` and compare them explicitly. The positive-context coverage and
-relation-identity experiment matrix is absent from this release; see
-[the control area](experiments/ultra4g/results/positive-context/README.md).
+`generated/` and compare them explicitly. Genuine historical derived tables are
+now recovered for the [CLUTRR GRU](experiments/clutrr/results/recurrent-gru/README.md)
+and the complete [relation-context / identity control](experiments/ultra4g/results/relation-context-historical/RECOVERY.md).
+Their endpoints and historical 60-test correction are reproducible from these
+tables; missing raw execution files prevent full raw-run reconstruction.
+The [positive-context tool](experiments/ultra4g/results/positive-context/README.md)
+remains a stricter prospective 12/24-test sensitivity, not that historical analysis.
 
 In the paper, phi is the graph-to-table encoder, S constructs the labelled
 context, and D is the decoder. The complete interface is `(phi, S, D)`.

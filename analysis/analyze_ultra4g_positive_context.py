@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Downstream positive-context/identity analysis; never generates missing model results.
+"""Prospective positive-context/identity sensitivity; never generates model results.
 
-The historical relation-context assets and result matrix are NOT shipped. This
-entry point defines an explicit, testable prospective contract, not a claim that
-the historical sampler or correction scope has been recovered.
+This stricter fixed-negative-row contract and its 12/24-test scopes do NOT
+reproduce the historical resampled-negative, 60-test analysis. Historical derived
+tables are shipped separately in relation-context-historical; their verifier is
+analysis.verify_historical_relation_context. Raw historical assets remain absent.
 """
 
 from __future__ import annotations
@@ -387,7 +388,7 @@ def main() -> None:
         "--correction-scope",
         choices=("joint", "separate"),
         required=True,
-        help="Must be chosen from recovered historical registration, not inferred",
+        help="Prospective scope: separate 12+12 or joint 24; neither is historical 60",
     )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -446,7 +447,7 @@ def main() -> None:
         "positive_context_contrasts": 12,
         "relation_identity_contrasts": 12,
         "claim_boundary": (
-            "downstream analysis of supplied assets; historical sampler not reconstructed"
+            "prospective fixed-negative sensitivity; not historical 60-test reproduction"
         ),
     }
     # Validate everything before creating outputs; never overwrite historical artifacts.
