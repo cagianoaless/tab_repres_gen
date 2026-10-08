@@ -1,44 +1,98 @@
-# Historical provenance
+# Source provenance
 
-Audit starting HEAD: `4968c7a632815816a075dd2080839a8a4bac76eb`.
-The initial working tree was clean.
+## Pipeline sources
 
-The literal `artifact-source-revision` is unresolved historical provenance, not
-a commit SHA. Every existing occurrence is retained. It appears in CLUTRR
-coordinate coverage, additive context, shared-coordinate, metric-robustness and
-shortcut artifacts; dihedral CPU/GPU artifacts; GraphLog replication and depth-1
-sensitivity; KG ladder, context robustness and ranking correction; publication
-provenance; and their analysis producers.
+`reproduction/SOURCE_MANIFEST.json` inventories the byte-identical producer
+source, required import dependencies, launcher metadata and numerical reference
+gates. Each entry records its path, role, size, SHA-256 and a source commit where
+one is established. Manifest paths are relative to `reproduction/`.
+Producer files without an upstream committed Git identity
+are identified by their verified SHA-256; no commit is inferred for them.
 
-The artifact repository's available Git history begins at
-`9955c64903a67bd801588b48f8328135317e3eea`, a compact artifact import which already
-contains these placeholders. Subsequent history, plans and result metadata do
-not establish the original execution SHA. The import SHA proves when files
-entered this repository, not which upstream revision executed the experiments.
-It must not replace an execution/source-result commit.
+| Component | Source identity |
+|---|---|
+| Local18 | `d63ad3d0b8d3d1cb3d9cc1e160f66de9d276016e950f3dbf6b9b347d1e9dfb4d` |
+| Global13 hybrid module | `d00aeb2e467d50649d326bc5dc384c7abaefc1aae5b7ab84abb2c0f89e9f0dda` |
+| Global13 inherited module | `b21ff322409aefe256845272a1e5131254348c2253f99142c53da307c3e14194` |
+| Global implementation digest | `da165b3f24a8e8c9f9b5ed840400301bc30f30134274ab10c947ff32e76ed470` |
+| RFMLink exporter, context builder and registration/worker code | `a48dd52dfdedcf38428c489909b1f31be27ca3d9` |
+| Relation-context analysis | `02c15111be5b3d622f8358a673bdfcc0225fd05f` |
+| Relation-context reference tables | `5311736a48f9a1780bff4cc6378f73a13727da2a` |
+| GRU reference tables | `7b3acb87da64571d35060da83f290e1bed3266cb` |
+| GRU execution registration | `35ce37623d2f4bd1baee66b0ded837af63d8e17a` |
 
-Plan hashes, checksums, cell IDs, dataset counts and source paths already present
-in historical records retain their original meaning. `MANIFEST.sha256` verifies
-current release bytes; it does not repair missing historical source provenance.
-Some legacy analyses compare the placeholder string to source registrations;
-their historical compatibility checks remain intact. New analysis outputs hash
-their actual input files and never manufacture historical commit identifiers.
+The portable wrappers adapt paths and, for a fresh analysis, the actual execution
+revision checked against registrations. They do not alter feature formulas,
+random streams, decoders or statistical estimands. The module/directory names
+in the source closure remain compatible with the original entry points.
+`reproduction/reference/frozen_numeric_protocol.json` checks the Global implementation
+digest and its ten original source files.
 
-To resolve those placeholder-bearing artifacts, supply original run
-registrations/runtime manifests
-and corresponding upstream Git objects. No historical provenance placeholder
-was resolved during this audit.
+## Dependencies and checkpoints
 
-The additional review-era `source_repository: anonymous-source-tree` in
-`publication_data/query_evidence_provenance.json` also occurs in the initial
-import. Its upstream repository identity cannot be proven; it is preserved.
-The current artifact repository name is not evidence of that source's identity.
+ULTRA source: [DeepGraphLearning/ULTRA](https://github.com/DeepGraphLearning/ULTRA),
+commit `427966ad8ed60420eef034063d44f3153addff90`.
+TabPFN package: `8.1.0`, V3 classifier, four estimators for the KG decoder matrix.
+Checkpoint identities are independently verified reference inputs:
 
-## Occurrence inventory at audit HEAD
+| Checkpoint | SHA-256 |
+|---|---|
+| `ultra_4g.pth` | `48a046e708adf5632d87c30eacae01f5f51466b2301effdc2cb42358d22854e0` |
+| `tabpfn-v3-classifier-v3_default.ckpt` | `d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988` |
 
-Each entry was checked against the available history and source metadata. All
-remain unresolved; none is replaced with the audit HEAD. Counts refer to matching
-lines (a line can reference more than one revision).
+Weights remain external; acquisition and verification are described in
+[REPRODUCE.md](REPRODUCE.md). Producer direct dependency versions are recorded
+separately from the artifact's `uv.lock`; neither claims byte-identical results
+across hardware and numerical libraries.
+
+## Plan and reference execution identities
+
+`reproduction/REFERENCE_EXECUTION.json` records reference execution source,
+manifest and plan identities. A **scientific plan hash** is SHA-256 of canonical
+JSON after excluding `created_at_utc` and `plan_sha256`:
+`ensure_ascii=True, allow_nan=False, sort_keys=True, separators=(',', ':')`.
+It is not the SHA-256 of the serialized JSON file; both are listed separately
+in that metadata.
+
+| Plan | Scientific-plan-body SHA-256 |
+|---|---|
+| Relation-context CPU | `bd836b248fdb2812206087fae0c5ee88f5e9035cb9450c5d6d5da7893e9ccee2` |
+| Relation-context TabPFN | `09461de58b61803baad894e8d3fb4e1da3980c13410fe36decac195c43553b7a` |
+| GRU | `bded7fc607c0fff7036f617599f721d3954d18f0d24df506dd94a2683bf686f5` |
+
+The reference relation-context manifest has SHA-256
+`8fef670b0cdf4574da81bf5d35b7eca8613cdac515988a03e1c6f0ca6764cd9e`.
+Its 57 listed archives and the complete reference executions (2,736 CPU +
+1,368 TabPFN cells; 15 GRU cells) were verified on the execution system.
+Large archives, weights and prediction trees are external generated/reference
+outputs, not prerequisites bundled into Git. The lightweight tables and their
+verifiers support direct paper-result verification.
+
+The numerical stability shard files are unchanged reference gates, not new
+runs. The compact graph-consistency record retains the original gate's SHA-256
+and decision without machine-specific runtime paths. Fresh executions record
+their own paths, package versions, plans and source revision.
+
+## Reference outputs and compatibility
+
+The release manifest checks current release bytes. The separate pin inventory
+protects 203 reference result/publication files; all prior entries remain intact.
+Result-package commits identify table versions, not necessarily execution source.
+Serialized legacy filenames containing `historical` are retained for compatibility.
+
+Some reference files contain the literal `artifact-source-revision`, rather
+than a verified execution SHA. The artifact import
+`9955c64903a67bd801588b48f8328135317e3eea` already contains those fields; it
+does not establish the revision that executed each experiment. They remain
+unchanged rather than being replaced with the current repository HEAD.
+The additional `source_repository: anonymous-source-tree` field in the pinned
+query-evidence metadata likewise remains an unresolved source identifier.
+These metadata fields do not prevent numerical verification or fresh execution
+with the supplied pipeline.
+
+### Unresolved source-revision fields
+
+Counts refer to matching lines, not distinct revisions.
 
 | File | Matching lines | Resolution |
 |---|---:|---|
@@ -65,41 +119,3 @@ lines (a line can reference more than one revision).
 | `experiments/ultra4g/results/q64-encoder-ladder/audit.json` | 1 | unresolved; present in initial import |
 | `publication_data/context_robustness_provenance.json` | 1 | unresolved; present in initial import |
 | `publication_data/query_evidence_provenance.json` | 1 | unresolved; present in initial import |
-
-## Historical derived-result recovery after the initial audit
-
-Reconciliation starting HEAD: `eef4b705a5cc1ba3c80785a07b18c8bbd9ed6beb`.
-The original study repository supplied independently checked historical Git
-objects and derived tables for two previously missing controls:
-
-| Recovered evidence | Historical source | Current artifact location |
-|---|---|---|
-| Two GRU derived CSVs | Result commit `7b3acb87da64571d35060da83f290e1bed3266cb`; original paths `results/audits/acceptance_controls_v3/` | `experiments/clutrr/results/recurrent-gru/` |
-| Thirteen relation-context derived package files | Result commit `5311736a48f9a1780bff4cc6378f73a13727da2a`; original path `results/ultra57/relation-context/` | `experiments/ultra4g/results/relation-context-historical/` |
-| KG statistical analysis logic | Analysis-code commit `02c15111be5b3d622f8358a673bdfcc0225fd05f` | Adapted derived-only verifier `analysis/verify_historical_relation_context.py` |
-
-Every recovered file matches its historical committed bytes. The GRU README
-lists its two SHA-256s; the KG `analysis_manifest.json` supplies 12 internal
-hashes, cross-checked before copying, and `tools/historical_results.json` pins
-all 15 recovered files including the KG manifest itself. All original 188
-entries remain intact. A result-package commit is not an execution-source commit.
-The pin file's original `audit_head`/`source` describe its original inventory;
-the added `recovered_sources` records separately identify the 15 additions.
-
-The GRU config matches the historical config byte-for-byte, but its original
-cell metrics, predictions, plan and runtime provenance remain unavailable.
-No GRU execution-source revision can be asserted from these tables alone.
-
-KG `completion_audit.json` records execution source
-`a48dd52dfdedcf38428c489909b1f31be27ca3d9`, asset manifest, CPU/TabPFN plan and
-shard-manifest identities. `relation-context-historical/RECOVERY.md` records
-those exact hashes and the checkpoint specified by the historical registration
-generator. Actual frozen archives, raw metrics/predictions and execution
-plans/registrations were not recovered and were **not independently rehashed**.
-Verification reproduces derived effects/coverage and the historical 60-test
-correction, not raw-run execution or archive-level pairing.
-
-This recovery does not resolve or rewrite any placeholder in the inventory
-above. It replaces the earlier absence assessment only for these two controls;
-historical/prospective statistical and negative-row contracts are distinguished
-explicitly in the new recovery note and prospective README.

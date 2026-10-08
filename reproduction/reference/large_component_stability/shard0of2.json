@@ -1,0 +1,208 @@
+{
+  "components_completed": 814,
+  "datasets_completed": 26,
+  "graph_errors": 0,
+  "graphs_completed": 806,
+  "hostname": "frecciarossa",
+  "labels_or_metrics_accessed": false,
+  "num_shards": 2,
+  "provenance": {
+    "eigenvalue_atol": 1e-08,
+    "eigenvalue_rtol": 1e-06,
+    "feature_scaled_tolerance": 2e-05,
+    "frozen_features_sha256": "b21ff322409aefe256845272a1e5131254348c2253f99142c53da307c3e14194",
+    "labels_or_metrics_accessed": false,
+    "large_component_minimum": 513,
+    "orthogonality_tolerance": 1e-08,
+    "scan_version": "g2t_q512_metric_free_large_eigsh_stability_v1",
+    "scanner_sha256": "2cb72230399c8441671af9fd61d7a32f66d4579a98baac81e35940455d2fae73",
+    "zero_tolerance": 1e-08
+  },
+  "records": [
+    {
+      "components_completed": 31,
+      "dataset": "wn18rr_ind_v1",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "nell_ind_v2",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "conceptnet100k",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "hetionet",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "ilpc2022_large",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "codex_medium",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "fb15k237_20",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "fb15k237_10",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "hm_indigo",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 37,
+      "dataset": "wiki_mt4_sci",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "wiki_mt3_art",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "wiki_mt1_tax",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "fb_ingram_50",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "wk_ingram_25",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "fb_ingram_75",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "fb15k237_ind_v3",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 32,
+      "dataset": "wn18rr_ind_v2",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "nl_ingram_100",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "nl_ingram_0",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "dbpedia100k",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "wn18rr",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "hm_5k",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 32,
+      "dataset": "wn18rr_ind_v3",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "wiki_mt2_org",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "nell_ind_v3",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    },
+    {
+      "components_completed": 31,
+      "dataset": "fb_ingram_100",
+      "graph_errors": 0,
+      "graphs_completed": 31,
+      "unstable_components": 0
+    }
+  ],
+  "shard_id": 0,
+  "status": "COMPLETE",
+  "unstable_components": 0
+}

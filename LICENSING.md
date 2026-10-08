@@ -1,33 +1,26 @@
-# Code, data and model licensing
+# Code, data and model terms
 
-This repository does not currently establish a code license or an author-approved
-copyright holder list. This audit therefore does not grant a new license. The
-maintainers must choose and approve a code license before public distribution;
-that license must not purport to relicense external data or model weights.
+A repository code license and publication citation metadata require an author
+decision. No license, copyright-holder list, author list, DOI or proceedings
+information is inferred here.
 
-Existing checksummed source declarations are in
-`data/manifests/external_assets.yaml`:
+The bundled producer/adaptor source is project-owned source used by the
+reproduction pipeline. ULTRA is an external dependency with its own MIT license;
+its repository is not vendored. No model weights or raw datasets are bundled.
+TabPFN package/model access is governed by Prior Labs' terms, including applicable
+attribution requirements. Built with PriorLabs-TabPFN.
 
-| Resource | Recorded terms / boundary |
+External dataset declarations are in `data/manifests/external_assets.yaml`:
+
+| Resource | Terms / boundary |
 |---|---|
-| CLUTRR Hugging Face CSV packaging | CC-BY-NC-4.0 |
-| GraphLog author mirror | Upstream repository recorded as MIT; verify data distribution terms separately |
-| MovieLens | Follow the dataset's own README terms |
-| SNAP email dataset | Follow SNAP terms and citation requirements |
-| auto-kbc / facebookresearch kbc | Pinned source repositories; verify each dataset's terms |
-| TabPFN and ULTRA checkpoints | Separate model/package terms; weights are not bundled |
-| Frozen RFMLink archives | Not bundled; upstream dataset/model redistribution permissions must be checked |
+| CLUTRR Hugging Face CSV packaging | Recorded CC-BY-NC-4.0 |
+| GraphLog author mirror | Upstream repository recorded as MIT; data terms apply separately |
+| MovieLens | Dataset README terms |
+| SNAP email | SNAP terms and citation requirements |
+| auto-kbc / facebookresearch kbc | Pinned sources and each dataset's terms |
+| Public ULTRA KGs | Original dataset terms; ULTRA's code license does not relicense data |
+| ULTRA and TabPFN checkpoints | Upstream model terms; weights remain external |
 
-Python dependency versions are pinned by `uv.lock`; their licenses remain their
-own. Installed metadata inspected during this audit records BSD-style terms for
-NumPy, pandas, SciPy and scikit-learn; MIT for PyYAML, plotnine, pytest and Ruff;
-and Apache-2.0 for CatBoost. NetworkX's metadata does not populate a license
-field; its bundled license must be consulted. Optional TabPFN/cluster packages
-and model checkpoints were not installed or redistributed by this audit.
-These metadata observations are not a redistribution clearance. No external
-data or model weights are relicensed here.
-
-Citation title: **Graph-to-Table Interfaces Control Relational Generalisation**.
-The repository does not provide a verified publication author list, DOI or
-proceedings record. A `CITATION.cff` with publication attribution is deferred
-until maintainers provide these details; no authors are inferred from Git names.
+Python dependencies retain their own licenses. A future repository code license
+must not relicense datasets, models or other dependencies.

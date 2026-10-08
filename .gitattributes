@@ -1,0 +1,2 @@
+# Preserve the byte-pinned producer's verified final blank line.
+reproduction/pipeline/RFMLink/rfmlink/ultra57_registry.py whitespace=-blank-at-eof

@@ -123,7 +123,10 @@ def verify_scientific_inventory() -> None:
         "TERMINOLOGY.md",
         "PROVENANCE.md",
         "LICENSING.md",
-        "CAMERA_READY_AUDIT.md",
+        "reproduction/SOURCE_MANIFEST.json",
+        "reproduction/REFERENCE_EXECUTION.json",
+        "reproduction/run_pipeline.py",
+        "reproduction/verify_source_pipeline.py",
     )
     for relative in required:
         if not (ROOT / relative).is_file():
@@ -346,6 +349,13 @@ def main() -> int:
     verify_scientific_inventory()
     verify_primary_endpoints()
     verify_recovered_derived_results()
+    completed = subprocess.run(
+        [sys.executable, "-m", "reproduction.verify_source_pipeline"],
+        cwd=ROOT, capture_output=True, text=True, check=False,
+    )
+    if completed.returncode:
+        fail(f"source pipeline failed: {completed.stderr or completed.stdout}")
+    print(completed.stdout.strip())
     print("Artifact verification passed.")
     return 0
 

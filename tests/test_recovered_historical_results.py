@@ -101,7 +101,7 @@ def test_complete_historical_derived_reproduction() -> None:
 def test_historical_and_prospective_contracts_are_explicitly_distinct() -> None:
     prospective = (ROOT / "experiments/ultra4g/results/positive-context/README.md").read_text()
     recovery = (ROOT / kg.RESULTS / "RECOVERY.md").read_text()
-    assert "Neither scope reproduces the historical 60-test correction" in prospective
+    assert "Neither scope reproduces the paper's 60-test correction" in prospective
     assert "exact negative rows" in prospective
     assert "resamples negative rows" in recovery
     assert "30-test" in recovery

@@ -1,18 +1,18 @@
 # Prospective positive-context and relation-identity sensitivity utility
 
-Status: **prospective/sensitivity analysis**, not historical manuscript
-reproduction. No result CSVs or `audit.json` are manufactured here. The genuine
-historical 4,104-cell derived package is recovered separately in
+Status: **prospective/sensitivity analysis**, not the paper reproduction path.
+No result CSVs are bundled for this sensitivity. The paper's 4,104-cell
+reference package is in
 [`../relation-context-historical/`](../relation-context-historical/RECOVERY.md).
 Its correction is one 60-test family and its negative rows are resampled under
-a fixed policy. Raw frozen archives, predictions and execution files remain
-unavailable. The manuscript's acceptance values are never used as output data.
+a fixed policy. The end-to-end workflow is in
+[REPRODUCE.md](../../../../REPRODUCE.md); expected values are never used as output data.
 
 `analysis/analyze_ultra4g_positive_context.py` implements a deterministic
 downstream contract using the existing loader selection and statistical helpers.
-It does **not** reconstruct the historical context sampler. Its contract holds
-exact negative rows fixed, stricter than the historical policy-only invariant.
-Do not use it to interpret historical outputs as if those rows were identical.
+It does **not** reconstruct the paper context sampler. Its contract holds
+exact negative rows fixed, stricter than the paper's policy-only invariant.
+Do not use it to interpret reference outputs as if those rows were identical.
 It requires appropriately registered prospective inputs:
 
 - A `manifest.json` with asset ID `rfmlink_ultra57_relation_context_v1`, `datasets` archive hashes,
@@ -31,8 +31,8 @@ It requires appropriately registered prospective inputs:
 - Registered prospective plans and complete checksum-verified `results/shard-*` outputs from
   the existing runner, including metrics, prediction NPZs, and shard manifests.
   Matrix: 57 datasets × 3 decoders × 4 schema variants × 2 modes × 3 seeds
-  (4,104 cells). This prospective contract is distinct from the recovered
-  historical matrix, which does not establish this exact-fixed-negative pairing.
+  (4,104 cells). This prospective contract is distinct from the paper's
+  reference matrix, which does not establish this exact-fixed-negative pairing.
 - A dataset/family CSV with columns `dataset,provenance_family`, covering exactly
   the observed 57 datasets and 16 families. The original mode names, decoder
   settings/checkpoints, sampling seeds, and multiple-testing scope must come
@@ -72,11 +72,10 @@ correction-scope choice remains required:
 - `joint` applies one exact max-|t| correction over all 24 contrasts and is
   retained as a stricter prospective sensitivity analysis.
 
-Neither scope reproduces the historical 60-test correction. Both are prospective
+Neither scope reproduces the paper's 60-test correction. Both are prospective
 sensitivities, and an explicit choice remains required. The example is not a
 manuscript-facing reproduction command and must not be chosen to optimize
-significance. The recovered historical analysis code and correction tables
-establish the actual 60-test procedure despite absent raw execution files:
+significance. The bundled analysis code and reference tables establish the 60-test procedure:
 
 ```bash
 uv run python -m analysis.verify_historical_relation_context

@@ -1,0 +1,96 @@
+{
+  "artifact_isolation": {
+    "immutable_parent_query_context_and_ultra_assets_reused": true,
+    "new_feature_root": "results/g2t_q512_hybrid_solver_metric_free_v1/feature_assets",
+    "reused_embedding_roots": []
+  },
+  "audit_artifacts": [
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/cutoff_audit.json",
+      "sha256": "6555d3fe323ffc0734ad6dc9479ecad3e6e5f56b57b8b5634e2d57d097286591"
+    },
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/spectral_audit.json",
+      "sha256": "0bceddaf7c3c37f634b2e99ddaf8604b11c13b85eb62334f8f275424a53cb067"
+    },
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/materialized_audit.json",
+      "sha256": "9ba94106a67fa2f864e4f47f381e3dda0a58f4b0943fee57dbf1fe411c4d3ce7"
+    },
+    {
+      "path": "results/analysis/g2t_q512_metric_free_large_eigsh_stability_v1/shards/shard0of2.json",
+      "sha256": "a8bad0c133d7a58c2a247d267da11fe12b30b9541dcc692fddb16aa2b4659229"
+    },
+    {
+      "path": "results/analysis/g2t_q512_metric_free_large_eigsh_stability_v1/shards/shard1of2.json",
+      "sha256": "9a38641b7b75f26bc000a667fd76fae2ba6ab3bd0d7c7974c54954c2fe6060ae"
+    },
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/development_large_stability/shards/shard0of6.json",
+      "sha256": "281d5341eca9d74ce24efd44b007ed4b3707534ca8aebac3296d6375556a2670"
+    },
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/development_large_stability/shards/shard1of6.json",
+      "sha256": "dc878a2a494b9f283eaa2ff0c6191b82a228ad6a0e118ac87012f0c2ecfe4112"
+    },
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/development_large_stability/shards/shard2of6.json",
+      "sha256": "fb6744c251e77c725163357c22592757e6a0128756f1803cfcde004a057f6e6c"
+    },
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/development_large_stability/shards/shard3of6.json",
+      "sha256": "1fedc86ca0c3bd7fca19ca7bb6691c7c0d3b368d5aefa81c09a3cd82039dc92c"
+    },
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/development_large_stability/shards/shard4of6.json",
+      "sha256": "82b1febc805a9b012b1678fe8e8c28ee2fa4607dfb79fcc475ade1832c5fb919"
+    },
+    {
+      "path": "results/analysis/g2t_q512_hybrid_solver_metric_free_v1/development_large_stability/shards/shard5of6.json",
+      "sha256": "b5eac02eadcda9bab74f7ca3dee992d0c1ecb7f0646d9d6b1459963a282a961a"
+    }
+  ],
+  "b2_implementation_sha256": "da165b3f24a8e8c9f9b5ed840400301bc30f30134274ab10c947ff32e76ed470",
+  "cutoff_selection_uses_performance_metrics": false,
+  "labels_or_performance_metrics_accessed": false,
+  "large_component_stability": {
+    "confirmation_components": 1657,
+    "confirmation_datasets": 51,
+    "development_components": 124,
+    "development_datasets": 6,
+    "unstable_components": 0
+  },
+  "protocol": "g2t_q512_hybrid_solver_metric_free_v1",
+  "solver_policy": {
+    "components_above_512_nodes": {
+      "deterministic_initialization": true,
+      "k": 10,
+      "maxiter": "max(10000, 20 * component_size)",
+      "solver": "eigsh",
+      "tolerance": 1e-10,
+      "which": "SM"
+    },
+    "components_at_most_512_nodes": "dense_eigh",
+    "failure_policy": "fail the complete protocol before prediction; never skip a dataset and never select a fallback using link-prediction metrics",
+    "fallbacks": [],
+    "mandatory_checks": {
+      "maximum_orthogonality_error": 1e-08,
+      "maximum_residual": 5e-05,
+      "maximum_zero_eigenvalue_error": 1e-08
+    },
+    "truncation": "retain at most eight positive modes; use the ninth positive mode as look-ahead and back off before any repeated boundary eigenspace"
+  },
+  "source_hashes": {
+    "cutoff_audit.py": "ffa11e7f4b62b3e4daa81a44ac32809c650615d53c2efea7d9744f2dc79a89dc",
+    "development_large_stability.py": "e09ca038cfaabfe9eeaaeb93b270e54626f08f9fd02aba5540ac6e6996f3e39f",
+    "features.py": "d00aeb2e467d50649d326bc5dc384c7abaefc1aae5b7ab84abb2c0f89e9f0dda",
+    "finalize_numeric_protocol.py": "561a017809ba7356faf30392d0f986594510fb691f591ebb98d1b699b1ff001d",
+    "materialize.py": "0b432e4348f6272d8b5734435a2dadcd8b4af0845b1d6e056fe3cf59c6b34e28",
+    "protocol.py": "1d830ebef5a8bc0d464a0387f4a45e2db92a8210df1c5f597315b43919163949",
+    "run_materialization_pool.sh": "ee5e69547c0252731690eaa104782229109314916dca0ce681a5c99cfa72779b",
+    "run_metric_free_pipeline.sh": "c1e99fd1bc6dc6c8c06a221445a23046adc4a8b82189a1ea2abafdfef92f8c01",
+    "spectral_audit.py": "b2d47582c4efd77952b0ece53dfb4946cff61d88b87ee69db646bb262ab5dc6c",
+    "test_hybrid_solver.py": "ab769587a8028008098d77c02f49de8925b1791e8077118bac569d8f50b0212c"
+  },
+  "status": "FROZEN_BEFORE_PREDICTIVE_METRICS"
+}

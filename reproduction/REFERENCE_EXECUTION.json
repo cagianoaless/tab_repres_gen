@@ -1,0 +1,43 @@
+{
+  "relation_context_cpu": {
+    "scientific_plan_sha256": "bd836b248fdb2812206087fae0c5ee88f5e9035cb9450c5d6d5da7893e9ccee2",
+    "serialized_file_sha256": "7efa53dec24313d9c66804443bf5cba16706efe056fe0baf67fb31637f33242c",
+    "cells": 2736,
+    "source_commit": "a48dd52dfdedcf38428c489909b1f31be27ca3d9"
+  },
+  "relation_context_tabpfn": {
+    "scientific_plan_sha256": "09461de58b61803baad894e8d3fb4e1da3980c13410fe36decac195c43553b7a",
+    "serialized_file_sha256": "ce26971bab03281c2fc3936717aeaf4cbbc5fab10703f2ad5c297e70f4513e77",
+    "cells": 1368,
+    "source_commit": "a48dd52dfdedcf38428c489909b1f31be27ca3d9"
+  },
+  "gru": {
+    "scientific_plan_sha256": "bded7fc607c0fff7036f617599f721d3954d18f0d24df506dd94a2683bf686f5",
+    "serialized_file_sha256": "73865d994d3fa799f32bae0c14cb957318a4925ecbaedcbd5974b4b3db48c6d4",
+    "cells": 15,
+    "source_commit": "35ce37623d2f4bd1baee66b0ded837af63d8e17a"
+  },
+  "graph_consistency_reference": {
+    "file_sha256": "3da226ddf40a8d06bda206c25187f30b3bd0f9238a6f210abe963ac6319ff28b",
+    "integrity_status": "PASS",
+    "broad_suite_allowed": true
+  },
+  "relation_context_manifest_sha256": "8fef670b0cdf4574da81bf5d35b7eca8613cdac515988a03e1c6f0ca6764cd9e",
+  "schema_version": 1,
+  "kind": "Compact verified paper-execution identities; not execution plans or a newly run audit.",
+  "broad_suite_allowed": true,
+  "ultra": {
+    "repository": "https://github.com/DeepGraphLearning/ULTRA",
+    "commit": "427966ad8ed60420eef034063d44f3153addff90",
+    "checkpoint": "ultra_4g.pth",
+    "checkpoint_sha256": "48a046e708adf5632d87c30eacae01f5f51466b2301effdc2cb42358d22854e0"
+  },
+  "tabpfn": {
+    "package": "tabpfn",
+    "version": "8.1.0",
+    "repository": "Prior-Labs/tabpfn_3",
+    "checkpoint": "tabpfn-v3-classifier-v3_default.ckpt",
+    "checkpoint_sha256": "d0d865d54dfbc524f5703104be90620182dca7e5fb2c16de72e9959ea18f3988"
+  },
+  "plan_identity_semantics": "SHA-256 of canonical JSON with created_at_utc and plan_sha256 omitted; ensure_ascii=True, allow_nan=False, sort_keys=True, separators=(',', ':'). Serialized-file identities are listed separately."
+}
