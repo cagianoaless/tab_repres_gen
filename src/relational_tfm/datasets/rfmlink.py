@@ -240,7 +240,6 @@ def encode_feature_schema(
         or b0.shape[1] != 19
         or len(b0_names) != 19
         or b0_names[0] != "relation_id"
-        or b0_names[18] != "ultra_score"
     ):
         raise ValueError("relation-identity ablation requires the named 19-column B0 schema")
     if interface == "ultra_score_only":

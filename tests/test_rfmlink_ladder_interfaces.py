@@ -71,6 +71,34 @@ def test_relation_identity_ablation_rejects_mislabeled_column_zero() -> None:
             )
 
 
+@pytest.mark.parametrize(
+    ("variant", "stop"),
+    [("b0_local_no_relation_id", 18), ("b0_local_ultra_no_relation_id", 19)],
+)
+def test_relation_identity_ablation_accepts_alternative_score_name(
+    variant: str, stop: int,
+) -> None:
+    b0 = np.arange(4 * 19, dtype=np.float32).reshape(4, 19)
+    global_values = np.zeros((4, len(_B2V2_NAMES)), dtype=np.float32)
+    renamed = (*_B0_NAMES[:18], "frozen_score")
+    reference, reference_names, reference_categorical = encode_feature_schema(
+        b0, global_values, variant, _B0_NAMES, _B2V2_NAMES
+    )
+    actual, names, categorical = encode_feature_schema(
+        b0, global_values, variant, renamed, _B2V2_NAMES
+    )
+    np.testing.assert_array_equal(actual, reference)
+    np.testing.assert_array_equal(actual, b0[:, 1:stop])
+    assert actual.shape == (4, stop - 1)
+    assert names == renamed[1:stop]
+    assert categorical == reference_categorical == (15,)
+    if stop == 19:
+        np.testing.assert_array_equal(actual[:, -1], b0[:, 18])
+        assert names[:-1] == reference_names[:-1]
+    else:
+        assert names == reference_names
+
+
 def _rows(n: int) -> tuple[np.ndarray, np.ndarray]:
     rng = np.random.default_rng(7)
     return (

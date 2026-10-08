@@ -64,8 +64,9 @@ maintainer actions, not inferred provenance.
 
 ## Final CPU validation
 
-Frozen dependency sync succeeded. The expanded suite passes 151 tests (110
-before changes); changed Python files pass Ruff. The verifier retains all
+At the time of the local audit, frozen dependency sync succeeded. The expanded
+suite passed 151 tests (110 before changes); changed Python files passed Ruff.
+The verifier retains all
 original scientific checks, checks the complete 2,394-cell depth matrix and
 primary endpoints, and pins 188 original result/publication files through
 `tools/historical_results.json`. The release manifest includes new non-ignored
@@ -81,7 +82,10 @@ were preserved by using audit-specific filenames. Generated validation outputs
 are ignored and are not part of the release manifest.
 
 The added CI workflow installs only CPU validation extras and runs the verifier
-and tests; it has not been executed by GitHub Actions during this local audit.
+and tests. It had not yet been executed by GitHub Actions at the time of the
+local audit. It subsequently ran successfully for commit
+`63d28ca987d6c041507e9806bada29b983da37a8`: dependency sync,
+`tools/verify_artifact.py`, and `pytest -q` all passed.
 The real positive-context and identity MRR analyses remain unavailable. Tests
 cover synthetic data and strict downstream contracts, not the missing paper
 results or historical sampler/correction scope. The suffix result verifies
@@ -90,8 +94,11 @@ not supplied. No historical scientific output/config/runner or lockfile changed.
 
 All 26 placeholder-bearing lines in 23 historical files remain unresolved and
 are listed in `PROVENANCE.md`; the additional anonymous upstream repository
-identity is also unresolved. No manuscript files were modified. No commit or
-push was performed.
+identity is also unresolved. No manuscript files were modified. At the time of
+the local audit, no commit or push had yet been performed. The camera-ready
+refactor was subsequently committed as
+`63d28ca987d6c041507e9806bada29b983da37a8` and pushed to
+`origin/camera-ready-refactor`.
 
 ## Changed-file inventory
 

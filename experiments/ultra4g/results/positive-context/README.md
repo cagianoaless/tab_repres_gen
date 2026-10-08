@@ -58,14 +58,25 @@ uv run python -m analysis.analyze_ultra4g_positive_context \
   --asset-root "$RTFM_FROZEN_KG_ASSET_ROOT" \
   --provenance /path/to/dataset_family_map.csv \
   --reference-mode pool_random --matched-mode evaluation_relation_matched \
-  --correction-scope joint --output generated/positive-context
+  --correction-scope separate --output generated/positive-context
 ```
 
-`--run-root` is repeatable for separate decoder registrations. The explicit
-correction-scope option selects either one joint 24-contrast family (12 context
-contrasts plus 12 identity contrasts, stratified by mode) or two separate
-12-contrast families. **Neither scope is asserted to be the missing historical
-one.** Supply the original registration to decide; do not select by significance.
+`--run-root` is repeatable for separate decoder registrations. An explicit
+correction-scope choice remains required:
+
+- `separate` applies one exact max-|t| correction over the 12 positive-context
+  contrasts and a separate exact max-|t| correction over the 12 relation-identity
+  contrasts (stratified by context mode).
+- `joint` applies one exact max-|t| correction over all 24 contrasts and is
+  retained as a stricter sensitivity analysis.
+
+The manuscript presents the positive-context and relation-identity contrasts as
+two separately jointly corrected families. Its wording is therefore the reason
+the manuscript-facing reproduction example uses `separate`, not significance
+optimization. Because the historical registration is missing, repository history
+alone cannot independently prove which implementation was used in the original
+experiment. The original registration is still needed to establish that history;
+do not choose a correction scope by its significance outcome.
 
 Coverage is recomputed from selected positive relation IDs against the fixed
 evaluation relation distribution: covered evaluation types / evaluation types;

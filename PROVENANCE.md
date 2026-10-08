@@ -41,7 +41,7 @@ lines (a line can reference more than one revision).
 
 | File | Matching lines | Resolution |
 |---|---:|---|
-+| `analysis/analyze_rfmlink_negative_robustness.py` | 1 | unresolved; present in initial import |
+| `analysis/analyze_rfmlink_negative_robustness.py` | 1 | unresolved; present in initial import |
 | `analysis/analyze_ultra4g_q64_complete_panel.py` | 1 | unresolved; present in initial import |
 | `analysis/audit_clutrr_metric_robustness.py` | 2 | unresolved; present in initial import |
 | `analysis/summarize_clutrr_shortcut_diagnostic.py` | 1 | unresolved; present in initial import |
