@@ -218,7 +218,7 @@ def _named_b0_subset(
     return b0[:, list(columns)], actual
 
 
-def _interface(
+def encode_feature_schema(
     b0: np.ndarray,
     b2v2: np.ndarray,
     interface: str,
@@ -232,8 +232,17 @@ def _interface(
     token_columns: np.ndarray | None = None,
     same_entity_column: np.ndarray | None = None,
 ) -> tuple[np.ndarray, tuple[str, ...], tuple[int, ...]]:
+    """Select an encoder variant phi; ``interface`` is the legacy schema ID."""
     if interface not in FROZEN_KG_INTERFACES:
         raise ValueError(f"unsupported RFMLink interface: {interface}")
+    if interface in {"b0_local_no_relation_id", "b0_local_ultra_no_relation_id"} and (
+        b0.ndim != 2
+        or b0.shape[1] != 19
+        or len(b0_names) != 19
+        or b0_names[0] != "relation_id"
+        or b0_names[18] != "ultra_score"
+    ):
+        raise ValueError("relation-identity ablation requires the named 19-column B0 schema")
     if interface == "ultra_score_only":
         return b0[:, 18:19], (b0_names[18],), ()
     if interface == "entity_tokens_only":
@@ -329,6 +338,10 @@ def _interface(
     raise ValueError(f"unsupported RFMLink interface: {interface}")
 
 
+# Compatibility for historical imports, without changing configs, hashes or IDs.
+_interface = encode_feature_schema
+
+
 @lru_cache(maxsize=2)
 def _candidate_interface(
     asset_root: str,
@@ -355,7 +368,7 @@ def _candidate_interface(
         if "graphlet" in interface
         else None
     )
-    return _interface(
+    return encode_feature_schema(
         np.asarray(arrays["candidate_b0"], dtype=np.float32),
         np.asarray(arrays["candidate_b2v2"], dtype=np.float32),
         interface,
@@ -440,7 +453,7 @@ def load_frozen_kg_task(repo_root: Path, cell: dict[str, Any]) -> FrozenKGTask:
         if str(cell["interface"]) == "b0_dyadic_only"
         else None
     )
-    context_values, feature_names, categorical = _interface(
+    context_values, feature_names, categorical = encode_feature_schema(
         context_b0[selected],
         context_b2v2[selected],
         str(cell["interface"]),

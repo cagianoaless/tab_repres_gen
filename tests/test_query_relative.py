@@ -1,8 +1,29 @@
 from __future__ import annotations
 
 import numpy as np
+import pytest
 
 from relational_tfm.evaluation.query_relative import within_query_transform
+
+
+@pytest.mark.parametrize("mode", ["within_query_zscore", "within_query_percentile"])
+def test_score_only_transform_is_label_free_query_local_and_order_preserving(mode: str) -> None:
+    scores = np.array([[1], [3], [3], [9], [-100], [0], [20], [20]], dtype=np.float32)
+    transformed = within_query_transform(scores, mode=mode, group_size=4)
+    changed = scores.copy()
+    changed[4:] = 999
+    modified = within_query_transform(changed, mode=mode, group_size=4)
+    np.testing.assert_array_equal(transformed[:4], modified[:4])
+    for start in (0, 4):
+        original = scores[start : start + 4, 0]
+        result = transformed[start : start + 4, 0]
+        np.testing.assert_array_equal(
+            np.sign(original[:, None] - original[None, :]),
+            np.sign(result[:, None] - result[None, :]),
+        )
+    # No labels enter the API; this guarantees input transforms, not preservation
+    # of an arbitrary fitted decoder's rankings after training on transformed data.
+    assert transformed.shape == scores.shape
 
 
 def test_zscore_is_groupwise_and_zeroes_constants() -> None:

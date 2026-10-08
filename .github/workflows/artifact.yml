@@ -1,0 +1,15 @@
+name: CPU artifact integrity
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.11"
+      - run: uv sync --frozen --extra dev --extra tree --extra plots
+      - run: uv run python tools/verify_artifact.py
+      - run: uv run pytest -q
+        env:
+          MPLCONFIGDIR: .matplotlib

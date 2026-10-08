@@ -1,23 +1,19 @@
 #!/usr/bin/env python3
-"""Verify publication completeness, manifest integrity, and anonymity checks."""
+"""Verify release integrity, immutable historical evidence and scientific endpoints."""
 
 from __future__ import annotations
 
 import csv
 import hashlib
+import itertools
 import json
+import math
 import re
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FORBIDDEN = (
-    re.compile(r"alessandro|cagiano|molfetta|lorenzo", re.IGNORECASE),
-    re.compile(r"/Users/|/home/|172\.20\.|github\.com/cagiano", re.IGNORECASE),
-    re.compile(r"overleaf", re.IGNORECASE),
-)
-TEXT_SUFFIXES = {".csv", ".json", ".md", ".py", ".txt", ".yaml", ".yml", ".toml"}
 
 
 def fail(message: str) -> None:
@@ -60,9 +56,9 @@ def verify_manifest() -> list[Path]:
         if observed != digest:
             fail(f"checksum mismatch: {relative}")
 
-    if (ROOT / ".git").is_dir():
+    if (ROOT / ".git").exists():
         completed = subprocess.run(
-            ["git", "ls-files", "-z"],
+            ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
             cwd=ROOT,
             check=True,
             capture_output=True,
@@ -80,18 +76,15 @@ def verify_manifest() -> list[Path]:
     return [ROOT / relative for _, relative in entries]
 
 
-def verify_anonymity(paths: list[Path]) -> None:
-    for path in paths:
-        if (
-            not path.is_file()
-            or path.name in {"MANIFEST.sha256", "verify_artifact.py"}
-            or path.suffix not in TEXT_SUFFIXES
-        ):
-            continue
-        text = path.read_text(encoding="utf-8", errors="replace")
-        for pattern in FORBIDDEN:
-            if pattern.search(text):
-                fail(f"anonymity-sensitive string in {path.relative_to(ROOT)}")
+def verify_historical_evidence() -> None:
+    snapshot = json.loads((ROOT / "tools/historical_results.json").read_text())
+    for relative, digest in snapshot["files"].items():
+        path = ROOT / relative
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+            fail(f"immutable historical evidence changed or missing: {relative}")
+    # These are evidence hashes, not a reconstruction of missing execution SHAs.
+    if len(snapshot["files"]) != 188:
+        fail("historical result/publication inventory changed")
 
 
 def csv_rows(relative: str) -> list[dict[str, str]]:
@@ -120,6 +113,12 @@ def verify_scientific_inventory() -> None:
         "experiments/ultra4g/results/aggregation-sensitivity/summary.json",
         "publication_data/context_robustness_summary.csv",
         "publication_data/query_evidence_absolute.csv",
+        "experiments/ultra4g/results/positive-context/README.md",
+        "analysis/analyze_ultra4g_positive_context.py",
+        "TERMINOLOGY.md",
+        "PROVENANCE.md",
+        "LICENSING.md",
+        "CAMERA_READY_AUDIT.md",
     )
     for relative in required:
         if not (ROOT / relative).is_file():
@@ -147,10 +146,9 @@ def verify_scientific_inventory() -> None:
         fail("ultra_4g ladder does not cover 57 datasets")
 
     collision = json.loads(
-        (
-            ROOT
-            / "experiments/clutrr/results/collision-conditioned-ceilings/summary.json"
-        ).read_text(encoding="utf-8")
+        (ROOT / "experiments/clutrr/results/collision-conditioned-ceilings/summary.json").read_text(
+            encoding="utf-8"
+        )
     )
     collision_by_encoder = {row["encoder"]: row for row in collision["encoders"]}
     multiset = collision_by_encoder["relation_multiset"]["ood_equal_length"]
@@ -173,13 +171,9 @@ def verify_scientific_inventory() -> None:
         fail("GraphLog capacity sweep is incomplete")
     if capacity.get("depths") != list(range(1, 8)):
         fail("GraphLog capacity sweep does not cover depths 1--7")
-    if "equal-length macro balanced accuracy" not in capacity.get(
-        "primary_effect", ""
-    ):
+    if "equal-length macro balanced accuracy" not in capacity.get("primary_effect", ""):
         fail("GraphLog capacity sweep does not use the primary evaluation metric")
-    capacity_by_depth = {
-        row["depth"]: row for row in capacity.get("capacity_curve", [])
-    }
+    capacity_by_depth = {row["depth"]: row for row in capacity.get("capacity_curve", [])}
     if not 0.124 < capacity_by_depth.get(7, {}).get("evaluation_shared", 0) < 0.125:
         fail("GraphLog depth-7 multiset endpoint changed")
     if not 0.282 < capacity_by_depth.get(7, {}).get("evaluation_absolute", 0) < 0.283:
@@ -187,10 +181,24 @@ def verify_scientific_inventory() -> None:
     if capacity_by_depth.get(7, {}).get("shared_worlds_at_or_below_chance") != 30:
         fail("GraphLog depth-7 multiset chance count changed")
 
+    depth_cells = csv_rows("experiments/graphlog/results/capacity-sweep/cells.csv")
+    observed_depth_cells = {
+        (row["world"], int(row["depth"]), int(row["seed"]), row["encoder"]) for row in depth_cells
+    }
+    expected_depth_cells = set(
+        itertools.product(
+            (f"rule_{index}" for index in range(57)),
+            range(1, 8),
+            (101, 102, 103),
+            ("relation_multiset", "ordered_typed_path"),
+        )
+    )
+    if len(depth_cells) != 2394 or observed_depth_cells != expected_depth_cells:
+        fail("GraphLog capacity Cartesian matrix is incomplete or duplicated")
+
     controls = json.loads(
         (
-            ROOT
-            / "experiments/ultra4g/results/pointwise-and-filtering-controls/summary.json"
+            ROOT / "experiments/ultra4g/results/pointwise-and-filtering-controls/summary.json"
         ).read_text(encoding="utf-8")
     )
     if controls.get("query_cells") != 4617 or not controls.get("matched_complete"):
@@ -202,9 +210,9 @@ def verify_scientific_inventory() -> None:
         fail("matched filtering negative-row count changed")
 
     aggregation = json.loads(
-        (
-            ROOT / "experiments/ultra4g/results/aggregation-sensitivity/summary.json"
-        ).read_text(encoding="utf-8")
+        (ROOT / "experiments/ultra4g/results/aggregation-sensitivity/summary.json").read_text(
+            encoding="utf-8"
+        )
     )
     if aggregation.get("panel", {}).get("provenance_families") != 16:
         fail("aggregation sensitivity does not cover 16 provenance families")
@@ -216,6 +224,17 @@ def verify_scientific_inventory() -> None:
     )
     if observed_counts != (5, 4, 48):
         fail("aggregation sensitivity win/tie/loss counts changed")
+    if (
+        aggregation["panel"]["datasets"] != 57
+        or aggregation["panel"]["practical_tie_band_mrr"] != 0.005
+    ):
+        fail("KG fixed panel or practical tie band changed")
+    for section, expected_mean in (
+        ("equal_dataset", -0.03461606091149509),
+        ("equal_family", 0.006384521668912228),
+    ):
+        if not math.isclose(aggregation[section]["mean"], expected_mean, abs_tol=1e-12, rel_tol=0):
+            fail(f"Full TabPFN/native ULTRA {section} comparison changed")
 
     provenance = json.loads(
         (ROOT / "publication_data/context_robustness_provenance.json").read_text()
@@ -223,11 +242,93 @@ def verify_scientific_inventory() -> None:
     if provenance.get("analysis_status") != "complete" or provenance.get("missing_datasets"):
         fail("publication context summary is not the complete, non-imputed analysis")
 
+    for relative in (
+        "context_configuration_mrr.csv",
+        "context_robustness_provenance.json",
+        "context_robustness_summary.csv",
+        "graphlog_context_deltas.csv",
+        "graphlog_context_scores.csv",
+        "property_context_curves.csv",
+        "property_encoder_ladder.csv",
+        "query_evidence_absolute.csv",
+        "query_evidence_provenance.json",
+        "ultra_interface_ladder.csv",
+    ):
+        if not (ROOT / "publication_data" / relative).is_file():
+            fail(f"publication input missing: {relative}")
+
+
+def verify_primary_endpoints() -> None:
+    def close(observed: str | float, expected: float, label: str) -> None:
+        if not math.isclose(float(observed), expected, abs_tol=1e-12, rel_tol=0):
+            fail(f"historical primary endpoint changed: {label}")
+
+    multiset = csv_rows(
+        "experiments/clutrr/results/metric-robustness/primary_metric_robustness.csv"
+    )
+    expected = {
+        "logistic": 0.4295186273780921,
+        "catboost": 0.27253092665470696,
+        "tabpfn": 0.2893819084135285,
+    }
+    for decoder, value in expected.items():
+        (row,) = [
+            row for row in multiset if row["decoder"] == decoder and row["metric"] == "accuracy"
+        ]
+        close(row["relation_multiset"], value, f"CLUTRR multiset/{decoder}")
+    interference = csv_rows(
+        "experiments/clutrr/results/ordered-interference/paired_comparison_aggregate.csv"
+    )
+    for decoder, approximate in (("logistic", 0.133), ("catboost", 0.093), ("tabpfn", 0.104)):
+        (row,) = [
+            row
+            for row in interference
+            if row["decoder"] == decoder
+            and row["context_per_relation"] == "80"
+            and row["reference"] == "ordered_plus_multiset"
+        ]
+        if abs(float(row["seed_mean_difference"]) - approximate) > 0.001:
+            fail(f"CLUTRR ordered interference endpoint changed: {decoder}")
+    additive = csv_rows("experiments/clutrr/results/additive-context/cpu/summary.csv") + csv_rows(
+        "experiments/clutrr/results/additive-context/tabpfn/summary.csv"
+    )
+    for decoder, value in (
+        ("logistic", 0.48917748917748916),
+        ("catboost", 0.3722943722943723),
+        ("tabpfn", 0.7575757575757575),
+    ):
+        (row,) = [
+            row
+            for row in additive
+            if row["decoder"] == decoder
+            and row["base_context_per_relation"] == "80"
+            and row["scope"] == "length4"
+            and row["encoder"] == "ordered_typed_path"
+        ]
+        close(row["mean_effect"], value, f"CLUTRR length-4/{decoder}")
+    prefix = json.loads(
+        (ROOT / "experiments/clutrr/results/supported-prefix/summary.json").read_text()
+    )
+    if prefix["maximum_absolute_accuracy_change"] > 1e-14:
+        fail("supported-prefix accuracy change is not numerically zero")
+    graphlog = csv_rows("experiments/graphlog/results/decoder-sensitivity/primary_contrasts.csv")
+    for decoder, approximate in (("logistic", 0.065), ("catboost", -0.157), ("tabpfn", -0.079)):
+        (row,) = [
+            row
+            for row in graphlog
+            if row["decoder"] == decoder
+            and row["contrast"] == "shared_multiset_minus_absolute"
+            and row["context_per_relation"] == "40"
+        ]
+        if abs(float(row["equal_world_mean_delta"]) - approximate) > 0.001:
+            fail(f"GraphLog primary decoder endpoint changed: {decoder}")
+
 
 def main() -> int:
-    paths = verify_manifest()
-    verify_anonymity(paths)
+    verify_manifest()
+    verify_historical_evidence()
     verify_scientific_inventory()
+    verify_primary_endpoints()
     print("Artifact verification passed.")
     return 0
 

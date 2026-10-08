@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from relational_tfm.config import load_study_config
 from relational_tfm.datasets.graphlog import load_graphlog_task
@@ -20,6 +21,62 @@ from relational_tfm.plan import build_plan
 from relational_tfm.runner import run_graphlog_cell
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_graphlog_global_schema_is_label_free(tmp_path: Path) -> None:
+    assert len(GRAPHLOG_RELATIONS) == len(set(GRAPHLOG_RELATIONS)) == 20
+    task = load_graphlog_task(tmp_path, _fixture_cell(tmp_path))
+    for encoder, width in (("relation_multiset", 21), ("ordered_typed_path", 101)):
+        encoded = encode_graphlog_rows(task.evaluation, encoder, 7)
+        changed = task.evaluation.copy()
+        changed["label"] = 999
+        changed["query_edge"] = [(999_000, 999_001)] * len(changed)
+        reencoded = encode_graphlog_rows(changed, encoder, 7)
+        assert encoded.values.shape == (len(changed), width)
+        np.testing.assert_array_equal(encoded.values, reencoded.values)
+        assert encoded.provenance["raw_entity_ids_exposed"] is False
+        assert encoded.provenance["target_relation_exposed"] is False
+    for row, tokens in enumerate(task.evaluation.relation_tokens):
+        multiset = encode_graphlog_rows(task.evaluation, "relation_multiset", 7)
+        np.testing.assert_allclose(
+            multiset.values[row, 1:], [tokens.count(r) / 5 for r in GRAPHLOG_RELATIONS]
+        )
+
+
+def test_graphlog_runner_keeps_deterministic_separate_permutation_streams(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import relational_tfm.runner as runner
+
+    cell = {**_fixture_cell(tmp_path), "encoder": "aligned_multiset_with_ordered_block_permutation"}
+    observed = []
+    original = runner.encode_graphlog_rows
+
+    def capture(rows: pd.DataFrame, encoder: str, seed: int):
+        encoded = original(rows, encoder, seed)
+        observed.append((seed, encoded.values.copy()))
+        return encoded
+
+    monkeypatch.setattr(runner, "encode_graphlog_rows", capture)
+    runner.run_graphlog_cell(cell, tmp_path / "first", tmp_path)
+    runner.run_graphlog_cell(cell, tmp_path / "second", tmp_path)
+    assert [seed for seed, _ in observed] == [400101, 400102, 400101, 400102]
+    np.testing.assert_array_equal(observed[0][1], observed[2][1])
+    np.testing.assert_array_equal(observed[1][1], observed[3][1])
+
+
+def test_graphlog_capacity_config_preserves_complete_scientific_axes() -> None:
+    config = load_study_config(
+        REPO_ROOT / "configs/studies/graphlog_symbolic_cpu_catboost_capacity_sweep_reviewer_v1.yaml"
+    )
+    plan = build_plan(config)
+    cells = plan["cells"]
+    assert len(cells) == 2394
+    assert {cell["world"] for cell in cells} == {f"rule_{i}" for i in range(57)}
+    assert {cell["decoder"] for cell in cells} == {f"catboost_depth{i}" for i in range(1, 8)}
+    assert {cell["seed"] for cell in cells} == {101, 102, 103}
+    assert len({cell["cell_id"] for cell in cells}) == 2394
 
 
 def _raw_row(tokens: list[str], target: str, offset: int) -> dict[str, object]:

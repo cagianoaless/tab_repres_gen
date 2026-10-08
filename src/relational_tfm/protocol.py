@@ -368,6 +368,9 @@ FROZEN_KG_INTERFACES: Final = (
     "b0_local_graphlet",
     "b0_local_graphlet_ultra",
 )
+# Paper terminology: these schemas specify phi, not the complete (phi, S, D).
+# Preserve the historical constant and every serialized experiment identifier.
+FROZEN_KG_ENCODER_VARIANTS: Final = FROZEN_KG_INTERFACES
 FROZEN_KG_ULTRA57_ASSET_ID: Final = "rfmlink_frozen_interface_ultra57_v2"
 FROZEN_KG_ULTRA57_HARD_CONTEXT_ASSET_ID: Final = (
     "rfmlink_frozen_interface_ultra57_hard_context_v1"

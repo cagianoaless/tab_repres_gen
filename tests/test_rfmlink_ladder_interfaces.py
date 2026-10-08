@@ -8,6 +8,7 @@ from relational_tfm.datasets.rfmlink import (
     _context_token_columns,
     _entity_tokens,
     _interface,
+    encode_feature_schema,
 )
 
 _B0_NAMES = (
@@ -32,6 +33,42 @@ _B0_NAMES = (
     "ultra_score",
 )
 _B2V2_NAMES = ("pagerank_head", "pagerank_tail", "heat_similarity", "diffusion_distance")
+
+
+def test_public_schema_name_preserves_legacy_alias() -> None:
+    assert _interface is encode_feature_schema
+
+
+def test_complete_kg_ladder_is_exact_concatenation() -> None:
+    b0 = np.arange(5 * 19, dtype=np.float32).reshape(5, 19)
+    global_values = np.arange(5 * 13, dtype=np.float32).reshape(5, 13)
+    global_names = tuple(f"global_{index}" for index in range(13))
+    local, local_names, categorical = encode_feature_schema(
+        b0, global_values, "b0_local_only", _B0_NAMES, global_names
+    )
+    score, score_names, score_categorical = encode_feature_schema(
+        b0, global_values, "ultra_score_only", _B0_NAMES, global_names
+    )
+    glob, glob_names, glob_categorical = encode_feature_schema(
+        b0, global_values, "b2v2_only", _B0_NAMES, global_names
+    )
+    full, full_names, full_categorical = encode_feature_schema(
+        b0, global_values, "b2v2_full", _B0_NAMES, global_names
+    )
+    assert (local.shape[1], score.shape[1], glob.shape[1], full.shape[1]) == (18, 1, 13, 32)
+    np.testing.assert_array_equal(full, np.concatenate([local, score, glob], axis=1))
+    assert full_names == local_names + score_names + glob_names
+    assert categorical == full_categorical == (0, 16)
+    assert score_categorical == glob_categorical == ()
+
+
+def test_relation_identity_ablation_rejects_mislabeled_column_zero() -> None:
+    b0, global_values = _rows(4)
+    for variant in ("b0_local_no_relation_id", "b0_local_ultra_no_relation_id"):
+        with pytest.raises(ValueError, match="relation"):
+            encode_feature_schema(
+                b0, global_values, variant, ("wrong", *_B0_NAMES[1:]), _B2V2_NAMES
+            )
 
 
 def _rows(n: int) -> tuple[np.ndarray, np.ndarray]:

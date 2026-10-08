@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "relational-tfm-study"
 version = "0.1.0"
-description = "Anonymous artifact for paired audits of graph-to-table interfaces"
+description = "Scientific artifact for Graph-to-Table Interfaces Control Relational Generalisation"
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
 dependencies = [

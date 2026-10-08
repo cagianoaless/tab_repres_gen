@@ -5,6 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from analysis.audit_clutrr_coordinate_coverage import coordinate_support
 from relational_tfm.config import load_study_config
@@ -38,6 +39,67 @@ FIELDS = (
     "genders",
     "task_split",
 )
+
+
+def test_clutrr_manuscript_dimensions_counts_and_full_suffix_intervention() -> None:
+    relations = CLUTRR_EDGE_RELATIONS
+    rows = pd.DataFrame(
+        {
+            "chain_length": list(range(2, 11)),
+            "story_edges": [tuple((i, i + 1) for i in range(length)) for length in range(2, 11)],
+            "query_edge": [(0, length) for length in range(2, 11)],
+            "edge_types": [
+                tuple(relations[i % len(relations)] for i in range(length))
+                for length in range(2, 11)
+            ],
+        }
+    )
+    multiset = encode_clutrr_rows(rows, "relation_multiset", 19)
+    ordered = encode_clutrr_rows(rows, "ordered_typed_path", 19)
+    combined = encode_clutrr_rows(rows, "ordered_plus_multiset", 19)
+    prefix = encode_clutrr_rows(rows, "aligned_multiset_with_supported_prefix", 19)
+    assert len(relations) == 14
+    assert multiset.values.shape == (9, 15)
+    assert ordered.values.shape == (9, 141)
+    assert combined.values.shape == prefix.values.shape == (9, 155)
+    for index, tokens in enumerate(rows.edge_types):
+        np.testing.assert_allclose(
+            multiset.values[index, 1:], [tokens.count(r) / 10 for r in relations]
+        )
+        block = ordered.values[index, 1:].reshape(10, 14)
+        np.testing.assert_array_equal(
+            block.sum(axis=1), [1] * len(tokens) + [0] * (10 - len(tokens))
+        )
+        for position, token in enumerate(tokens):
+            assert block[position, relations.index(token)] == 1
+    np.testing.assert_allclose(ordered.values[:, 0], np.arange(2, 11) / 10)
+    assert np.count_nonzero(combined.values[:, 43:141]) > 0
+    assert np.count_nonzero(prefix.values[:, 43:141]) == 0
+    np.testing.assert_array_equal(prefix.values[:, :43], combined.values[:, :43])
+    np.testing.assert_array_equal(prefix.values[:, 141:], combined.values[:, 141:])
+
+
+def test_clutrr_runner_keeps_deterministic_separate_permutation_streams(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    import relational_tfm.runner as runner
+
+    cell = {**_fixture_cell(tmp_path), "encoder": "aligned_multiset_with_ordered_block_permutation"}
+    observed = []
+    original = runner.encode_clutrr_rows
+
+    def capture(rows: pd.DataFrame, encoder: str, seed: int):
+        encoded = original(rows, encoder, seed)
+        observed.append((seed, encoded.values.copy()))
+        return encoded
+
+    monkeypatch.setattr(runner, "encode_clutrr_rows", capture)
+    runner.run_clutrr_cell(cell, tmp_path / "first", tmp_path)
+    runner.run_clutrr_cell(cell, tmp_path / "second", tmp_path)
+    assert [seed for seed, _ in observed] == [400101, 400102, 400101, 400102]
+    np.testing.assert_array_equal(observed[0][1], observed[2][1])
+    np.testing.assert_array_equal(observed[1][1], observed[3][1])
 
 
 def _write_fixture(path: Path, split: str, repeats: int) -> None:
