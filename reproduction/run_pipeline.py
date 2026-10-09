@@ -65,12 +65,11 @@ def initialize(work: Path, ultra: Path, checkpoint: Path) -> None:
             raise ValueError("workspace ULTRA path already refers to another checkout")
     else:
         external.symlink_to(ultra, target_is_directory=True)
-    # This is a clearly labelled reference gate, not a fabricated new audit.
+    # Stage the reference numerical gate required by the original CLI.
     gate = work / "reference/paper_execution_gate.json"
     gate.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(HERE / "REFERENCE_EXECUTION.json", gate)
-    # The original CLI requires these fixed-policy reference numerical gates.
-    # Preserve their bytes and identity, rather than presenting them as reruns.
+    # Stage the fixed numerical stability gates required by the original CLI.
     stability = (
         work / "results/analysis/g2t_q512_metric_free_large_eigsh_stability_v1/shards"
     )

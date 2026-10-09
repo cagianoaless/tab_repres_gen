@@ -1,6 +1,6 @@
 # Relation-context reference package
 
-The other 13 files are unchanged reference outputs from
+The 13 reference output files are unchanged from
 `results/ultra57/relation-context/`:
 result commit `5311736a48f9a1780bff4cc6378f73a13727da2a`,
 analysis commit `02c15111be5b3d622f8358a673bdfcc0225fd05f`.

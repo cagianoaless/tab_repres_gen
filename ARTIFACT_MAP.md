@@ -44,7 +44,8 @@ See [REPRODUCE.md](REPRODUCE.md) for the complete command sequence.
 Analysis filenames without a prefix are under `analysis/`; config filenames are
 under `configs/studies/`. Wildcards indicate existing related configurations,
 not missing files. New runs go to a generated workspace; reference outputs
-remain checksummed. Do not substitute acceptance targets for experimental data.
+remain checksummed. Acceptance targets are validation criteria, not
+experimental data.
 
 ## Representation construction
 

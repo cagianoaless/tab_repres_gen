@@ -206,9 +206,9 @@ uv run python -m reproduction.run_relation_context analyze \
   --analysis-commit "$(git rev-parse HEAD)"
 ```
 
-Fresh runs are checked against their actual execution revision; they are never
-attributed to the reference execution SHA. The original analysis validates
-all 4,104 cells, audits positive-relation coverage, computes dataset/family
+Fresh analyses use the execution revision recorded in their registration.
+The original analysis validates all 4,104 cells, audits positive-relation
+coverage, computes dataset/family
 effects and applies one exact 60-test max-|t| correction across 16 provenance
 families (65,536 shared sign patterns). Identity effects are with minus without
 identity. The separate context-robustness 30-test family remains separate.

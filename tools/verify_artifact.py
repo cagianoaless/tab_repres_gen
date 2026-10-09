@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify release integrity, immutable historical evidence and scientific endpoints."""
+"""Verify release integrity, pinned reference outputs and scientific endpoints."""
 
 from __future__ import annotations
 
@@ -119,7 +119,7 @@ def verify_scientific_inventory() -> None:
         "analysis/verify_historical_gru.py",
         "analysis/verify_historical_relation_context.py",
         "experiments/clutrr/results/recurrent-gru/README.md",
-        "experiments/ultra4g/results/relation-context-historical/RECOVERY.md",
+        "experiments/ultra4g/results/relation-context-historical/REFERENCE.md",
         "TERMINOLOGY.md",
         "PROVENANCE.md",
         "LICENSING.md",

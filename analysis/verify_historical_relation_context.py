@@ -1,8 +1,9 @@
-"""Reproduce the historical 60-test correction from immutable derived tables only.
+"""Verify the paper's 60-test correction from pinned reference tables.
 
-Scientific formulas and sign-flip logic are adapted from historical analysis
-commit 02c15111be5b3d622f8358a673bdfcc0225fd05f. No raw-run reconstruction,
-model execution, prospective fixed-negative requirement, or output writing.
+Scientific formulas and sign-flip logic follow analysis commit
+02c15111be5b3d622f8358a673bdfcc0225fd05f. Verification reads the derived
+tables without model execution or output writing. The prospective
+fixed-negative-row contract is separate from this procedure.
 """
 
 from __future__ import annotations

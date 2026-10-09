@@ -49,8 +49,7 @@ def main(argv: list[str] | None = None) -> None:
         module = load_file(
             "_paper_relation_analysis", HERE / "study/scripts/analyze_rfmlink_relation_context.py"
         )
-        # Original reference runs use their recorded SHA; fresh runs must be
-        # checked against their own registration, never attributed to that SHA.
+        # Fresh analyses use the execution SHA recorded by their registration.
         module.SOURCE_COMMIT = args.execution_source
     sys.argv = [f"relation-context {args.stage}", *remaining]
     result = module.main()

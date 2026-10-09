@@ -1,4 +1,4 @@
-"""Verify recovered GRU derived tables; never rerun models or write results."""
+"""Verify GRU reference tables without running models or writing outputs."""
 
 from __future__ import annotations
 

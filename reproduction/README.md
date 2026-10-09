@@ -23,12 +23,10 @@ Shell launchers and the prediction-batch benchmark are retained where the
 original registration hashes their bytes. Use the portable Python entry points,
 not machine-specific shell defaults.
 
-Source algorithms are byte-identical to their manifest entries. Maintained
-wrappers/tests receive normal linting; original source is syntax/hash checked
-and excluded from style rewriting. Numerical gate files retain their reference
-identities and are not presented as newly run checks. Checkouts, weights and
-large generated intermediates remain external; raw plans/predictions are not
-bundled.
+Producer sources remain byte-identical to `SOURCE_MANIFEST.json`; portable
+wrappers adapt paths and runtime configuration. Numerical gate files are
+reference checks from the paper execution. Checkouts, weights and large
+generated intermediates remain external; raw plans/predictions are not bundled.
 
 Relation-context uses 60 jointly corrected combined-direction contrasts.
 Context robustness uses a separate 30-test family. The prospective

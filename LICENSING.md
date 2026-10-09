@@ -1,8 +1,7 @@
 # Code, data and model terms
 
-A repository code license and publication citation metadata require an author
-decision. No license, copyright-holder list, author list, DOI or proceedings
-information is inferred here.
+The repository does not yet specify a code license or citation metadata.
+These require an author decision.
 
 The bundled producer/adaptor source is project-owned source used by the
 reproduction pipeline. ULTRA is an external dependency with its own MIT license;

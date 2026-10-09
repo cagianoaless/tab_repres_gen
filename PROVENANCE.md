@@ -6,8 +6,7 @@
 source, required import dependencies, launcher metadata and numerical reference
 gates. Each entry records its path, role, size, SHA-256 and a source commit where
 one is established. Manifest paths are relative to `reproduction/`.
-Producer files without an upstream committed Git identity
-are identified by their verified SHA-256; no commit is inferred for them.
+Files without a committed upstream identity are identified by SHA-256.
 
 | Component | Source identity |
 |---|---|
@@ -80,42 +79,42 @@ protects 203 reference result/publication files; all prior entries remain intact
 Result-package commits identify table versions, not necessarily execution source.
 Serialized legacy filenames containing `historical` are retained for compatibility.
 
-Some reference files contain the literal `artifact-source-revision`, rather
-than a verified execution SHA. The artifact import
-`9955c64903a67bd801588b48f8328135317e3eea` already contains those fields; it
-does not establish the revision that executed each experiment. They remain
-unchanged rather than being replaced with the current repository HEAD.
+The files listed below contain the literal `artifact-source-revision` rather
+than a verified execution SHA. These fields are present in artifact import
+`9955c64903a67bd801588b48f8328135317e3eea`; the execution revisions remain
+unresolved. The placeholders are retained in the reference metadata.
 The additional `source_repository: anonymous-source-tree` field in the pinned
 query-evidence metadata likewise remains an unresolved source identifier.
 These metadata fields do not prevent numerical verification or fresh execution
 with the supplied pipeline.
 
-### Unresolved source-revision fields
+### Source-revision inventory
 
+All entries are unresolved and present in the initial artifact import.
 Counts refer to matching lines, not distinct revisions.
 
-| File | Matching lines | Resolution |
-|---|---:|---|
-| `analysis/analyze_rfmlink_negative_robustness.py` | 1 | unresolved; present in initial import |
-| `analysis/analyze_ultra4g_q64_complete_panel.py` | 1 | unresolved; present in initial import |
-| `analysis/audit_clutrr_metric_robustness.py` | 2 | unresolved; present in initial import |
-| `analysis/summarize_clutrr_shortcut_diagnostic.py` | 1 | unresolved; present in initial import |
-| `analysis/summarize_dihedral16.py` | 1 | unresolved; present in initial import |
-| `analysis/summarize_dihedral16_tabpfn.py` | 1 | unresolved; present in initial import |
-| `analysis/summarize_graphlog_decoder_sensitivity.py` | 1 | unresolved; present in initial import |
-| `experiments/clutrr/results/additive-context/README.md` | 1 | unresolved; present in initial import |
-| `experiments/clutrr/results/coordinate-coverage/README.md` | 1 | unresolved; present in initial import |
-| `experiments/clutrr/results/metric-robustness/summary.json` | 2 | unresolved; present in initial import |
-| `experiments/clutrr/results/shared-coordinates/README.md` | 1 | unresolved; present in initial import |
-| `experiments/clutrr/results/shortcut-diagnostic/summary.json` | 1 | unresolved; present in initial import |
-| `experiments/dihedral16/results/cpu/summary.json` | 1 | unresolved; present in initial import |
-| `experiments/dihedral16/results/tabpfn/analysis_manifest.json` | 1 | unresolved; present in initial import |
-| `experiments/dihedral16/results/tabpfn/summary.json` | 1 | unresolved; present in initial import |
-| `experiments/graphlog/results/decoder-sensitivity/summary.json` | 1 | unresolved; present in initial import |
-| `experiments/graphlog/results/symbolic-replication/README.md` | 1 | unresolved; present in initial import |
-| `experiments/ultra4g/results/context-robustness/audit.json` | 1 | unresolved; present in initial import |
-| `experiments/ultra4g/results/logistic-ranking-correction/audit.json` | 2 | unresolved; present in initial import |
-| `experiments/ultra4g/results/q64-encoder-ladder/README.md` | 1 | unresolved; present in initial import |
-| `experiments/ultra4g/results/q64-encoder-ladder/audit.json` | 1 | unresolved; present in initial import |
-| `publication_data/context_robustness_provenance.json` | 1 | unresolved; present in initial import |
-| `publication_data/query_evidence_provenance.json` | 1 | unresolved; present in initial import |
+| File | Matching lines |
+|---|---:|
+| `analysis/analyze_rfmlink_negative_robustness.py` | 1 |
+| `analysis/analyze_ultra4g_q64_complete_panel.py` | 1 |
+| `analysis/audit_clutrr_metric_robustness.py` | 2 |
+| `analysis/summarize_clutrr_shortcut_diagnostic.py` | 1 |
+| `analysis/summarize_dihedral16.py` | 1 |
+| `analysis/summarize_dihedral16_tabpfn.py` | 1 |
+| `analysis/summarize_graphlog_decoder_sensitivity.py` | 1 |
+| `experiments/clutrr/results/additive-context/README.md` | 1 |
+| `experiments/clutrr/results/coordinate-coverage/README.md` | 1 |
+| `experiments/clutrr/results/metric-robustness/summary.json` | 2 |
+| `experiments/clutrr/results/shared-coordinates/README.md` | 1 |
+| `experiments/clutrr/results/shortcut-diagnostic/summary.json` | 1 |
+| `experiments/dihedral16/results/cpu/summary.json` | 1 |
+| `experiments/dihedral16/results/tabpfn/analysis_manifest.json` | 1 |
+| `experiments/dihedral16/results/tabpfn/summary.json` | 1 |
+| `experiments/graphlog/results/decoder-sensitivity/summary.json` | 1 |
+| `experiments/graphlog/results/symbolic-replication/README.md` | 1 |
+| `experiments/ultra4g/results/context-robustness/audit.json` | 1 |
+| `experiments/ultra4g/results/logistic-ranking-correction/audit.json` | 2 |
+| `experiments/ultra4g/results/q64-encoder-ladder/README.md` | 1 |
+| `experiments/ultra4g/results/q64-encoder-ladder/audit.json` | 1 |
+| `publication_data/context_robustness_provenance.json` | 1 |
+| `publication_data/query_evidence_provenance.json` | 1 |
