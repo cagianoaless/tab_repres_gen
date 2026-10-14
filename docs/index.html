@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project page for Graph-to-Table Interfaces Control Relational Generalisation, Learning on Graphs 2026.">
+  <title>Graph-to-Table Interfaces Control Relational Generalisation</title>
+  <style>
+    :root {
+      --fg: #172033;
+      --muted: #5f6b7a;
+      --line: #e5e9f0;
+      --accent: #3157d5;
+      --soft: #f7f9fc;
+      --max: 920px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--fg);
+      background: #fff;
+      line-height: 1.65;
+    }
+    main {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      padding: 72px 0 64px;
+    }
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4.4rem);
+      line-height: 1.03;
+      letter-spacing: -.045em;
+      max-width: 900px;
+    }
+    .authors {
+      margin: 28px 0 6px;
+      font-size: 1.08rem;
+    }
+    .venue {
+      margin: 0;
+      color: var(--muted);
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 30px 0 46px;
+    }
+    .links a {
+      display: inline-block;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 650;
+      background: #fff;
+    }
+    .links a.primary {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .links a:hover { transform: translateY(-1px); }
+    section {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      letter-spacing: -.015em;
+    }
+    p { margin: 0 0 14px; }
+    .formula {
+      margin: 20px 0 6px;
+      padding: 18px 20px;
+      border-radius: 12px;
+      background: var(--soft);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1.05rem;
+      overflow-x: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .card strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .card span {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    code {
+      padding: .12em .35em;
+      border-radius: 5px;
+      background: var(--soft);
+    }
+    footer {
+      padding-top: 28px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    @media (max-width: 720px) {
+      main { padding-top: 48px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Learning on Graphs 2026 · Oral</p>
+    <h1>Graph-to-Table Interfaces Control Relational Generalisation</h1>
+    <p class="authors">
+      Alessandro Cagiano · Lorenzo Molfetta · Gianluca Moro · Matteo Zignani · Pasquale Minervini
+    </p>
+    <p class="venue">Learning on Graphs (LoG), 2026</p>
+
+    <nav class="links" aria-label="Project links">
+      <a class="primary" href="https://github.com/cagianoaless/tab_repres_gen">Code</a>
+      <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/REPRODUCE.md">Reproduce</a>
+      <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/ARTIFACT_MAP.md">Artifact map</a>
+      <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/PROVENANCE.md">Provenance</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      We study relational generalisation through the interface that turns graph-structured
+      information into tabular examples. The experiments separate the graph-to-table encoder,
+      labelled context constructor, and decoder, and test how conclusions change when these
+      components change.
+    </p>
+    <p>
+      The repository contains the end-to-end reproduction pipeline for the paper, including
+      graph-to-table feature construction, context generation, decoder execution, filtered
+      ranking evaluation, statistical analyses, and lightweight reference outputs.
+    </p>
+  </section>
+
+  <section>
+    <h2>57-KG representation</h2>
+    <div class="formula">Full32 = Local18 + frozen ULTRA score1 + Global13</div>
+    <div class="grid">
+      <div class="card">
+        <strong>Local18</strong>
+        <span>Relation, degree, pair, path, and cluster statistics.</span>
+      </div>
+      <div class="card">
+        <strong>ULTRA score1</strong>
+        <span>Frozen score from the pinned ULTRA-4G model.</span>
+      </div>
+      <div class="card">
+        <strong>Global13</strong>
+        <span>PageRank, component, spectral heat, and diffusion features.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Reproducibility</h2>
+    <p>
+      The artifact documents the complete path from public datasets and pinned model
+      dependencies to the reported analyses. Large model weights and multi-gigabyte generated
+      intermediates remain external, while source identities, reference outputs, and execution
+      metadata are checksummed.
+    </p>
+    <p>
+      Start from <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/REPRODUCE.md">REPRODUCE.md</a>
+      for environment setup and the full command sequence.
+    </p>
+  </section>
+
+  <section>
+    <h2>Code and artifact</h2>
+    <p>
+      The implementation, reference tables, verification utilities, and experiment-specific
+      documentation are available in the
+      <a href="https://github.com/cagianoaless/tab_repres_gen">GitHub repository</a>.
+    </p>
+  </section>
+
+  <footer>
+    Project page for <em>Graph-to-Table Interfaces Control Relational Generalisation</em>.
+  </footer>
+</main>
+</body>
+</html>
