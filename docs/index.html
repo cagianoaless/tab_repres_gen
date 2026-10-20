@@ -3,208 +3,357 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Project page for Graph-to-Table Interfaces Control Relational Generalisation, Learning on Graphs 2026.">
+  <meta name="description" content="Graph-to-table encoders, labelled contexts and decoders jointly determine relational generalisation. Paper, figures, code and reproduction resources for the LoG 2026 accepted oral.">
+  <meta name="theme-color" content="#eaf2f8">
+  <meta name="citation_title" content="Graph-to-Table Interfaces Control Relational Generalisation">
+  <meta name="citation_author" content="Alessandro Cagiano">
+  <meta name="citation_author" content="Lorenzo Molfetta">
+  <meta name="citation_author" content="Gianluca Moro">
+  <meta name="citation_author" content="Matteo Zignani">
+  <meta name="citation_author" content="Pasquale Minervini">
+  <meta name="citation_publication_date" content="2026/10/19">
+  <meta name="citation_arxiv_id" content="2610.25993">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2610.25993">
+  <meta property="og:title" content="Graph-to-Table Interfaces Control Relational Generalisation">
+  <meta property="og:description" content="Relational generalisation depends on the whole graph-to-table interface. Accepted as an oral presentation at LoG 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cagianoaless.github.io/tab_repres_gen/">
+  <link rel="canonical" href="https://cagianoaless.github.io/tab_repres_gen/">
   <title>Graph-to-Table Interfaces Control Relational Generalisation</title>
   <style>
-    :root {
-      --fg: #172033;
-      --muted: #5f6b7a;
-      --line: #e5e9f0;
-      --accent: #3157d5;
-      --soft: #f7f9fc;
-      --max: 920px;
-    }
+    :root { color-scheme: light; --ink: #252b31; --muted: #535e68; --accent: #255e87; --green: #285d50; --magenta: #b0147a; --magenta-wash: #f9dfef; --paper: #fbf8f3; --blue-wash: #eaf2f8; --green-wash: #edf4ee; --line: #d3dfe4; }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--fg);
-      background: #fff;
-      line-height: 1.65;
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.7 "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-text-size-adjust: 100%; }
+    main { width: min(1040px, calc(100% - 48px)); margin: auto; }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+    .skip { position: absolute; top: -100px; left: 24px; padding: 8px 16px; min-height: 44px; background: #fff; z-index: 1; }
+    .skip:focus { top: 12px; }
+    header { padding: 52px 24px 36px; background: var(--blue-wash); border-bottom: 1px solid var(--line); text-align: center; }
+    h1 { max-width: 960px; margin: 0 auto; font: 600 clamp(2rem, 4vw, 3.1rem)/1.15 Georgia, "Times New Roman", serif; letter-spacing: -.025em; text-wrap: balance; }
+    .venue { margin: 22px 0 18px; color: var(--accent); font-size: 1.05rem; }
+    .authors, .affiliations { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; margin: 0 auto; }
+    .authors span { white-space: nowrap; }
+    .affiliations { margin-top: 18px; gap: 12px 24px; font-size: .87rem; color: var(--muted); }
+    .affiliations > span { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+    .affiliations img { display: block; flex: none; width: auto; height: 26px; }
+    sup { font-size: .7em; margin-left: 3px; }
+    .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+    .links a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 9px 20px; border: 2px solid var(--magenta); border-radius: 2px 16px 2px 16px; background: #fff9fd; color: var(--magenta); box-shadow: 3px 3px 0 var(--magenta); text-decoration: none; font-size: .94rem; font-weight: 600; white-space: nowrap; }
+    .links a:hover { background: var(--magenta-wash); box-shadow: 1px 1px 0 var(--magenta); }
+    .links .primary { background: var(--magenta); color: #fff; box-shadow: 3px 3px 0 #6f164f; }
+    .links .primary:hover { background: #8c0c60; border-color: #8c0c60; }
+    .links a:focus-visible { outline-color: var(--magenta); }
+    .links svg { flex: none; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .prose { max-width: 760px; margin-inline: auto; }
+    h2, h3 { line-height: 1.3; letter-spacing: -.02em; }
+    h2 { margin: 0 0 20px; color: var(--accent); font-size: 1.8rem; font-weight: 600; }
+    h3 { margin: 0 0 16px; color: var(--green); font-size: 1.5rem; font-weight: 600; }
+    p { margin: 0 0 18px; }
+    strong { font-weight: 700; color: var(--ink); }
+    strong.claim, .component { color: var(--ink); padding: .08em .18em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    strong.claim { background: var(--magenta-wash); }
+    /* 30% marker tints of the paper's blue, orange and green component colors. */
+    .component.encoder { background: #b2d9ff; }
+    .component.context { background: #ffe0c2; }
+    .component.decoder { background: #b2e0b2; }
+    .interpretation { margin-top: 24px; }
+    .reading-notes { padding-left: 22px; }
+    .reading-notes li { padding-left: 4px; margin-bottom: 14px; }
+    .table-visual { max-width: 880px; margin-inline: auto; }
+    .compact-visual { max-width: 480px; margin-inline: auto; }
+    section { margin-top: 64px; }
+    #framework, #implications { max-width: 824px; padding: 30px 32px 14px; background: var(--green-wash); }
+    #appendix { margin-inline: -24px; padding: 40px 24px; background: var(--blue-wash); }
+    #appendix .appendix-result { margin-top: 48px; }
+    .section-title { text-align: center; }
+    figure { margin: 28px 0 0; }
+    .teaser { margin-top: 52px; }
+    .figure-link { display: block; min-height: 44px; }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption { max-width: 760px; margin: 18px auto 0; color: var(--muted); font-size: .87rem; line-height: 1.6; }
+    figcaption strong { color: var(--ink); }
+    .teaser figcaption { text-align: center; font-size: .95rem; }
+    .resource-links a, footer a { display: inline-flex; align-items: center; min-height: 44px; }
+    .finding { margin-top: 48px; }
+    .finding + .finding { margin-top: 64px; }
+    #reproduce { padding-top: 42px; border-top: 1px solid var(--line); }
+    .resource-links { display: flex; flex-wrap: wrap; gap: 0 24px; }
+    #citation { margin-top: 42px; }
+    pre { margin: 0; padding: 22px; background: var(--blue-wash); font-size: .8rem; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+    code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+    footer { max-width: 760px; margin: 24px auto 0; padding: 0 0 32px; color: var(--muted); font-size: .82rem; }
+    @media (max-width: 680px) {
+      main { width: calc(100% - 36px); }
+      header { padding-top: 36px; }
+      body { font-size: 16px; }
+      h1 { font-size: clamp(1.9rem, 7.5vw, 2.5rem); }
+      .venue { font-size: .95rem; }
+      .authors { gap: 4px 14px; font-size: .95rem; }
+      .affiliations { font-size: .8rem; }
+
+      #framework, #implications { padding: 24px 18px 8px; }
+      #appendix { margin-inline: -18px; padding: 32px 18px; }
+      .links { gap: 12px; margin-top: 22px; }
+      .links a { padding-inline: 15px; }
+      .teaser { margin-top: 38px; }
+      section, .finding + .finding { margin-top: 46px; }
+      h2 { font-size: 1.6rem; }
+      h3 { font-size: 1.3rem; }
+      figcaption { font-size: .82rem; }
+      .teaser figcaption { font-size: .88rem; }
+      pre { padding: 16px; font-size: .75rem; }
     }
-    main {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-      padding: 72px 0 64px;
-    }
-    .eyebrow {
-      margin: 0 0 14px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-    h1 {
-      margin: 0;
-      font-size: clamp(2.2rem, 6vw, 4.4rem);
-      line-height: 1.03;
-      letter-spacing: -.045em;
-      max-width: 900px;
-    }
-    .authors {
-      margin: 28px 0 6px;
-      font-size: 1.08rem;
-    }
-    .venue {
-      margin: 0;
-      color: var(--muted);
-    }
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 30px 0 46px;
-    }
-    .links a {
-      display: inline-block;
-      padding: 9px 14px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      color: var(--fg);
-      text-decoration: none;
-      font-weight: 650;
-      background: #fff;
-    }
-    .links a.primary {
-      color: #fff;
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-    .links a:hover { transform: translateY(-1px); }
-    section {
-      padding: 30px 0;
-      border-top: 1px solid var(--line);
-    }
-    h2 {
-      margin: 0 0 12px;
-      font-size: 1.35rem;
-      letter-spacing: -.015em;
-    }
-    p { margin: 0 0 14px; }
-    .formula {
-      margin: 20px 0 6px;
-      padding: 18px 20px;
-      border-radius: 12px;
-      background: var(--soft);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 1.05rem;
-      overflow-x: auto;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 20px;
-    }
-    .card {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fff;
-    }
-    .card strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-    .card span {
-      color: var(--muted);
-      font-size: .95rem;
-    }
-    code {
-      padding: .12em .35em;
-      border-radius: 5px;
-      background: var(--soft);
-    }
-    footer {
-      padding-top: 28px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-    @media (max-width: 720px) {
-      main { padding-top: 48px; }
-      .grid { grid-template-columns: 1fr; }
+    @media print {
+      main { width: 100%; }
+      header { padding-top: 0; }
+      .skip { display: none; }
+      figure, pre { break-inside: avoid; }
+      a { color: inherit; }
     }
   </style>
 </head>
 <body>
-<main>
+<a class="skip" href="#main">Skip to content</a>
   <header>
-    <p class="eyebrow">Learning on Graphs 2026 · Oral</p>
     <h1>Graph-to-Table Interfaces Control Relational Generalisation</h1>
+    <p class="venue">Learning on Graphs 2026 · Accepted oral presentation</p>
     <p class="authors">
-      Alessandro Cagiano · Lorenzo Molfetta · Gianluca Moro · Matteo Zignani · Pasquale Minervini
+      <span>Alessandro Cagiano<sup>1</sup></span>
+      <span>Lorenzo Molfetta<sup>2</sup></span>
+      <span>Gianluca Moro<sup>2</sup></span>
+      <span>Matteo Zignani<sup>1</sup></span>
+      <span>Pasquale Minervini<sup>3,4</sup></span>
     </p>
-    <p class="venue">Learning on Graphs (LoG), 2026</p>
+    <p class="affiliations">
+      <span><img src="assets/unimi.svg" width="174" height="59" alt=""><span><sup>1</sup> University of Milan</span></span>
+      <span><img src="assets/unibo.png" width="350" height="254" alt=""><span><sup>2</sup> University of Bologna</span></span>
+      <span><img src="assets/edinburgh.png" width="831" height="199" alt=""><span><sup>3</sup> University of Edinburgh</span></span>
+      <span><img src="assets/miniml.webp" width="192" height="192" alt=""><span><sup>4</sup> Miniml.AI</span></span>
+    </p>
+    <nav class="links" aria-label="Paper and code">
+      <!-- Icons: Tabler Icons, https://github.com/tabler/tabler-icons (MIT).
+      Copyright (c) 2020-2026 Paweł Kuna
+      Permission is hereby granted, free of charge, to any person obtaining a copy
+      of this software and associated documentation files (the "Software"), to deal
+      in the Software without restriction, including without limitation the rights
+      to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+      copies of the Software, and to permit persons to whom the Software is
+      furnished to do so, subject to the following conditions:
+      The above copyright notice and this permission notice shall be included in all
+      copies or substantial portions of the Software.
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+      SOFTWARE. -->
+      <a class="primary" href="https://arxiv.org/abs/2610.25993"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-icon="file-text"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2"/><path d="M9 9l1 0M9 13l6 0M9 17l6 0"/></svg><span>Paper</span></a>
+      <a href="https://arxiv.org/pdf/2610.25993"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-icon="file-type-pdf"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4"/><path d="M5 18h1.5a1.5 1.5 0 0 0 0 -3h-1.5v6M17 18h2M20 15h-3v6M11 15v6h1a2 2 0 0 0 2 -2v-2a2 2 0 0 0 -2 -2h-1"/></svg><span>PDF</span></a>
+      <a href="https://github.com/cagianoaless/tab_repres_gen"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-icon="brand-github"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/></svg><span>Code</span></a>
+      <a href="#reproduce"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-icon="terminal-2"><path d="M8 9l3 3l-3 3M13 15l3 0"/><path d="M3 6a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -12"/></svg><span>Reproduce</span></a>
+    </nav>
+  </header>
+<main id="main" tabindex="-1">
+  <figure class="teaser" data-figure="1" aria-labelledby="interface-caption">
+    <a class="figure-link" href="assets/figure-1.png" aria-label="Open full-resolution Figure 1">
+      <img src="assets/figure-1.png" width="7740" height="2040" alt="Graph-to-table pipeline: an encoder turns relational queries into feature rows, a context constructor selects labelled examples, and a decoder scores a held-out query.">
+    </a>
+    <figcaption id="interface-caption">The <strong class="component encoder">encoder</strong>, <strong class="component context">labelled context</strong> and <strong class="component decoder">decoder</strong> jointly determine what generalises. We change one component at a time, keeping the other components and evaluation fixed.</figcaption>
+  </figure>
 
-    <nav class="links" aria-label="Project links">
-      <a class="primary" href="https://github.com/cagianoaless/tab_repres_gen">Code</a>
-      <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/REPRODUCE.md">Reproduce</a>
+  <section class="prose" aria-labelledby="abstract-title">
+    <h2 class="section-title" id="abstract-title">Abstract</h2>
+    <p id="abstract">Graph-to-table systems combine three design choices: an <span class="component encoder">encoder</span> that maps relational evidence to feature rows, a <span class="component context">context constructor</span> that selects labelled examples, and a <span class="component decoder">tabular decoder</span>. We investigate whether these components can be evaluated independently through matched comparisons that change one component while holding the rest of the pipeline and the evaluation constant. Across logistic regression, CATBOOST, and TABPFN-3 on CLUTRR, 57 GraphLog worlds, and 57 knowledge graphs, we show that <strong class="claim">conclusions about one component can change when the others change.</strong> On CLUTRR, absolute positional encodings maintain all distinctions among the evaluated queries and fit the short-path setting nearly perfectly; yet, they generalise worse than relation-count features because the <strong>supported prefix acts as a shortcut</strong> that breaks down on longer paths. On GraphLog, <strong><span class="component encoder">encoder</span> preference depends on the <span class="component decoder">decoder</span></strong>, while the relation-count representation degrades as CatBoost tree depth increases. Across different knowledge graphs, adding the frozen ULTRA score to local features is consistently useful, whereas adding local features to the score has a smaller and less stable effect. A pointwise TABPFN-3 readout using the full encoder <strong>underperforms native ULTRA on 48 of 57 datasets.</strong> These results show that encoder assessment depends jointly on context and decoder, while panel-level conclusions can also depend on evaluation and aggregation protocols.</p>
+  </section>
+
+  <section class="prose" id="framework" aria-labelledby="framework-title">
+    <h2 id="framework-title">What the experiments isolate</h2>
+    <p>A graph-to-table system turns a relational query into a feature row, selects labelled examples, and asks a tabular model to predict. <strong>An end-to-end score mixes all three choices.</strong> A representation can retain the information needed for a task while exposing patterns that the decoder cannot learn from its available context.</p>
+    <p>We use <strong class="claim">matched comparisons</strong><strong> that change one component at a time</strong>. <span class="component encoder">Encoder</span> comparisons share evaluation queries and context examples. <span class="component decoder">Decoder</span> comparisons share the same feature values before decoder-specific categorical encoding. <span class="component context">Context</span> interventions keep the encoder and evaluation fixed. The experiments cover short-to-long path transfer on CLUTRR and GraphLog, followed by candidate ranking across 57 knowledge graphs.</p>
+    <p>We also check what the rows can distinguish before fitting a decoder. If differently labelled queries collapse to the same row, a row-only predictor cannot separate them. But <strong>a perfect empirical ceiling can simply mean that every row is unique</strong>. It does not establish that a decoder can infer a transferable rule. The CLUTRR results make this distinction concrete.</p>
+  </section>
+
+  <section aria-labelledby="results-title">
+    <h2 class="section-title" id="results-title">Results</h2>
+    <article class="finding" aria-labelledby="clutrr-title">
+      <div class="prose">
+        <h3 id="clutrr-title">A supported prefix can obstruct length transfer</h3>
+        <p>CLUTRR tests transfer from context paths of lengths 2–3 to evaluation paths of lengths 4–10. Absolute positions retain the relation at each position; relation counts discard that ordering. At 80 context examples per relation, <strong>TabPFN-3 reaches <span data-macro="ClutrrTabMultiset" data-format="percent">28.9%</span> accuracy with relation counts, versus <span data-macro="ClutrrTabAbsolute" data-format="percent">10.3%</span> with absolute positions</strong>, even though every evaluated absolute-position row is unique. Accuracy is averaged equally over evaluation lengths 4–10, then over three paired context seeds.</p>
+        <p>To identify what causes the drop, we append a positional block to the count features and permute whole blocks among paths of the same length. Restoring the correct alignment keeps the block's dimensionality and collection of values unchanged, but <strong>costs TabPFN-3 another <span data-macro="ClutrrTabAlignCost" data-format="points">10.4</span> percentage points</strong>. The harmful signal comes from how the positional features align with the query.</p>
+      </div>
+      <figure data-figure="2" aria-labelledby="clutrr-caption">
+        <a class="figure-link" href="assets/figure-2.png" aria-label="Open full-resolution Figure 2">
+          <img src="assets/figure-2.png" width="2090" height="779" loading="lazy" alt="Three CLUTRR panels compare OOD accuracy, the effect of adding and aligning positional features, and the effect of exposing the decoder to length-4 paths.">
+        </a>
+        <figcaption id="clutrr-caption"><strong>Figure 2. Path alignment and length exposure.</strong> Panels (a–b) use 80 context examples per relation, with context lengths 2–3 and evaluation lengths 4–10. Panel (c) holds the total at 100 examples per relation in both arms, replacing 20 additional short paths with length-4 paths. In (b), positive alignment values indicate accuracy lost when the correct alignment is restored.
+
+        </figcaption>
+      </figure>
+      <div class="prose interpretation">
+        <p>The aligned encoders already fit <strong><span data-macro="ClutrrContextFitRange" data-format="percent-range">99.0–99.5%</span> of the labelled context</strong>. Zeroing positions beyond the supported length barely changes predictions. Together, these controls support a <strong class="claim">shortcut explanation</strong>: the decoder learns a highly predictive short prefix that fails on longer paths.</p>
+        <p>Broader context helps locally. Replacing 20 additional short paths with 20 length-4 paths, at the same total budget, improves TabPFN-3 by <strong><span data-macro="ClutrrAddTabFour" data-format="points">75.8</span> points at length 4, but only <span data-macro="ClutrrAddTabLong" data-format="points">3.3</span> points at lengths 5–10</strong>. A shared-parameter recurrent model reaches <span data-macro="ClutrrGru" data-format="percent">70.5%</span> overall accuracy at the largest budget, showing that substantially stronger transfer is attainable on this split.</p>
+      </div>
+    </article>
+
+    <article class="finding" aria-labelledby="graphlog-title">
+      <div class="prose">
+        <h3 id="graphlog-title">Encoder preference depends on the decoder</h3>
+        <p>GraphLog's 57 worlds share a vocabulary of 20 directed relations while changing the relational rules. This fixes feature dimensionality and coordinate meaning across worlds. With the context and evaluation matched, <strong>relation counts beat absolute positions for logistic regression, but lose for CatBoost and TabPFN-3</strong>. The mean differences are <span data-macro="GraphLogLogDelta">+0.065</span>, <span data-macro="GraphLogCatDelta">−0.157</span> and <span data-macro="GraphLogTabDelta">−0.079</span> in macro balanced accuracy.</p>
+        <p>This reversal is not explained by a wholesale loss of label distinctions. Both encoders retain high class-balanced ceilings. Yet the count representation is at or below each world's chance level in <strong>30 of 57 worlds for CatBoost</strong> and 12 for TabPFN-3, compared with 1 and 4 worlds for absolute positions.</p>
+      </div>
+      <figure data-figure="3" aria-labelledby="graphlog-caption">
+        <a class="figure-link" href="assets/figure-3.png" aria-label="Open full-resolution Figure 3">
+          <img src="assets/figure-3.png" width="2090" height="701" loading="lazy" alt="Encoder effects for logistic regression, CatBoost and TabPFN-3 on CLUTRR, GraphLog and the dihedral control; the GraphLog panel shows opposite encoder preferences across decoders.">
+        </a>
+        <figcaption id="graphlog-caption"><strong>Figure 3. Encoder effects across decoders.</strong> Positive values favour the coarser encoder. GraphLog contrasts average equally over 57 worlds at 40 examples per class, with context lengths 2–3 and evaluation lengths 4–5. Points show worlds, diamonds show means, and capped intervals show sensitivity. The three panels use separate horizontal scales.
+
+        </figcaption>
+      </figure>
+      <div class="prose interpretation">
+        <p>A CatBoost depth sweep exposes the failure more clearly. From depth 1 to 7, context macro balanced accuracy for relation counts rises from <span data-macro="GraphLogDepthOneContextShared" data-format="percent">83.0%</span> to <span data-macro="GraphLogDepthSevenContextShared" data-format="percent">94.8%</span>, while evaluation macro balanced accuracy falls from <span data-macro="GraphLogDepthOneShared">0.201</span> to <span data-macro="GraphLogDepthSevenShared">0.125</span>. Both average equally over worlds; evaluation first averages equally over lengths 4–5. Absolute-position performance stays comparatively stable. <strong>Better context fit accompanies worse transfer for the count representation.</strong></p>
+        <p>The dihedral control in Figure 3 also prevents a blanket preference for coarser features. Here, coarsening removes sequence order and merges task-relevant identities. Performance stays near chance. The useful representation depends on both <strong>which distinctions the task needs</strong> and <strong>how the decoder uses the available context</strong>.</p>
+      </div>
+    </article>
+
+    <article class="finding" aria-labelledby="kg-title">
+      <div class="prose">
+        <h3 id="kg-title">The frozen score and local features contribute differently</h3>
+        <p>In the knowledge-graph panel, each candidate triple becomes a row and the decoder ranks candidates for a missing head or tail entity. The <strong>Local</strong> encoder combines relation identity with endpoint, pair, path and community statistics. The <strong>Score</strong> encoder exposes only the score of the frozen graph-native ULTRA model.</p>
+        <p><strong class="claim">Adding Score to Local</strong><strong> is consistently useful.</strong> It improves equal-family mean reciprocal rank (MRR) by <span data-macro="ContextScoreLocalRange">+0.048 to +0.129</span> across the three decoders and two negative-context constructions. Five of six contrasts survive joint correction. The reverse addition, Local to Score, ranges from <span data-macros="ContextLogLocalScoreStructural ContextCatLocalScoreStructural">−0.039 to +0.064</span>, and none of those six contrasts survives correction. The two feature blocks make markedly different contributions.</p>
+      </div>
+      <figure data-figure="4" aria-labelledby="kg-caption">
+        <a class="figure-link" href="assets/figure-4.png" aria-label="Open full-resolution Figure 4">
+          <img src="assets/figure-4.png" width="2090" height="773" loading="lazy" alt="Three panels compare local features with entity identifiers, score added to local features, and local features added to score across three decoders and two negative-context constructions.">
+        </a>
+        <figcaption id="kg-caption"><strong>Figure 4. Feature additions across knowledge graphs.</strong> Equal-family effects over 57 knowledge graphs in 16 provenance families, at 200 examples per binary class. Light and dark bars distinguish filtered-uniform and structurally plausible negatives. Intervals show provenance-family bootstrap sensitivity. These comparisons concern tabular feature additions, not native ULTRA rankings.
+
+        </figcaption>
+      </figure>
+      <div class="prose interpretation">
+        <p><strong>The labelled negative context also changes performance.</strong> Replacing filtered-uniform negatives with structurally plausible negatives reduces MRR by <span data-macro="ContextInformativeDropRange">0.020 to 0.122</span> across all nine informative encoder–decoder combinations. The positive context and evaluation queries stay fixed, and negative selection uses graph-based criteria without consulting evaluation labels or the frozen score.</p>
+        <p>A separate matched control isolates rejection of known positives and finds much smaller effects. The main context contrast therefore reflects more than that filtering choice. Even with a fixed encoder, <strong>which labelled examples reach the decoder changes the measured result</strong>.</p>
+      </div>
+    </article>
+
+    <article class="finding" aria-labelledby="native-title">
+      <div class="prose">
+        <h3 id="native-title">A tabular readout can lose a useful native ranking</h3>
+        <p>The Full encoder combines Local, Global and the frozen ULTRA score. Yet <strong>TabPFN-3 with Full underperforms native ULTRA on 48 of 57 datasets and 14 of 16 provenance families</strong>. Including the upstream score in a richer row does not ensure that the learned readout preserves its candidate ordering.</p>
+        <p>The aggregate comparison changes with the weighting. Full-minus-native MRR is <span data-macro="UltraFullNative">+0.006</span> with equal weight per provenance family, but <span data-macro="UltraFullNativeDatasetMean">−0.035</span> with equal weight per dataset. Excluding MetaFam yields <span data-macro="UltraFullNativeNoMeta">−0.041</span> under equal-family aggregation. <strong>A positive family average can coexist with losses on most datasets.</strong></p>
+      </div>
+      <figure class="table-visual" data-table="18" aria-labelledby="native-caption">
+        <a class="figure-link" href="assets/table-18.png" aria-label="Open full-resolution Table 18">
+          <img src="assets/table-18.png" width="1968" height="268" loading="lazy" alt="Table 18 reports the small global-feature addition after Local plus Score, Full TabPFN-3 below native ULTRA on 48 datasets and 14 families, and the negative aggregate contrast when MetaFam is excluded.">
+        </a>
+        <figcaption id="native-caption"><strong>Table 18. Frozen-score attribution and native-ranking checks.</strong> Effects use equal-family MRR. Counts report how often Full TabPFN-3 falls below the native ranking; these are a separate comparison from the feature-addition results in Figure 4.
+
+        </figcaption>
+      </figure>
+      <div class="prose interpretation">
+        <p>A sanity check distinguishes reranking from changing the score scale. <strong>Score-only logistic regression preserves native ULTRA ranks exactly</strong> across all <span data-macro="UltraScoreRankAuditCells">684</span> dataset–budget–seed combinations. Adding global topological features to Local plus Score changes TabPFN-3 MRR by only <span data-macro="UltraGlobalGivenScore">+0.005</span>, with sensitivity interval <span data-macro="UltraGlobalGivenScoreCI">[−0.001,+0.010]</span> and no support after joint correction. The <strong class="claim">native ranking</strong> is an essential reference whenever that score enters the table.</p>
+      </div>
+    </article>
+
+    <article class="finding" aria-labelledby="connectivity-title">
+      <div class="prose">
+        <h3 id="connectivity-title">Different queries need different graph evidence</h3>
+        <p>Aggregate MRR hides a second distinction. Among <span data-macro="QueryCount">7,296</span> directional queries, <span data-macro="QueryPairEvidence">1,622</span> have an observed direct or reverse edge of another relation between their endpoints. The other <strong><span data-macro="QueryNeither">5,674</span> queries lack such other-relation pair evidence</strong>. This connectivity is measured in the support graph, excluding the target relation.</p>
+        <p>Features of the endpoint pair, called <strong>Dyadic</strong>, outperform bounded-path features in each endpoint-connected group. <strong>The ordering reverses when other-relation pair evidence is absent.</strong> Within that group, equal-family MRR across decoders is only <span data-macro="QueryDyadicNeitherRange">0.001 to 0.002</span> for Dyadic, compared with <span data-macro="QueryPathsNeitherRange">0.045 to 0.052</span> for Paths and <span data-macro="QueryLocalNeitherRange">0.043 to 0.094</span> for the broader Local encoder. These conditional means are not pooled over the query counts.</p>
+      </div>
+      <figure data-figure="8" aria-labelledby="connectivity-caption">
+        <a class="figure-link" href="assets/figure-8.png" aria-label="Open full-resolution Figure 8">
+          <img src="assets/figure-8.png" width="2224" height="1145" loading="lazy" alt="Figure 8 compares Dyadic, Paths and Local encoders for queries with both, reverse-only, direct-only or no other-relation endpoint-pair evidence, across logistic regression, CatBoost and TabPFN-3.">
+        </a>
+        <figcaption id="connectivity-caption"><strong>Figure 8. Reciprocal rank by observed endpoint connectivity.</strong> Each panel uses a different decoder on the same 57-graph panel. Bars report equal-family MRR for Dyadic, Paths and Local features within each query group; intervals show provenance-family bootstrap sensitivity.
+
+        </figcaption>
+      </figure>
+      <div class="prose interpretation">
+        <p>This explains why a feature set that works well on connected pairs can be inadequate for most queries. <strong>Reporting the query mix is part of explaining the encoder's performance.</strong> The stratified comparisons use the same queries, candidate sets and evaluation protocol, so the differences are visible without changing the ranking task.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="appendix" aria-labelledby="appendix-title">
+    <div class="prose">
+      <h2 id="appendix-title">Further results from the appendix</h2>
+      <p>The appendix tests the alignment control on generated tasks and examines why knowledge graphs differ in ranking difficulty. These results complement the native-ranking and query-connectivity analyses above.</p>
+    </div>
+    <article class="appendix-result" aria-labelledby="alignment-title">
+      <div class="prose">
+        <h3 id="alignment-title">The alignment control recovers known relational evidence</h3>
+        <p>We generate tasks governed by reciprocity, typed composition, structural roles and shared community membership, with disjoint context and evaluation graphs. <strong>Correctly aligned evidence becomes more useful as the labelled context grows.</strong> Jointly permuting complete feature rows preserves the block's dimensions and covariance but breaks its correspondence to each query. Under this permutation, ROC-AUC stays between <strong>0.497 and 0.508</strong>, close to chance.</p>
+      </div>
+      <figure class="compact-visual" data-figure="6" aria-labelledby="alignment-caption">
+        <a class="figure-link" href="assets/figure-6.png" aria-label="Open full-resolution Figure 6">
+          <img src="assets/figure-6.png" width="1312" height="990" loading="lazy" alt="Figure 6 shows the aligned-minus-permuted ROC-AUC gain for TabPFN-3 and CatBoost as the number of labelled context examples increases.">
+        </a>
+        <figcaption id="alignment-caption"><strong>Figure 6. Alignment across context budgets.</strong> Bars show equal-property macro ROC-AUC gains over the joint row-permutation control, averaged over ten regenerated graphs per property. The control separates useful query-aligned evidence from merely adding columns.</figcaption>
+      </figure>
+    </article>
+    <article class="appendix-result" aria-labelledby="difficulty-title">
+      <div class="prose">
+        <h3 id="difficulty-title">Context separation and candidate count track shared difficulty</h3>
+        <p>A simple context-based heuristic combines the strongest single-column separation of positive and negative examples with the size of the candidate pool. Without refitting, it orders observed TabPFN-3 mean rank with <strong>Spearman correlation <span data-macro="ScreenRankSpearman">0.957</span> across <span data-macro="ScreenStrata">455</span> dataset–encoder strata</strong> at 200 examples per class. The same broad relationship appears for logistic regression and CatBoost.</p>
+        <p>This is an <strong>exploratory description of shared difficulty</strong>, not a validated rule for choosing a decoder. Leave-one-family-out selectors do not improve on their in-fold majority baseline.</p>
+      </div>
+      <figure data-figure="10" aria-labelledby="difficulty-caption">
+        <a class="figure-link" href="assets/figure-10.png" aria-label="Open full-resolution Figure 10">
+          <img src="assets/figure-10.png" width="2234" height="629" loading="lazy" alt="Figure 10 compares context-predicted and observed mean rank across 455 dataset–encoder strata, then shows the relationship separately for TabPFN-3, logistic regression and CatBoost.">
+        </a>
+        <figcaption id="difficulty-caption"><strong>Figure 10. Context-predicted versus observed rank.</strong> Ranks are expressed as a percentage of the candidate pool on logarithmic axes. Panel (a) summarises TabPFN-3 strata; panel (b) separates the three decoders. Dashed diagonals mark equality.</figcaption>
+      </figure>
+    </article>
+    <article class="appendix-result" aria-labelledby="separation-title">
+      <div class="prose">
+        <h3 id="separation-title">One frozen score is often the strongest individual column</h3>
+        <p>The frozen ULTRA score is the <strong>strongest </strong><strong class="claim">single-column context separator</strong><strong> on 55 of 57 knowledge graphs</strong>. Most constructed local and global columns lie closer to chance. This helps explain why adding the score to local features is consistently useful, while leaving room for multivariate and query-conditional effects that a one-column diagnostic cannot measure.</p>
+      </div>
+      <figure data-figure="11" aria-labelledby="separation-caption">
+        <a class="figure-link" href="assets/figure-11.png" aria-label="Open full-resolution Figure 11">
+          <img src="assets/figure-11.png" width="2234" height="1801" loading="lazy" alt="Figure 11 plots oriented context ROC-AUC for each Full-encoder column across 57 knowledge graphs, grouped into frozen ULTRA score, local structure and global structure.">
+        </a>
+        <figcaption id="separation-caption"><strong>Figure 11. Single-column context separability.</strong> Each point is one knowledge graph at 200 examples per class; heavy ticks show column medians. Columns are ordered by median oriented ROC-AUC, with chance separation at 0.5.</figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <section class="prose" id="implications" aria-labelledby="implications-title">
+    <h2 id="implications-title">How to compare graph-to-table systems</h2>
+    <ul class="reading-notes">
+      <li><strong>Separate retained information from </strong><strong class="claim">learned transfer</strong><strong>.</strong> Report row collisions and singleton mass, then test alignment and context support. A perfect row ceiling and near-perfect context fit can accompany poor extrapolation.</li>
+      <li><strong>Cross the <span class="component encoder">encoder</span> with the <span class="component decoder">decoder</span> and <span class="component context">context</span>.</strong> GraphLog changes the preferred encoder across decoders; the knowledge-graph experiments change performance through the negative context alone.</li>
+      <li><strong>Keep native rankings and aggregation visible.</strong> When importing a pretrained graph score, compare against its original ranking. Show dataset and family summaries alongside query-connectivity strata.</li>
+    </ul>
+    <p>The knowledge-graph panel is fixed. Its bootstrap intervals describe <strong>sensitivity to the composition of that panel</strong>, and leave-one-family-out checks expose reliance on individual families. They are not population-level confidence intervals for all knowledge graphs.</p>
+  </section>
+
+  <section class="prose" id="reproduce" aria-labelledby="reproduce-title">
+    <h2 id="reproduce-title">Code and reproduction</h2>
+    <p>The repository includes <strong>feature construction, context generation, decoder evaluation and verification of bundled reference outputs</strong>. The reproduction guide separates checking the release artifact from rerunning experiments. Full reproduction requires the external datasets, checkpoints and generated assets listed there.</p>
+    <nav class="resource-links" aria-label="Reproduction resources">
+      <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/REPRODUCE.md">Reproduction guide</a>
       <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/ARTIFACT_MAP.md">Artifact map</a>
       <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/PROVENANCE.md">Provenance</a>
     </nav>
-  </header>
-
-  <section>
-    <h2>Overview</h2>
-    <p>
-      We study relational generalisation through the interface that turns graph-structured
-      information into tabular examples. The experiments separate the graph-to-table encoder,
-      labelled context constructor, and decoder, and test how conclusions change when these
-      components change.
-    </p>
-    <p>
-      The repository contains the end-to-end reproduction pipeline for the paper, including
-      graph-to-table feature construction, context generation, decoder execution, filtered
-      ranking evaluation, statistical analyses, and lightweight reference outputs.
-    </p>
   </section>
 
-  <section>
-    <h2>57-KG representation</h2>
-    <div class="formula">Full32 = Local18 + frozen ULTRA score1 + Global13</div>
-    <div class="grid">
-      <div class="card">
-        <strong>Local18</strong>
-        <span>Relation, degree, pair, path, and cluster statistics.</span>
-      </div>
-      <div class="card">
-        <strong>ULTRA score1</strong>
-        <span>Frozen score from the pinned ULTRA-4G model.</span>
-      </div>
-      <div class="card">
-        <strong>Global13</strong>
-        <span>PageRank, component, spectral heat, and diffusion features.</span>
-      </div>
-    </div>
+  <section class="prose" id="citation" aria-labelledby="citation-title">
+    <h2 id="citation-title">Citation</h2>
+    <pre><code>@misc{cagiano2026graphtotableinterfacescontrolrelational,
+      title={Graph-to-Table Interfaces Control Relational Generalisation},&#32;
+      author={Alessandro Cagiano and Lorenzo Molfetta and Gianluca Moro and Matteo Zignani and Pasquale Minervini},
+      year={2026},
+      eprint={2610.25993},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2610.25993},&#32;
+}</code></pre>
   </section>
-
-  <section>
-    <h2>Reproducibility</h2>
-    <p>
-      The artifact documents the complete path from public datasets and pinned model
-      dependencies to the reported analyses. Large model weights and multi-gigabyte generated
-      intermediates remain external, while source identities, reference outputs, and execution
-      metadata are checksummed.
-    </p>
-    <p>
-      Start from <a href="https://github.com/cagianoaless/tab_repres_gen/blob/main/REPRODUCE.md">REPRODUCE.md</a>
-      for environment setup and the full command sequence.
-    </p>
-  </section>
-
-  <section>
-    <h2>Code and artifact</h2>
-    <p>
-      The implementation, reference tables, verification utilities, and experiment-specific
-      documentation are available in the
-      <a href="https://github.com/cagianoaless/tab_repres_gen">GitHub repository</a>.
-    </p>
-  </section>
-
-  <footer>
-    Project page for <em>Graph-to-Table Interfaces Control Relational Generalisation</em>.
-  </footer>
+  <footer><a href="https://connets.di.unimi.it/news/paper-log/">LoG 2026 oral acceptance announcement</a></footer>
 </main>
 </body>
 </html>
