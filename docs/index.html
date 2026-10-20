@@ -243,14 +243,6 @@
         <p>The Full encoder combines Local, Global and the frozen ULTRA score. Yet <strong>TabPFN-3 with Full underperforms native ULTRA on 48 of 57 datasets and 14 of 16 provenance families</strong>. Including the upstream score in a richer row does not ensure that the learned readout preserves its candidate ordering.</p>
         <p>The aggregate comparison changes with the weighting. Full-minus-native MRR is <span data-macro="UltraFullNative">+0.006</span> with equal weight per provenance family, but <span data-macro="UltraFullNativeDatasetMean">−0.035</span> with equal weight per dataset. Excluding MetaFam yields <span data-macro="UltraFullNativeNoMeta">−0.041</span> under equal-family aggregation. <strong>A positive family average can coexist with losses on most datasets.</strong></p>
       </div>
-      <figure class="table-visual" data-table="18" aria-labelledby="native-caption">
-        <a class="figure-link" href="assets/table-18.png" aria-label="Open full-resolution Table 18">
-          <img src="assets/table-18.png" width="1968" height="268" loading="lazy" alt="Table 18 reports the small global-feature addition after Local plus Score, Full TabPFN-3 below native ULTRA on 48 datasets and 14 families, and the negative aggregate contrast when MetaFam is excluded.">
-        </a>
-        <figcaption id="native-caption"><strong>Table 18. Frozen-score attribution and native-ranking checks.</strong> Effects use equal-family MRR. Counts report how often Full TabPFN-3 falls below the native ranking; these are a separate comparison from the feature-addition results in Figure 4.
-
-        </figcaption>
-      </figure>
       <div class="prose interpretation">
         <p>A sanity check distinguishes reranking from changing the score scale. <strong>Score-only logistic regression preserves native ULTRA ranks exactly</strong> across all <span data-macro="UltraScoreRankAuditCells">684</span> dataset–budget–seed combinations. Adding global topological features to Local plus Score changes TabPFN-3 MRR by only <span data-macro="UltraGlobalGivenScore">+0.005</span>, with sensitivity interval <span data-macro="UltraGlobalGivenScoreCI">[−0.001,+0.010]</span> and no support after joint correction. The <strong class="claim">native ranking</strong> is an essential reference whenever that score enters the table.</p>
       </div>
