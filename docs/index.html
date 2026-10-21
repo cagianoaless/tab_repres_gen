@@ -172,7 +172,7 @@
     <h2 id="framework-title">What the experiments isolate</h2>
     <p>A graph-to-table system turns a relational query into a feature row, selects labelled examples, and asks a tabular model to predict. <strong>An end-to-end score mixes all three choices.</strong> A representation can retain the information needed for a task while exposing patterns that the decoder cannot learn from its available context.</p>
     <p>We use <strong class="claim">matched comparisons</strong><strong> that change one component at a time</strong>. <span class="component encoder">Encoder</span> comparisons share evaluation queries and context examples. <span class="component decoder">Decoder</span> comparisons share the same feature values before decoder-specific categorical encoding. <span class="component context">Context</span> interventions keep the encoder and evaluation fixed. The experiments cover short-to-long path transfer on CLUTRR and GraphLog, followed by candidate ranking across 57 knowledge graphs.</p>
-    <p>We also check what the rows can distinguish before fitting a decoder. If differently labelled queries collapse to the same row, a row-only predictor cannot separate them. But <strong>a perfect empirical ceiling can simply mean that every row is unique</strong>. It does not establish that a decoder can infer a transferable rule. The CLUTRR results make this distinction concrete.</p>
+    <p>We also check what the rows can distinguish before fitting a decoder. If differently labelled queries collapse to the same row, a row-only predictor cannot separate them. When <strong>every evaluated row is unique</strong>, the ceiling is perfect even if the decoder generalises poorly. We report singleton mass alongside the ceiling and test transfer directly on CLUTRR.</p>
   </section>
 
   <section aria-labelledby="results-title">
@@ -212,8 +212,8 @@
         </figcaption>
       </figure>
       <div class="prose interpretation">
-        <p>A CatBoost depth sweep exposes the failure more clearly. From depth 1 to 7, context macro balanced accuracy for relation counts rises from <span data-macro="GraphLogDepthOneContextShared" data-format="percent">83.0%</span> to <span data-macro="GraphLogDepthSevenContextShared" data-format="percent">94.8%</span>, while evaluation macro balanced accuracy falls from <span data-macro="GraphLogDepthOneShared">0.201</span> to <span data-macro="GraphLogDepthSevenShared">0.125</span>. Both average equally over worlds; evaluation first averages equally over lengths 4–5. Absolute-position performance stays comparatively stable. <strong>Better context fit accompanies worse transfer for the count representation.</strong></p>
-        <p>The dihedral control in Figure 3 also prevents a blanket preference for coarser features. Here, coarsening removes sequence order and merges task-relevant identities. Performance stays near chance. The useful representation depends on both <strong>which distinctions the task needs</strong> and <strong>how the decoder uses the available context</strong>.</p>
+        <p>We also vary CatBoost tree depth while keeping the context, queries and remaining settings fixed. From depth 1 to 7, context macro balanced accuracy for relation counts rises from <span data-macro="GraphLogDepthOneContextShared" data-format="percent">83.0%</span> to <span data-macro="GraphLogDepthSevenContextShared" data-format="percent">94.8%</span>, while evaluation macro balanced accuracy falls from <span data-macro="GraphLogDepthOneShared">0.201</span> to <span data-macro="GraphLogDepthSevenShared">0.125</span>. Both average equally over worlds; evaluation first averages equally over lengths 4–5. Absolute-position performance stays comparatively stable. <strong>Better context fit accompanies worse transfer for the count representation.</strong></p>
+        <p>The dihedral control in Figure 3 gives a different result. Coarsening removes sequence order and merges task-relevant identities. Performance stays near chance. The useful representation depends on both <strong>which distinctions the task needs</strong> and <strong>how the decoder uses the available context</strong>.</p>
       </div>
     </article>
 
@@ -227,24 +227,24 @@
         <a class="figure-link" href="assets/figure-4.png" aria-label="Open full-resolution Figure 4">
           <img src="assets/figure-4.png" width="2090" height="773" loading="lazy" alt="Three panels compare local features with entity identifiers, score added to local features, and local features added to score across three decoders and two negative-context constructions.">
         </a>
-        <figcaption id="kg-caption"><strong>Figure 4. Feature additions across knowledge graphs.</strong> Equal-family effects over 57 knowledge graphs in 16 provenance families, at 200 examples per binary class. Light and dark bars distinguish filtered-uniform and structurally plausible negatives. Intervals show provenance-family bootstrap sensitivity. These comparisons concern tabular feature additions, not native ULTRA rankings.
+        <figcaption id="kg-caption"><strong>Figure 4. Feature additions across knowledge graphs.</strong> Equal-family effects over 57 knowledge graphs in 16 provenance families, at 200 examples per binary class. Light and dark bars distinguish filtered-uniform and structurally plausible negatives. Intervals show provenance-family bootstrap sensitivity. Each contrast adds a feature block to a matched tabular readout. We compare with native ULTRA rankings below.
 
         </figcaption>
       </figure>
       <div class="prose interpretation">
         <p><strong>The labelled negative context also changes performance.</strong> Replacing filtered-uniform negatives with structurally plausible negatives reduces MRR by <span data-macro="ContextInformativeDropRange">0.020 to 0.122</span> across all nine informative encoder–decoder combinations. The positive context and evaluation queries stay fixed, and negative selection uses graph-based criteria without consulting evaluation labels or the frozen score.</p>
-        <p>A separate matched control isolates rejection of known positives and finds much smaller effects. The main context contrast therefore reflects more than that filtering choice. Even with a fixed encoder, <strong>which labelled examples reach the decoder changes the measured result</strong>.</p>
+        <p>A separate control changes only the rejection of known positives and finds much smaller effects. The main drop remains after accounting for that filtering choice. Even with a fixed encoder, <strong>which labelled examples reach the decoder changes the measured result</strong>.</p>
       </div>
     </article>
 
     <article class="finding" aria-labelledby="native-title">
       <div class="prose">
         <h3 id="native-title">A tabular readout can lose a useful native ranking</h3>
-        <p>The Full encoder combines Local, Global and the frozen ULTRA score. Yet <strong>TabPFN-3 with Full underperforms native ULTRA on 48 of 57 datasets and 14 of 16 provenance families</strong>. Including the upstream score in a richer row does not ensure that the learned readout preserves its candidate ordering.</p>
+        <p>The Full encoder combines Local, Global and the frozen ULTRA score. <strong>TabPFN-3 with Full underperforms native ULTRA on 48 of 57 datasets and 14 of 16 provenance families</strong>. The readout loses ranking performance even though its input includes the upstream score.</p>
         <p>The aggregate comparison changes with the weighting. Full-minus-native MRR is <span data-macro="UltraFullNative">+0.006</span> with equal weight per provenance family, but <span data-macro="UltraFullNativeDatasetMean">−0.035</span> with equal weight per dataset. Excluding MetaFam yields <span data-macro="UltraFullNativeNoMeta">−0.041</span> under equal-family aggregation. <strong>A positive family average can coexist with losses on most datasets.</strong></p>
       </div>
       <div class="prose interpretation">
-        <p>A sanity check distinguishes reranking from changing the score scale. <strong>Score-only logistic regression preserves native ULTRA ranks exactly</strong> across all <span data-macro="UltraScoreRankAuditCells">684</span> dataset–budget–seed combinations. Adding global topological features to Local plus Score changes TabPFN-3 MRR by only <span data-macro="UltraGlobalGivenScore">+0.005</span>, with sensitivity interval <span data-macro="UltraGlobalGivenScoreCI">[−0.001,+0.010]</span> and no support after joint correction. The <strong class="claim">native ranking</strong> is an essential reference whenever that score enters the table.</p>
+        <p><strong>Score-only logistic regression preserves native ULTRA ranks exactly</strong> across all <span data-macro="UltraScoreRankAuditCells">684</span> dataset–budget–seed combinations. Adding global topological features to Local plus Score changes TabPFN-3 MRR by only <span data-macro="UltraGlobalGivenScore">+0.005</span>, with sensitivity interval <span data-macro="UltraGlobalGivenScoreCI">[−0.001,+0.010]</span> and no support after joint correction. The <strong class="claim">native ranking</strong> is an essential reference whenever that score enters the table.</p>
       </div>
     </article>
 
@@ -252,7 +252,7 @@
       <div class="prose">
         <h3 id="connectivity-title">Different queries need different graph evidence</h3>
         <p>Aggregate MRR hides a second distinction. Among <span data-macro="QueryCount">7,296</span> directional queries, <span data-macro="QueryPairEvidence">1,622</span> have an observed direct or reverse edge of another relation between their endpoints. The other <strong><span data-macro="QueryNeither">5,674</span> queries lack such other-relation pair evidence</strong>. This connectivity is measured in the support graph, excluding the target relation.</p>
-        <p>Features of the endpoint pair, called <strong>Dyadic</strong>, outperform bounded-path features in each endpoint-connected group. <strong>The ordering reverses when other-relation pair evidence is absent.</strong> Within that group, equal-family MRR across decoders is only <span data-macro="QueryDyadicNeitherRange">0.001 to 0.002</span> for Dyadic, compared with <span data-macro="QueryPathsNeitherRange">0.045 to 0.052</span> for Paths and <span data-macro="QueryLocalNeitherRange">0.043 to 0.094</span> for the broader Local encoder. These conditional means are not pooled over the query counts.</p>
+        <p>Features of the endpoint pair, called <strong>Dyadic</strong>, outperform bounded-path features in each endpoint-connected group. <strong>The ordering reverses when other-relation pair evidence is absent.</strong> Within that group, equal-family MRR across decoders is only <span data-macro="QueryDyadicNeitherRange">0.001 to 0.002</span> for Dyadic, compared with <span data-macro="QueryPathsNeitherRange">0.045 to 0.052</span> for Paths and <span data-macro="QueryLocalNeitherRange">0.043 to 0.094</span> for the broader Local encoder. We average within each query group, giving each provenance family equal weight.</p>
       </div>
       <figure data-figure="8" aria-labelledby="connectivity-caption">
         <a class="figure-link" href="assets/figure-8.png" aria-label="Open full-resolution Figure 8">
@@ -289,7 +289,7 @@
       <div class="prose">
         <h3 id="difficulty-title">Context separation and candidate count track shared difficulty</h3>
         <p>A simple context-based heuristic combines the strongest single-column separation of positive and negative examples with the size of the candidate pool. Without refitting, it orders observed TabPFN-3 mean rank with <strong>Spearman correlation <span data-macro="ScreenRankSpearman">0.957</span> across <span data-macro="ScreenStrata">455</span> dataset–encoder strata</strong> at 200 examples per class. The same broad relationship appears for logistic regression and CatBoost.</p>
-        <p>This is an <strong>exploratory description of shared difficulty</strong>, not a validated rule for choosing a decoder. Leave-one-family-out selectors do not improve on their in-fold majority baseline.</p>
+        <p>The heuristic tracks <strong>which dataset–encoder combinations are difficult across decoders</strong>. Leave-one-family-out selectors do not improve on their in-fold majority baseline.</p>
       </div>
       <figure data-figure="10" aria-labelledby="difficulty-caption">
         <a class="figure-link" href="assets/figure-10.png" aria-label="Open full-resolution Figure 10">
@@ -301,7 +301,7 @@
     <article class="appendix-result" aria-labelledby="separation-title">
       <div class="prose">
         <h3 id="separation-title">One frozen score is often the strongest individual column</h3>
-        <p>The frozen ULTRA score is the <strong>strongest </strong><strong class="claim">single-column context separator</strong><strong> on 55 of 57 knowledge graphs</strong>. Most constructed local and global columns lie closer to chance. This helps explain why adding the score to local features is consistently useful, while leaving room for multivariate and query-conditional effects that a one-column diagnostic cannot measure.</p>
+        <p>The frozen ULTRA score is the <strong>strongest </strong><strong class="claim">single-column context separator</strong><strong> on 55 of 57 knowledge graphs</strong>. Most constructed local and global columns lie closer to chance. This helps explain the consistent gains from adding the score to local features. The matched block-addition experiments above measure what the remaining features contribute alongside it.</p>
       </div>
       <figure data-figure="11" aria-labelledby="separation-caption">
         <a class="figure-link" href="assets/figure-11.png" aria-label="Open full-resolution Figure 11">
@@ -319,7 +319,7 @@
       <li><strong>Cross the <span class="component encoder">encoder</span> with the <span class="component decoder">decoder</span> and <span class="component context">context</span>.</strong> GraphLog changes the preferred encoder across decoders; the knowledge-graph experiments change performance through the negative context alone.</li>
       <li><strong>Keep native rankings and aggregation visible.</strong> When importing a pretrained graph score, compare against its original ranking. Show dataset and family summaries alongside query-connectivity strata.</li>
     </ul>
-    <p>The knowledge-graph panel is fixed. Its bootstrap intervals describe <strong>sensitivity to the composition of that panel</strong>, and leave-one-family-out checks expose reliance on individual families. They are not population-level confidence intervals for all knowledge graphs.</p>
+    <p>The knowledge-graph results use one frozen ULTRA checkpoint, whose pretraining lineages overlap part of the panel. Bootstrap intervals describe <strong>sensitivity to the composition of this fixed panel</strong>. Leaving out one family at a time shows how much the aggregate depends on individual families.</p>
   </section>
 
   <section class="prose" id="reproduce" aria-labelledby="reproduce-title">
