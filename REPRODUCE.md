@@ -241,6 +241,40 @@ generated from the configured seeds. The claim map identifies each aggregate
 script and its required run inputs. The GraphLog capacity sweep has 2,394 cells.
 TabPFN studies use the pinned V3 checkpoint through the model cache above.
 
+### Prospective context-to-query witness audit (CPU, no model inference)
+
+This optional diagnostic uses the **unchanged registered CLUTRR and GraphLog
+confirmation plans** (the original seed streams and SHA-verified loaders).
+It infers short-path rewrite productions only from labelled context examples,
+and checks which longer test descriptors have a derivation witness.
+
+```bash
+uv run python -m analysis.audit_context_sufficiency \
+  --output-dir generated/context-sufficiency-audit
+uv run pytest -q tests/test_context_sufficiency_audit.py
+```
+
+Default contexts: CLUTRR 80 examples per target relation and GraphLog 40 per
+target relation in all 57 worlds, each at seeds 101, 102, and 103.
+To examine smaller contexts use `--clutrr-budgets 5 10 20 40 80` and
+`--graphlog-budgets 5 10 20 40`. Stage data with the command above first.
+
+The outputs are `report.json`, `cell_summary.csv`, and `query_evidence.csv`
+(unless `--no-query-csv` is specified), written only to the chosen generated
+directory. The report separates class/relational-token coverage, binary
+and binary-plus-ternary derivation witnesses, unique correct/wrong and ambiguous
+results, and GraphLog descriptor-to-graph-path alignment. It presents both
+micro-query and equal-world/seed aggregates. Test labels are used only for
+post-hoc comparison, never to infer productions.
+
+**Scientific limitation:** these are *conditional witnesses* under a
+short-path rewrite hypothesis, not necessary-and-sufficient certificates
+of rule identifiability. A missing witness does not prove impossibility;
+a matching witness does not prove that the context uniquely determines the
+target. This is a prospective diagnostic, not a completed paper result.
+Do not add its outputs to historical reference tables without a separately
+documented execution and interpretation audit.
+
 ## 9. Verify paper outputs and render figures
 
 ```bash
